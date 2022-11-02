@@ -18,6 +18,7 @@ namespace Tiefwurtz
 
         private float maxSpeedChange;
         private float acceleration;
+        private float InputHorizontal;
         private bool onGround;
 
         private void Awake()
@@ -35,6 +36,7 @@ namespace Tiefwurtz
 
         private void FixedUpdate()
         {
+            ChecktoFlipSprite();
             onGround = ground.OnGround;
             velocity = body.velocity;
 
@@ -43,6 +45,18 @@ namespace Tiefwurtz
             velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
 
             body.velocity = velocity;
+        }
+        private void ChecktoFlipSprite()
+        {
+            InputHorizontal = Input.GetAxisRaw("Horizontal");
+            if (InputHorizontal > 0)
+            {
+                gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
+            }
+            if (InputHorizontal < 0)
+            {
+                gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+            }
         }
     }
 }
