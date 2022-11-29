@@ -45,6 +45,7 @@ namespace Tiefwurtz
             velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
 
             body.velocity = velocity;
+
         }
         private void ChecktoFlipSprite()
         {
