@@ -11,8 +11,8 @@ namespace Tiefwurtz
         private PhysicsMaterial2D _material;
 
         private void OnCollisionExit2D(Collision2D collision)
-        {
-            OnGround = false;
+        {           
+            OnGround = false;        
             Friction = 0;
         }
 
