@@ -14,6 +14,7 @@ namespace Tiefwurtz
         private Controller controller;
         private Rigidbody2D body;
         private Ground ground;
+        private Move move;
         private Vector2 velocity;
 
         private int jumpPhase;
@@ -29,14 +30,14 @@ namespace Tiefwurtz
             body = GetComponent<Rigidbody2D>();
             ground = GetComponent<Ground>();
             controller = GetComponent<Controller>();
-
+            move = GetComponent<Move>();
+            
             defaultGravityScale = 1f;
         }
 
         void Update()
         {
             desiredJump |= controller.input.RetrieveJumpInput();
-            Debug.Log(currentlyJumping);
         }
 
         private void FixedUpdate()
@@ -55,6 +56,11 @@ namespace Tiefwurtz
             {
                 JumpAction();
                 desiredJump = false;
+            }
+
+            if (move.isDashing)
+            {
+                return;
             }
 
             if (body.velocity.y > 0)

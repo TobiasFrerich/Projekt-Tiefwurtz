@@ -44,7 +44,6 @@ namespace Tiefwurtz
                     OnGround = false;
                 }               
             }
-            Debug.Log(cayoteTimeCounter + " OnGround  " + OnGround + " LeavedGround  " + LeavedGround);
         }
 
         private void OnCollisionStay2D(Collision2D collision)
