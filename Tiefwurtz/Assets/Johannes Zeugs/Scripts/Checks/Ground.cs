@@ -4,30 +4,55 @@ namespace Tiefwurtz
 {
     public class Ground : MonoBehaviour
     {
+        [SerializeField, Range(0f, 1f)] private float cayoteTime = 0.2f;
         public bool OnGround { get; private set; }
+        public bool LeavedGround;
+        public float cayoteTimeCounter;
         public float Friction { get; private set; }
 
-        private Vector2 _normal;
-        private PhysicsMaterial2D _material;
+        //private Vector2 _normal;
+        //private PhysicsMaterial2D _material;
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {  
+            if (collision.gameObject.tag == "Ground")
+            {
+                OnGround = true;
+                LeavedGround = false;
+                cayoteTimeCounter = 0;
+            }
+            //EvaluateCollision(collision);
+            //RetrieveFriction(collision);
+        }
         private void OnCollisionExit2D(Collision2D collision)
-        {           
-            OnGround = false;        
+        {
+            if (collision.gameObject.tag == "Ground")
+            {
+                LeavedGround = true;
+            }
+            
             Friction = 0;
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void FixedUpdate()
         {
-            EvaluateCollision(collision);
-            RetrieveFriction(collision);
+            if (LeavedGround)
+            {
+                cayoteTimeCounter = cayoteTimeCounter + Time.deltaTime;
+                if (cayoteTimeCounter > cayoteTime)
+                {
+                    OnGround = false;
+                }               
+            }
+            Debug.Log(cayoteTimeCounter + " OnGround  " + OnGround + " LeavedGround  " + LeavedGround);
         }
 
         private void OnCollisionStay2D(Collision2D collision)
         {
-            EvaluateCollision(collision);
-            RetrieveFriction(collision);
+            //EvaluateCollision(collision);
+            //RetrieveFriction(collision);
         }
-
+        /*
         private void EvaluateCollision(Collision2D collision)
         {
             for (int i = 0; i < collision.contactCount; i++)
@@ -47,6 +72,6 @@ namespace Tiefwurtz
             {
                 Friction = _material.friction;
             }
-        }
+        }*/
     }
 }

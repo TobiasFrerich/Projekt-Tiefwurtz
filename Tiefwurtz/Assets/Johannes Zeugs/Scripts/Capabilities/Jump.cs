@@ -10,19 +10,17 @@ namespace Tiefwurtz
         [SerializeField, Range(0f, 10f)] private float downwardMovementMultiplier = 3f;
         [SerializeField, Range(0f, 5f)] private float upwardMovementMultiplier = 1.7f;
         [SerializeField, Range(0f, 20f)] private float maxFallSpeed = 10f;
-        [SerializeField, Range(0f, 1f)] private float jumpTimeAfterFalling = 0.2f;
-
+        
         private Controller controller;
         private Rigidbody2D body;
         private Ground ground;
         private Vector2 velocity;
 
-        private float jumpTimeAfterFallingCounter;
         private int jumpPhase;
         private float defaultGravityScale;
         private float jumpSpeed;
-        private bool currentlyJumping;
 
+        private bool currentlyJumping;
         private bool desiredJump;
         private bool onGround;
 
@@ -38,23 +36,15 @@ namespace Tiefwurtz
         void Update()
         {
             desiredJump |= controller.input.RetrieveJumpInput();
-
-
-            // Jump after Falling
-            if (!currentlyJumping && !onGround)
-            {
-                jumpTimeAfterFallingCounter += Time.deltaTime;
-            }
-            else
-            {
-                jumpTimeAfterFallingCounter = 0;
-            }
+            Debug.Log(currentlyJumping);
         }
 
         private void FixedUpdate()
         {
             onGround = ground.OnGround;
             velocity = body.velocity;
+
+            
 
             if (onGround)
             {
@@ -90,15 +80,21 @@ namespace Tiefwurtz
                 body.velocity = new Vector2(velocity.x, (maxFallSpeed * -1));
             }
         }
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.gameObject.tag == "Ground")
+            {
+                currentlyJumping = false;
+            }
+        }
         private void JumpAction()
         {
-            if (onGround || jumpPhase < maxAirJumps || (jumpTimeAfterFallingCounter > 0.03f) && (jumpTimeAfterFallingCounter < jumpTimeAfterFalling))
+            if (onGround && currentlyJumping == false)
             {
-                onGround = false;
+                
                 jumpPhase += 1;
 
                 desiredJump = false;
-                jumpTimeAfterFallingCounter = 0;
 
                 jumpSpeed = Mathf.Sqrt(-2f * Physics2D.gravity.y * jumpHeight);
                 
@@ -112,6 +108,8 @@ namespace Tiefwurtz
                 }
                 velocity.y += jumpSpeed;
                 currentlyJumping = true;
+                onGround = false;
+                ground.cayoteTimeCounter = 0;
             }           
         }
     }
