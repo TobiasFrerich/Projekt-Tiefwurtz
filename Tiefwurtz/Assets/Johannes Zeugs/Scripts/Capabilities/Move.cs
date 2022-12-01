@@ -23,12 +23,13 @@ namespace Tiefwurtz
         private Vector2 velocity;
         private Rigidbody2D body;
         private Ground ground;
+        private GameObject DashItem;
 
         private float maxSpeedChange;
         private float acceleration;
         private float InputHorizontal;
 
-
+        private bool dashUnlocked = false;
         private bool onGround;
         private bool canDash = true;
         public bool isDashing;
@@ -38,13 +39,14 @@ namespace Tiefwurtz
             body = GetComponent<Rigidbody2D>();
             ground = GetComponent<Ground>();
             controller = GetComponent<Controller>();
+            DashItem = GameObject.Find("DashItem");
         }
 
         private void Update()
         {
             direction.x = controller.input.RetrieveMoveInput();
             desiredVelocity = new Vector2(direction.x, 0f) * Mathf.Max(maxSpeed - ground.Friction, 0f);
-            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && dashUnlocked)
             {
                 StartCoroutine(Dash());
             }
@@ -65,8 +67,15 @@ namespace Tiefwurtz
             velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
 
             body.velocity = velocity;
+        }
 
-            
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.gameObject == DashItem)
+            {
+                dashUnlocked = true;
+            }
+
         }
         private void ChecktoFlipSprite()
         {
