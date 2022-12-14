@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418856611264504023}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.18, y: 1.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -668,9 +668,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -59118077
+  m_SortingLayer: 4
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c994267a26c9b384dbc87de7d337c966, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -681,7 +681,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!50 &6447859341502780479
 Rigidbody2D:
   serializedVersion: 4
@@ -702,7 +702,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &5991419429715472977
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -716,8 +716,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3455552, y: -1.4731364}
-  m_Size: {x: 3.9619615, y: 2.9071186}
+  m_Offset: {x: -0.2967817, y: 0.029211828}
+  m_Size: {x: 3.9217355, y: 2.7120688}
   m_Direction: 1
 --- !u!114 &801591529477176766
 MonoBehaviour:
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4f4dad188f19945b855e3360e96b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 5
+  enemySpeed: 1
   _leftMax: {fileID: 9179769172429692753}
   _rightMax: {fileID: 3766735491798322806}
 --- !u!114 &4637589370224560841
@@ -746,7 +746,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ce4d10e59a7a5a49b38f9ad70c85cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 4052222524028998154, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
+  turnedTimer: 2
+  turnCooldown: 0.1
+  "k\xE4ferJumpForce": 17
 --- !u!1 &3766735491798322806
 GameObject:
   m_ObjectHideFlags: 0
