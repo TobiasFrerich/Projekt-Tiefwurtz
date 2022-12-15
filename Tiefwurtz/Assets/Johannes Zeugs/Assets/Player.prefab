@@ -991,7 +991,7 @@ MonoBehaviour:
   maxAirAcceleration: 60
   dashingPower: 70
   dashingTime: 0.2
-  dashingCooldown: 0
+  dashingCooldown: 1
   isDashing: 0
 --- !u!114 &4052222524028998156
 MonoBehaviour:

@@ -8,6 +8,8 @@ namespace Tiefwurtz
     {
         [SerializeField] private float enemySpeed = 1f;
 
+        public bool sollStehen;
+
         public GameObject _leftMax;
         public GameObject _rightMax;
 
@@ -33,6 +35,11 @@ namespace Tiefwurtz
 
         void Update()
         {
+            if (sollStehen)
+            {
+                return;
+            }
+
             if (enemyBody.position.x < leftStartX)
             {
                 mussrechts = true;
