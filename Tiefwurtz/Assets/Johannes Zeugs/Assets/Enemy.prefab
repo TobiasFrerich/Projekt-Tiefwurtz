@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 7565400334641096732}
   - component: {fileID: 7354583928523903637}
   - component: {fileID: 9111967757286089852}
+  - component: {fileID: 8542548900466655764}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -293,6 +294,22 @@ MonoBehaviour:
   enemySpeed: 1
   _leftMax: {fileID: 4567232809423152359}
   _rightMax: {fileID: 484306257315424960}
+--- !u!114 &8542548900466655764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7591828497374483787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5363cf4f6f10546921357d733c10fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 4
+  attackSpeed: 1
+  shot: {fileID: 1709793276733744158, guid: 2a04d3a61a197fb47b755d5eca4b34d4, type: 3}
+  shotTransform: {fileID: 4150263406273859724, guid: 2a04d3a61a197fb47b755d5eca4b34d4, type: 3}
 --- !u!1 &8552580189053064216
 GameObject:
   m_ObjectHideFlags: 0
