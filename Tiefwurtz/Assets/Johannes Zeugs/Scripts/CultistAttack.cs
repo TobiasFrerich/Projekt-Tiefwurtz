@@ -84,8 +84,7 @@ public class CultistAttack : MonoBehaviour
         }
 
         if (stayInRanged)
-        {
-            Debug.Log("SHOT");      
+        {    
             Instantiate(shot, shotTransform.position, Quaternion.identity);
             stayInRanged = false;
         }
