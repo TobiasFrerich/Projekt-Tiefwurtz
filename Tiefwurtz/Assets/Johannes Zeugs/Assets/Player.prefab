@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4052222522873285521}
   - component: {fileID: 4052222522873285522}
   - component: {fileID: 4052222522873285523}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 4052222524028998159}
   - component: {fileID: 4052222524028998152}
   - component: {fileID: 4052222524028998256}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -991,7 +991,7 @@ MonoBehaviour:
   maxAirAcceleration: 60
   dashingPower: 70
   dashingTime: 0.2
-  dashingCooldown: 0
+  dashingCooldown: 1
   isDashing: 0
 --- !u!114 &4052222524028998156
 MonoBehaviour:
