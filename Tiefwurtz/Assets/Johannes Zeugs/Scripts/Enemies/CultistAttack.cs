@@ -17,7 +17,7 @@ public class CultistAttack : MonoBehaviour
 
     private void Start()
     {
-        Player = GameObject.FindGameObjectWithTag("Player");
+        Player = GameObject.Find("Player");
         cultistBody = GetComponent<Rigidbody2D>();
     }
     private void Update()
@@ -68,10 +68,6 @@ public class CultistAttack : MonoBehaviour
     {
         if (!inRange)
             return;
-
-        Vector3 rotation = Player.transform.position - transform.position;
-
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         if (!stayInRanged)
         {

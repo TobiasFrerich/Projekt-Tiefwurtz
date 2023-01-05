@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 5
+  PlayerHitBox: {fileID: 1376771865912034187, guid: f4380aa940249a64a9ae8e50e5fddf13, type: 3}
 --- !u!58 &-1569212865133784201
 CircleCollider2D:
   m_ObjectHideFlags: 0
