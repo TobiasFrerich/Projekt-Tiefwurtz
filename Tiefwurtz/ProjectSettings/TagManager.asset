@@ -13,11 +13,11 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Magier
+  - "K\xE4fer"
+  - Plattform
+  - Items
+  - Shots
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 30910195
+    locked: 0
+  - name: Enemies
+    uniqueID: 4235849219
     locked: 0

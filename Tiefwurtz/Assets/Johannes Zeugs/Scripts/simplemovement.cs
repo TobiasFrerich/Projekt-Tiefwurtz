@@ -16,11 +16,11 @@ public class simplemovement : MonoBehaviour
     
     void Update()
     {
-        if (body.position.y < startY - 1.5f)
+        if (body.position.y < startY - 1f)
         {
             body.velocity = new Vector2(0, 1);
         }
-        else if (body.position.y > startY + 1.5f)
+        else if (body.position.y > startY + 1f)
         {
             body.velocity = new Vector2(0, -1);
         }
