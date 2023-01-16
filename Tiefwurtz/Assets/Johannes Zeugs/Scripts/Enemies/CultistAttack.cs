@@ -31,7 +31,7 @@ namespace Tiefwurtz
             Shot();
         }
 
-        public void CheckIfPlayerIsAlive()
+        public void SetPlayerIsNotAlive()
         {
             playerIsAlive = false;
             inRange = false;

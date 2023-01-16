@@ -7,10 +7,13 @@ namespace Tiefwurtz
 
     public class Shot : MonoBehaviour
     {
+        [SerializeField] private float shotDmg = 1f;
+
         private Transform PlayerHitBox;
         private Rigidbody2D shotBody;
         private GameObject player;
-        private Health health; 
+        private Flashlight flashLight;
+
 
         public float force;
         private float timer;
@@ -46,12 +49,10 @@ namespace Tiefwurtz
                 timer = 0;
             }
         }
-
-        private void OnCollisionEnter2D(Collision2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-
-            health = player.GetComponent<Health>();
-            health.TakeDamage(50f);
+            flashLight = player.GetComponent<Flashlight>();
+            flashLight.light.intensity = flashLight.light.intensity - shotDmg;
             Destroy(gameObject);
         }
     }

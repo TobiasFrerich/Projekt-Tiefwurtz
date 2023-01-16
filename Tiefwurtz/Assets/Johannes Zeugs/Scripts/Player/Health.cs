@@ -7,24 +7,17 @@ namespace Tiefwurtz
 {
     public class Health : MonoBehaviour
     {
-        [Header("Configuration")]
-        [SerializeField] private float maxHealth = 100f;
-
-
-        [Header("Debugging")]
-        [SerializeField] private float currentHealth;
-
+        private float maxHealth;
+        private float currentHealth;
         public bool playerIsAlive = true;
         private CultistAttack cultAttack;
         private GameObject enemy;
-        private Rigidbody2D playerbody;
 
 
         #region Main
 
         private void Start()
         {
-            playerbody = GetComponent<Rigidbody2D>();
             enemy = GameObject.FindGameObjectWithTag("Enemy");
             currentHealth = maxHealth;
         }
@@ -57,9 +50,8 @@ namespace Tiefwurtz
 
         private void StartDeath()
         {
-            playerbody.constraints = RigidbodyConstraints2D.FreezeAll;
             cultAttack = enemy.GetComponent<CultistAttack>();
-            cultAttack.CheckIfPlayerIsAlive();
+            cultAttack.SetPlayerIsNotAlive();
             Destroy(gameObject);
         }
 
