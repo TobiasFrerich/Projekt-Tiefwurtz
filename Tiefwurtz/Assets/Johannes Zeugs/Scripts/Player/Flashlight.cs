@@ -1,64 +1,83 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
-
-public class Flashlight : MonoBehaviour
+namespace Tiefwurtz
 {
-    public Light2D light;
-    public float maxLight = 15;
-    public float lightLoss = 5f;
-
-    private float startIntensity;
-    private bool refill = false;
-    private float currentLight;
-
-    private void Start()
+    public class Flashlight : MonoBehaviour
     {
-        startIntensity = light.intensity;
-    }
+        public Light2D light;
+        private GameObject enemy;
+        private CultistAttack cultAttack;
+        public float maxLightHealth = 15;
+        public float lightLoss = 5f;
+        public bool keepLight;
 
-    void Update()
-    {
-        RefillLight();
+        private float startIntensity;
+        private bool refill = false;
+        private float currentLight;
 
-        if (light.intensity > 0f)
+        private void Start()
         {
-            light.intensity = light.intensity - (lightLoss * 0.01f);
+            enemy = GameObject.FindGameObjectWithTag("Enemy");
+            startIntensity = light.intensity;
         }
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "Item")
+
+        private void Update()
         {
-            currentLight = (light.intensity + startIntensity);
+            RefillLight();
+            OnDeath();
 
-            if (currentLight > maxLight)
+            if (keepLight)
+                return;
+
+            if (light.intensity > 0f)
             {
-                currentLight = maxLight - 0.1f;
-            }
-
-            refill = true;
-
-            if(light.intensity < 1f)
-            { 
-                light.intensity = 1f;
+                light.intensity = light.intensity - (lightLoss * 0.01f);
             }
         }
-    }
-    private void RefillLight()
-    {
-        if (refill == true)
-        {           
-            if (light.intensity < currentLight)
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if (other.gameObject.tag == "Item")
             {
-                if (light.intensity < maxLight)
+                currentLight = (light.intensity + startIntensity);
+
+                if (currentLight > maxLightHealth)
                 {
-                    light.intensity = light.intensity + 0.05f;
+                    currentLight = maxLightHealth - 0.1f;
+                }
+
+                refill = true;
+
+                if (light.intensity < 1f)
+                {
+                    light.intensity = 1f;
                 }
             }
-            else if (light.intensity > (currentLight - 1))
+        }
+        private void RefillLight()
+        {
+            if (refill == true)
             {
-                refill = false;
+                if (light.intensity < currentLight)
+                {
+                    if (light.intensity < maxLightHealth)
+                    {
+                        light.intensity = light.intensity + 0.05f;
+                    }
+                }
+                else if (light.intensity > (currentLight - 1))
+                {
+                    refill = false;
+                }
+            }
+        }
+        private void OnDeath()
+        {
+            if (light.intensity < 0.03)
+            {
+                cultAttack = enemy.GetComponent<CultistAttack>();
+                cultAttack.SetPlayerIsNotAlive();
+                Destroy(gameObject);
             }
         }
     }

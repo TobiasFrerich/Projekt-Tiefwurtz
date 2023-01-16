@@ -7,7 +7,6 @@ namespace Tiefwurtz
     public class KäferMechanic : MonoBehaviour
     {
         [SerializeField] private float turnedTimer = 3f;
-        [SerializeField] private float turnCooldown = 5f;
         [SerializeField] private float käferJumpForce = 20f;
         public bool aufnRücken { get; private set; }
         private GameObject Player;

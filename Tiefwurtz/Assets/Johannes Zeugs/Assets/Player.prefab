@@ -886,6 +886,7 @@ GameObject:
   - component: {fileID: 4052222524028998152}
   - component: {fileID: 4052222524028998256}
   - component: {fileID: 3425156582464640968}
+  - component: {fileID: -5453382539740974572}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -994,7 +995,6 @@ MonoBehaviour:
   dashingPower: 70
   dashingTime: 0.2
   dashingCooldown: 1
-  DashItem: {fileID: 85455993327617096, guid: 47c563207f771e344bbb250f289ee7be, type: 3}
   isDashing: 0
 --- !u!114 &4052222524028998156
 MonoBehaviour:
@@ -1009,7 +1009,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 5
-  maxAirJumps: 0
   downwardMovementMultiplier: 5
   upwardMovementMultiplier: 2.5
   maxFallSpeed: 8
@@ -1062,8 +1061,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 4052222522873285521}
-  maxLight: 15
+  maxLightHealth: 15
   lightLoss: 0.3
+  keepLight: 1
 --- !u!70 &4052222524028998152
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1200,6 +1200,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b5b4634f3fc984d91bc0344fe27e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5453382539740974572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4052222524028998154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3909d5d92c0af154aa667b4232e6e598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerIsAlive: 1
 --- !u!1001 &46829916504033408
 PrefabInstance:
   m_ObjectHideFlags: 0
