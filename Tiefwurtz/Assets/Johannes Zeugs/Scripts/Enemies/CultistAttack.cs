@@ -42,7 +42,7 @@ namespace Tiefwurtz
             if (!playerIsAlive)
                 return;
 
-            if (Player.transform.position.x - gameObject.transform.position.x < attackRange && Player.transform.position.x - gameObject.transform.position.x > -attackRange
+            if (!playerIsAlive || playerIsAlive && Player.transform.position.x - gameObject.transform.position.x < attackRange && Player.transform.position.x - gameObject.transform.position.x > -attackRange
                 && Player.transform.position.y - gameObject.transform.position.y < attackRange)
             {
 

@@ -10,6 +10,7 @@ namespace Tiefwurtz
         private CultistAttack cultAttack;
         public float maxLightHealth = 15;
         public float lightLoss = 5f;
+        public bool keepLight;
 
         private float startIntensity;
         private bool refill = false;
@@ -25,6 +26,10 @@ namespace Tiefwurtz
         {
             RefillLight();
             OnDeath();
+
+            if (keepLight)
+                return;
+
             if (light.intensity > 0f)
             {
                 light.intensity = light.intensity - (lightLoss * 0.01f);

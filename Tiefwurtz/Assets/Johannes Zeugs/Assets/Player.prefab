@@ -1009,7 +1009,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 5
-  maxAirJumps: 0
   downwardMovementMultiplier: 5
   upwardMovementMultiplier: 2.5
   maxFallSpeed: 8
@@ -1062,8 +1061,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 4052222522873285521}
-  maxLight: 15
+  maxLightHealth: 15
   lightLoss: 0.3
+  keepLight: 1
 --- !u!70 &4052222524028998152
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1212,9 +1212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3909d5d92c0af154aa667b4232e6e598, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  IsPlayer: 1
+  playerIsAlive: 1
 --- !u!1001 &46829916504033408
 PrefabInstance:
   m_ObjectHideFlags: 0
