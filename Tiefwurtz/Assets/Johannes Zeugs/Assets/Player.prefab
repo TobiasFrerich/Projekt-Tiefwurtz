@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1606476512486372725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3308921458699043740}
+  m_Layer: 0
+  m_Name: AttackRange
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3308921458699043740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606476512486372725}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6, y: -2.02, z: 0.10081609}
+  m_LocalScale: {x: 14.285715, y: 14.285715, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4052222524028998153}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3141186338943699532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +1760,7 @@ Transform:
   - {fileID: 6930023498196611833}
   - {fileID: 5935686415163849076}
   - {fileID: 1451167153593189483}
+  - {fileID: 3308921458699043740}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1813,7 +1845,7 @@ MonoBehaviour:
   maxSpeed: 7
   maxAcceleration: 60
   maxAirAcceleration: 60
-  dashingPower: 70
+  dashingPower: 200
   dashingTime: 0.2
   dashingCooldown: 1
   isDashing: 0
@@ -1886,7 +1918,7 @@ MonoBehaviour:
   maxLightHealth: 15
   lightLossBack: 0.4
   lightLossPlayer: 1.5
-  keepLight: 0
+  keepLight: 1
 --- !u!70 &4052222524028998152
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2023,6 +2055,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81b5b4634f3fc984d91bc0344fe27e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 0.5
+  _spriteRenderer: {fileID: 4052222524028998257}
+  attackSprite: {fileID: 21300000, guid: 4cbbdad250d0a444f8ae4d969fcdaf20, type: 3}
+  normalSprite: {fileID: 21300000, guid: 9025ea45d9bc47c4ebea8ffab64dbd03, type: 3}
+  attackpoint: {fileID: 3308921458699043740}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 2112
 --- !u!114 &-5453382539740974572
 MonoBehaviour:
   m_ObjectHideFlags: 0

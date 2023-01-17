@@ -6,20 +6,41 @@ namespace Tiefwurtz
 {
     public class Playerattack : MonoBehaviour
     {
-        private GameObject enemy;
-        private Enemy enemyScr;
+        [SerializeField] float attackRange = 0.5f;
+
+        public SpriteRenderer _spriteRenderer;
+        public Sprite attackSprite;
+        public Sprite normalSprite;
+        public Transform attackpoint;
+        public LayerMask enemyLayers;
+
+        private Enemy enemyHealth;
         private void Start()
         {
-            enemy = GameObject.Find("Enemy");
-            enemyScr = enemy.GetComponent<Enemy>();
         }
         
         private void Update()
         {
-            if (Input.GetKeyDown("g"))
+            if (Input.GetMouseButtonDown(1))
             {
-                enemyScr.TakeDamage(20f);
+                StartCoroutine(Attack());
             }
+        }
+
+        private IEnumerator Attack()
+        {
+            _spriteRenderer.sprite = attackSprite;
+            yield return new WaitForSeconds(0.1f);
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackpoint.position, attackRange, enemyLayers);
+
+            foreach(Collider2D enemy in hitEnemies)
+            {
+                enemyHealth = enemy.GetComponent<Enemy>();
+                enemyHealth.TakeDamage(20f);
+            }
+
+            yield return new WaitForSeconds(0.1f);
+            _spriteRenderer.sprite = normalSprite;
         }
     }
 }
