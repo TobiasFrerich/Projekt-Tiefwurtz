@@ -1918,7 +1918,7 @@ MonoBehaviour:
   maxLightHealth: 15
   lightLossBack: 0.4
   lightLossPlayer: 1.5
-  keepLight: 1
+  keepLight: 0
 --- !u!70 &4052222524028998152
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
