@@ -82,11 +82,11 @@ namespace Tiefwurtz
             InputHorizontal = Input.GetAxisRaw("Horizontal");
             if (InputHorizontal > 0)
             {
-                gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
+                gameObject.transform.localScale = new Vector3(-0.07f, 0.07f, 0f);
             }
             if (InputHorizontal < 0)
             {
-                gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+                gameObject.transform.localScale = new Vector3(0.07f, 0.07f, 0f);
             }
         }
         private IEnumerator Dash()
