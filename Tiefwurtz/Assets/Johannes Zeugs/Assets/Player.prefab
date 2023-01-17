@@ -1915,7 +1915,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backLight: {fileID: 509058538833198671}
   playerLight: {fileID: 4052222522873285521}
-  maxLightHealth: 15
+  maxPlayerLight: 14
+  maxBackLight: 4
   lightLossBack: 0.4
   lightLossPlayer: 1.5
   keepLight: 0

@@ -9,7 +9,8 @@ namespace Tiefwurtz
         public Light2D playerLight;
         private GameObject enemy;
         private CultistAttack cultAttack;
-        public float maxLightHealth = 15;
+        public float maxPlayerLight = 10f;
+        public float maxBackLight = 5f;
         public float lightLossBack = 5f;
         public float lightLossPlayer = 5f;
         public bool keepLight;
@@ -17,7 +18,9 @@ namespace Tiefwurtz
         private float startBackIntensity;
         private float startPlayerIntensity;
         private bool refill = false;
+        private bool refillPlayer = false;
         private float currentLight;
+        private float currentPlayerLight;
 
         private void Start()
         {
@@ -29,6 +32,7 @@ namespace Tiefwurtz
         private void Update()
         {
             RefillLight();
+            RefillPlayerLight();
             OnDeath();
 
             if (keepLight)
@@ -47,9 +51,9 @@ namespace Tiefwurtz
             {
                 currentLight = (backLight.intensity + startBackIntensity);
 
-                if (currentLight > maxLightHealth)
+                if (currentLight > maxBackLight)
                 {
-                    currentLight = maxLightHealth - 0.1f;
+                    currentLight = maxBackLight - 0.1f;
                 }
 
                 refill = true;
@@ -57,6 +61,21 @@ namespace Tiefwurtz
                 if (backLight.intensity < 1f)
                 {
                     backLight.intensity = 1f;
+                }
+            }
+            if (other.gameObject.tag == "Item")
+            {
+                currentPlayerLight = (playerLight.intensity + startPlayerIntensity);
+
+                if (currentPlayerLight > maxPlayerLight)
+                {
+                    currentPlayerLight = maxPlayerLight - 0.1f;
+                }
+
+                refillPlayer = true;
+
+                if (playerLight.intensity < 1f)
+                {
                     playerLight.intensity = 1f;
                 }
             }
@@ -67,15 +86,31 @@ namespace Tiefwurtz
             {
                 if (backLight.intensity < currentLight)
                 {
-                    if (backLight.intensity < maxLightHealth)
+                    if (backLight.intensity < maxBackLight)
                     {
                         backLight.intensity = backLight.intensity + 0.05f;
-                        playerLight.intensity = playerLight.intensity + 0.05f;
                     }
                 }
                 else if (backLight.intensity > (currentLight - 1))
                 {
                     refill = false;
+                }
+            }
+        }
+        private void RefillPlayerLight()
+        {
+            if (refillPlayer == true)
+            {
+                if (playerLight.intensity < currentPlayerLight)
+                {
+                    if (playerLight.intensity < maxPlayerLight)
+                    {
+                        playerLight.intensity = playerLight.intensity + 0.05f;
+                    }
+                }
+                else if (playerLight.intensity > (currentPlayerLight - 1))
+                {
+                    refillPlayer = false;
                 }
             }
         }
