@@ -13,7 +13,7 @@ namespace Tiefwurtz
         [SerializeField, Range(0f, 100f)] private float maxSpeed = 4f;
         [SerializeField, Range(0f, 100f)] private float maxAcceleration = 35f;
         [SerializeField, Range(0f, 100f)] private float maxAirAcceleration = 20f;
-        [SerializeField, Range(0f, 100f)] private float dashingPower = 20f;
+        [SerializeField, Range(0f, 300f)] private float dashingPower = 20f;
         [SerializeField, Range(0f, 1f)] private float dashingTime = 0.2f;
         [SerializeField, Range(0f, 10f)] private float dashingCooldown = 1f;
 
