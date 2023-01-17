@@ -28,9 +28,6 @@ namespace Tiefwurtz
 
         private void Update()
         {
-            RefillLight();
-            OnDeath();
-
             if (keepLight)
                 return;
 
@@ -40,6 +37,9 @@ namespace Tiefwurtz
 
                 playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.001f);
             }
+
+            RefillLight();
+            OnDeath();
         }
         private void OnTriggerEnter2D(Collider2D other)
         {

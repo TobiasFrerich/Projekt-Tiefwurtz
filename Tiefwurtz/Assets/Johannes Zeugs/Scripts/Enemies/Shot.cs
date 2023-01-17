@@ -53,6 +53,7 @@ namespace Tiefwurtz
         {
             flashLight = player.GetComponent<Flashlight>();
             flashLight.backLight.intensity = flashLight.backLight.intensity - shotDmg;
+            flashLight.playerLight.intensity = flashLight.playerLight.intensity - shotDmg * 4f;
             Destroy(gameObject);
         }
     }
