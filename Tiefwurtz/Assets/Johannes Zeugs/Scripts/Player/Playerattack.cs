@@ -7,6 +7,7 @@ namespace Tiefwurtz
     public class Playerattack : MonoBehaviour
     {
         [SerializeField] float attackRange = 0.5f;
+        [SerializeField] float attackRate = 1f;
 
         public SpriteRenderer _spriteRenderer;
         public Sprite attackSprite;
@@ -15,15 +16,17 @@ namespace Tiefwurtz
         public LayerMask enemyLayers;
 
         private Enemy enemyHealth;
-        private void Start()
-        {
-        }
-        
+        private float nextAttackTime = 0f;
+
         private void Update()
         {
-            if (Input.GetMouseButtonDown(1))
+            if (Time.time >= nextAttackTime)
             {
-                StartCoroutine(Attack());
+                if (Input.GetMouseButtonDown(1))
+                {
+                    StartCoroutine(Attack());
+                    nextAttackTime = Time.time + 1f / attackRate;
+                }
             }
         }
 

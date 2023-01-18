@@ -294,6 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpeed: 1
+  xScale: 0.2
+  yScale: 0.2
   sollStehen: 0
   _leftMax: {fileID: 4567232809423152359}
   _rightMax: {fileID: 484306257315424960}
@@ -310,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 4
-  attackSpeed: 1
+  attackSpeed: 2
   shot: {fileID: 1709793276733744158, guid: 2a04d3a61a197fb47b755d5eca4b34d4, type: 3}
   shotTransform: {fileID: 6982153119340528180}
 --- !u!70 &383794365491919832
