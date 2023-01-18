@@ -42,7 +42,22 @@ namespace Tiefwurtz
             {
                 backLight.intensity = backLight.intensity - (lightLossBack * 0.001f);
 
-                playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.001f);
+                if (playerLight.intensity < backLight.intensity + 10f && playerLight.intensity > backLight.intensity + 4f)
+                {
+                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.002f);
+                }
+                if (playerLight.intensity < backLight.intensity + 4f && playerLight.intensity > backLight.intensity + 3f)
+                {
+                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.001f);
+                }
+                if (playerLight.intensity < backLight.intensity + 3f && playerLight.intensity > backLight.intensity + 2f)
+                {
+                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.0008f);
+                }
+                if (playerLight.intensity < backLight.intensity + 2f)
+                {
+                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.0005f);
+                }
             }
         }
         private void OnTriggerEnter2D(Collider2D other)
