@@ -24,7 +24,9 @@ namespace Tiefwurtz
 
         private void Start()
         {
+
             enemy = GameObject.FindGameObjectWithTag("Enemy");
+            cultAttack = enemy.GetComponent<CultistAttack>();
             startBackIntensity = backLight.intensity;
             startPlayerIntensity = playerLight.intensity;
         }
@@ -45,7 +47,7 @@ namespace Tiefwurtz
                 if (playerLight.intensity < backLight.intensity)
                     return;
 
-                if (playerLight.intensity < backLight.intensity + 10f && playerLight.intensity > backLight.intensity + 4f)
+                if (playerLight.intensity < backLight.intensity + 20f && playerLight.intensity > backLight.intensity + 4f)
                 {
                     playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.002f);
                 }
@@ -136,7 +138,6 @@ namespace Tiefwurtz
         {
             if (backLight.intensity < 0.03)
             {
-                cultAttack = enemy.GetComponent<CultistAttack>();
                 cultAttack.SetPlayerIsNotAlive();
                 Destroy(gameObject);
             }
