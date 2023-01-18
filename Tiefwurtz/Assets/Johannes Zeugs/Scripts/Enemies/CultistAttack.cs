@@ -14,7 +14,7 @@ namespace Tiefwurtz
         private GameObject Player;
         private bool inRange;
         private bool stayInRanged;
-        private bool playerIsAlive = true;
+        private bool playerIsDead = false;
         private float timer;
         public GameObject shot;
         public Transform shotTransform;
@@ -31,18 +31,18 @@ namespace Tiefwurtz
             Shot();
         }
 
-        public void SetPlayerIsNotAlive()
+        public void SetPlayerIsNotDead()
         {
-            playerIsAlive = false;
+            playerIsDead = true;
             inRange = false;
         }
 
         private void CheckIfPlayerInRange()
         {
-            if (!playerIsAlive)
+            if (playerIsDead)
                 return;
 
-            if (!playerIsAlive || playerIsAlive && Player.transform.position.x - gameObject.transform.position.x < attackRange && Player.transform.position.x - gameObject.transform.position.x > -attackRange
+            if (Player.transform.position.x - gameObject.transform.position.x < attackRange && Player.transform.position.x - gameObject.transform.position.x > -attackRange
                 && Player.transform.position.y - gameObject.transform.position.y < attackRange)
             {
 

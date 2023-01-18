@@ -7,11 +7,15 @@ namespace Tiefwurtz
 {
     public class Health : MonoBehaviour
     {
+        public bool playerIsAlive = true;
+        public GameObject GameManager;
+        
+        private GameTime _gameTime;
         private float maxHealth;
         private float currentHealth;
-        public bool playerIsAlive = true;
         private CultistAttack cultAttack;
         private GameObject enemy;
+        
 
 
         #region Main
@@ -22,6 +26,11 @@ namespace Tiefwurtz
             currentHealth = maxHealth;
         }
 
+
+        private void FixedUpdate()
+        {
+            //CheckIfPlayerAlive();
+        }
         public void TakeDamage(float baseAmount)
         {
             if (baseAmount > 0f)
@@ -38,22 +47,20 @@ namespace Tiefwurtz
             }
         }
 
-        private void SetHealth(float newHealth)
+        private void CheckIfPlayerAlive()
         {
-            currentHealth = Mathf.Clamp(newHealth, 0f, maxHealth);
-            if (currentHealth <= 0f)
+            if (currentHealth < 0f)
             {
                 playerIsAlive = false;
-                StartDeath();
+                //Death();
             }
         }
 
-        private void StartDeath()
+        private void SetHealth(float newHealth)
         {
-            cultAttack = enemy.GetComponent<CultistAttack>();
-            cultAttack.SetPlayerIsNotAlive();
-            Destroy(gameObject);
+            currentHealth = Mathf.Clamp(newHealth, 0f, maxHealth);
         }
+
 
         #endregion
     }
