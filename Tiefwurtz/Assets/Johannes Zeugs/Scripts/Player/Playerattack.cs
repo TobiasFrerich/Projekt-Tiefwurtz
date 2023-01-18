@@ -42,5 +42,13 @@ namespace Tiefwurtz
             yield return new WaitForSeconds(0.1f);
             _spriteRenderer.sprite = normalSprite;
         }
+
+        private void OnDrawGizmosSelected()
+        {
+            if (attackpoint == null)
+                return;
+
+            Gizmos.DrawWireSphere(attackpoint.position, attackRange);
+        }
     }
 }
