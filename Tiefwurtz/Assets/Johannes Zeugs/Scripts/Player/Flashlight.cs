@@ -42,6 +42,9 @@ namespace Tiefwurtz
             {
                 backLight.intensity = backLight.intensity - (lightLossBack * 0.001f);
 
+                if (playerLight.intensity < backLight.intensity)
+                    return;
+
                 if (playerLight.intensity < backLight.intensity + 10f && playerLight.intensity > backLight.intensity + 4f)
                 {
                     playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.002f);
