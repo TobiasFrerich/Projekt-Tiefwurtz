@@ -344,6 +344,8 @@ MonoBehaviour:
   enemyHealth: 100
   item: {fileID: 7608196639798980043, guid: f9bb1c7040ae0b14288999d512ac6f32, type: 3}
   itemTransform: {fileID: 6982153119340528180}
+  _spriteRenderer: {fileID: 7565400334641096732}
+  _color: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &8552580189053064216
 GameObject:
   m_ObjectHideFlags: 0
