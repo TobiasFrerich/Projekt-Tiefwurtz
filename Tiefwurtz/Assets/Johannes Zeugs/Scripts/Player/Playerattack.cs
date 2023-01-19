@@ -18,6 +18,8 @@ namespace Tiefwurtz
         private Enemy enemyHealth;
         private float nextAttackTime = 0f;
 
+
+
         private void Update()
         {
             if (Time.time >= nextAttackTime)
@@ -36,10 +38,13 @@ namespace Tiefwurtz
             yield return new WaitForSeconds(0.1f);
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackpoint.position, attackRange, enemyLayers);
 
-            foreach(Collider2D enemy in hitEnemies)
+            foreach (Collider2D enemy in hitEnemies)
             {
                 enemyHealth = enemy.GetComponent<Enemy>();
                 enemyHealth.TakeDamage(20f);
+                GetComponentInChildren<ParticleSystem>().Play();
+                ParticleSystem.EmissionModule em = GetComponentInChildren<ParticleSystem>().emission;
+                em.enabled = true;
             }
 
             yield return new WaitForSeconds(0.1f);
