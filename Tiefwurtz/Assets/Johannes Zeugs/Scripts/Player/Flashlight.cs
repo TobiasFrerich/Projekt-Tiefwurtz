@@ -1,30 +1,38 @@
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
+using Cinemachine;
 namespace Tiefwurtz
 {
     public class Flashlight : MonoBehaviour
     {
         public Light2D backLight;
         public Light2D playerLight;
-        private GameObject enemy;
-        private CultistAttack cultAttack;
+        public GameObject GameManager;
+
+
         public float maxPlayerLight = 10f;
         public float maxBackLight = 5f;
         public float lightLossBack = 5f;
         public float lightLossPlayer = 5f;
         public bool keepLight;
 
+        private GameTime _gameTime;
+        private GameObject enemy;
+        private CultistAttack cultAttack;
+
         private float startBackIntensity;
         private float startPlayerIntensity;
-        private bool refill = false;
-        private bool refillPlayer = false;
         private float currentLight;
         private float currentPlayerLight;
+        private bool refill = false;
+        private bool refillPlayer = false;
 
         private void Start()
         {
+            _gameTime = GameManager.GetComponent<GameTime>();
             enemy = GameObject.FindGameObjectWithTag("Enemy");
+            cultAttack = enemy.GetComponent<CultistAttack>();
             startBackIntensity = backLight.intensity;
             startPlayerIntensity = playerLight.intensity;
         }
@@ -42,7 +50,25 @@ namespace Tiefwurtz
             {
                 backLight.intensity = backLight.intensity - (lightLossBack * 0.001f);
 
-                playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.001f);
+                if (playerLight.intensity < backLight.intensity)
+                    return;
+
+                if (playerLight.intensity < backLight.intensity + 20f && playerLight.intensity > backLight.intensity + 4f)
+                {
+                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.002f);
+                }
+                if (playerLight.intensity < backLight.intensity + 4f && playerLight.intensity > backLight.intensity + 3f)
+                {
+                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.001f);
+                }
+                if (playerLight.intensity < backLight.intensity + 3f && playerLight.intensity > backLight.intensity + 2f)
+                {
+                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.0008f);
+                }
+                if (playerLight.intensity < backLight.intensity + 2f)
+                {
+                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.0005f);
+                }
             }
         }
         private void OnTriggerEnter2D(Collider2D other)
@@ -118,9 +144,8 @@ namespace Tiefwurtz
         {
             if (backLight.intensity < 0.03)
             {
-                cultAttack = enemy.GetComponent<CultistAttack>();
-                cultAttack.SetPlayerIsNotAlive();
-                Destroy(gameObject);
+                _gameTime.OnDeath(enemy);
+                cultAttack.SetPlayerIsNotDead();
             }
         }
     }

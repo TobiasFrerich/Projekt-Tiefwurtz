@@ -7,6 +7,8 @@ namespace Tiefwurtz
     public class EnemyMovement : MonoBehaviour
     {
         [SerializeField] private float enemySpeed = 1f;
+        [SerializeField] private float xScale = 1f;
+        [SerializeField] private float yScale = 1f;
 
         public bool sollStehen;
 
@@ -61,11 +63,11 @@ namespace Tiefwurtz
         {
             if (enemyBody.velocity.x > 0)
             {
-                gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
+                gameObject.transform.localScale = new Vector3(-xScale, yScale, 0f);
             }
             if (enemyBody.velocity.x < 0)
             {
-                gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+                gameObject.transform.localScale = new Vector3(xScale, yScale, 0f);
             }
         }
     }
