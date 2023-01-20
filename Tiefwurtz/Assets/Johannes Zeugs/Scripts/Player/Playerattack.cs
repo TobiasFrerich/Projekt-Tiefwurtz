@@ -8,6 +8,7 @@ namespace Tiefwurtz
     {
         [SerializeField] float attackRange = 0.5f;
         [SerializeField] float attackRate = 1f;
+        [SerializeField] float attackDMG = 20f;
 
         public SpriteRenderer _spriteRenderer;
         public Sprite attackSprite;
@@ -41,7 +42,7 @@ namespace Tiefwurtz
             foreach (Collider2D enemy in hitEnemies)
             {
                 enemyHealth = enemy.GetComponent<Enemy>();
-                enemyHealth.TakeDamage(20f);
+                enemyHealth.TakeDamage(attackDMG);
                 GetComponentInChildren<ParticleSystem>().Play();
                 ParticleSystem.EmissionModule em = GetComponentInChildren<ParticleSystem>().emission;
                 em.enabled = true;
