@@ -12,6 +12,8 @@ namespace Tiefwurtz
 
         private Rigidbody2D cultistBody;
         private GameObject Player;
+        private GameObject GameManager;
+        private GameManagerScribt gameManager;
         private bool inRange;
         private bool stayInRanged;
         private bool playerIsDead = false;
@@ -21,7 +23,9 @@ namespace Tiefwurtz
 
         private void Start()
         {
+            GameManager = GameObject.FindGameObjectWithTag("GameManager");
             Player = GameObject.Find("Player");
+            gameManager = GameManager.GetComponent<GameManagerScribt>();
             cultistBody = GetComponent<Rigidbody2D>();
         }
         private void Update()
@@ -31,16 +35,16 @@ namespace Tiefwurtz
             Shot();
         }
 
-        public void SetPlayerIsNotDead()
-        {
-            playerIsDead = true;
-            inRange = false;
-        }
 
         private void CheckIfPlayerInRange()
         {
+            playerIsDead = gameManager.playerIsDead;
+
             if (playerIsDead)
-                return;
+            {
+                inRange = false;
+                return; 
+            }
 
             if (Player.transform.position.x - gameObject.transform.position.x < attackRange && Player.transform.position.x - gameObject.transform.position.x > -attackRange
                 && Player.transform.position.y - gameObject.transform.position.y < attackRange)

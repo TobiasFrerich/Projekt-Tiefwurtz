@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
 using Cinemachine;
@@ -17,9 +19,10 @@ namespace Tiefwurtz
         public float lightLossPlayer = 5f;
         public bool keepLight;
 
-        private GameTime _gameTime;
+        private GameManagerScribt gameManager;
         private GameObject enemy;
         private CultistAttack cultAttack;
+        private SpriteRenderer _spriteRenderer;
 
         private float startBackIntensity;
         private float startPlayerIntensity;
@@ -30,7 +33,8 @@ namespace Tiefwurtz
 
         private void Start()
         {
-            _gameTime = GameManager.GetComponent<GameTime>();
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            gameManager = GameManager.GetComponent<GameManagerScribt>();
             enemy = GameObject.FindGameObjectWithTag("Enemy");
             cultAttack = enemy.GetComponent<CultistAttack>();
             startBackIntensity = backLight.intensity;
@@ -144,9 +148,16 @@ namespace Tiefwurtz
         {
             if (backLight.intensity < 0.03)
             {
-                _gameTime.OnDeath(enemy);
-                cultAttack.SetPlayerIsNotDead();
+                gameManager.OnDeath(enemy);
+                gameManager.SetPlayerIsNotDead();
             }
+        }
+        public IEnumerator hitPlayer()
+        {
+            Color SpriteColor = _spriteRenderer.color;
+            _spriteRenderer.color = new Color(0, 0, 0);
+            yield return new WaitForSeconds(0.1f);
+            _spriteRenderer.color = SpriteColor;
         }
     }
 }

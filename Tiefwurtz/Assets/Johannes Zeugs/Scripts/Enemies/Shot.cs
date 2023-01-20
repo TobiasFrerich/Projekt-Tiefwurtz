@@ -13,6 +13,7 @@ namespace Tiefwurtz
         private Rigidbody2D shotBody;
         private GameObject player;
         private Flashlight flashLight;
+        private SpriteRenderer _spriteRenderer;
 
 
         public float force;
@@ -25,6 +26,7 @@ namespace Tiefwurtz
         {
             shotBody = GetComponent<Rigidbody2D>();
             player = GameObject.FindGameObjectWithTag("Player");
+            _spriteRenderer = player.GetComponent<SpriteRenderer>();
             PlayerHitBox = player.transform.Find("hitbox");
             if (player.GetComponent<Rigidbody2D>().velocity == standing)
             {
@@ -54,7 +56,9 @@ namespace Tiefwurtz
             flashLight = player.GetComponent<Flashlight>();
             flashLight.backLight.intensity = flashLight.backLight.intensity - shotDmg;
             flashLight.playerLight.intensity = flashLight.playerLight.intensity - shotDmg * 4f;
+            //StartCoroutine(flashLight.hitPlayer());
             Destroy(gameObject);
         }
+        
     }
 }
