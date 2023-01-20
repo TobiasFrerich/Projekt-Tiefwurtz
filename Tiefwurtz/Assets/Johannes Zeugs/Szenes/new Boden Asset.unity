@@ -29665,7 +29665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4052222524028998157, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4052222524028998157, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: cayoteTime
