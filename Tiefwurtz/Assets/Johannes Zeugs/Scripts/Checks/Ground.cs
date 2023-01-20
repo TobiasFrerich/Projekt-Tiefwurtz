@@ -24,9 +24,9 @@ namespace Tiefwurtz
             //EvaluateCollision(collision);
             //RetrieveFriction(collision);
         }
-        private void OnCollisionExit2D(Collision2D collision)
+        private void Update()
         {
-            if (collision.gameObject.tag == "Ground")
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 LeavedGround = true;
             }
