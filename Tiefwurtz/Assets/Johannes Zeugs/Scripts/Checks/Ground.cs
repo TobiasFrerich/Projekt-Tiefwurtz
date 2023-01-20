@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Tiefwurtz
@@ -8,11 +10,17 @@ namespace Tiefwurtz
         public bool OnGround { get; private set; }
         public bool LeavedGround;
         public float cayoteTimeCounter;
+        private GameObject Player;
+        private Collision2D bodenCollider;
+        private bool canJump = false;
         public float Friction { get; private set; }
 
         //private Vector2 _normal;
         //private PhysicsMaterial2D _material;
-
+        private void Start()
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
         private void OnCollisionEnter2D(Collision2D collision)
         {  
             if (collision.gameObject.tag == "Ground")
@@ -26,14 +34,33 @@ namespace Tiefwurtz
         }
         private void OnCollisionExit2D(Collision2D collision)
         {
+            bodenCollider = collision;
             if (collision.gameObject.tag == "Ground")
             {
+                OnGround = false;
+                StartCoroutine(CheckIfGroundIsNear());
                 LeavedGround = true;
             }
             
             Friction = 0;
         }
+        private IEnumerator CheckIfGroundIsNear()
+        {
+            yield return new WaitForSeconds(0.1f);
+            if (Player.transform.position.y < bodenCollider.gameObject.transform.position.y + 1f)
+            {
+                OnGround = true;
+                LeavedGround = false;
+            }
+            yield return new WaitForSeconds(0.1f);
+            if (Player.transform.position.y < bodenCollider.gameObject.transform.position.y)
+            {
+                OnGround = false;
+                LeavedGround = true;
+            }
+        }
 
+        /*
         private void FixedUpdate()
         {
             if (LeavedGround)
@@ -41,9 +68,16 @@ namespace Tiefwurtz
                 cayoteTimeCounter = cayoteTimeCounter + Time.deltaTime;
                 if (cayoteTimeCounter > cayoteTime)
                 {
+
                     OnGround = false;
+
                 }               
             }
+        }
+        private void Update()
+        {
+            if (LeavedGround)
+                CheckIfGroundIsNear();
         }
 
         private void OnCollisionStay2D(Collision2D collision)
@@ -51,7 +85,6 @@ namespace Tiefwurtz
             //EvaluateCollision(collision);
             //RetrieveFriction(collision);
         }
-        /*
         private void EvaluateCollision(Collision2D collision)
         {
             for (int i = 0; i < collision.contactCount; i++)
