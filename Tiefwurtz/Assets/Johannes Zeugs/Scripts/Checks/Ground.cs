@@ -37,9 +37,7 @@ namespace Tiefwurtz
             bodenCollider = collision;
             if (collision.gameObject.tag == "Ground")
             {
-                OnGround = false;
                 StartCoroutine(CheckIfGroundIsNear());
-                LeavedGround = true;
             }
             
             Friction = 0;
@@ -53,7 +51,7 @@ namespace Tiefwurtz
                 LeavedGround = false;
             }
             yield return new WaitForSeconds(0.1f);
-            if (Player.transform.position.y < bodenCollider.gameObject.transform.position.y)
+            if (Player.transform.position.y > bodenCollider.gameObject.transform.position.y + 1f)
             {
                 OnGround = false;
                 LeavedGround = true;

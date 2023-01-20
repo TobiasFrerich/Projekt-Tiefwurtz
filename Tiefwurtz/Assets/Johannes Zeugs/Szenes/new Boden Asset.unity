@@ -16602,7 +16602,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0
+  m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000047e74b3389b2e542f3a6d70103ee79fc
@@ -21917,7 +21917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506432812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.68, y: -14.97, z: 0}
+  m_LocalPosition: {x: 11.66, y: -13.79, z: 0}
   m_LocalScale: {x: 4000, y: 4000, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22887,7 +22887,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547904019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.9106174, y: 2.7868626, z: -10}
+  m_LocalPosition: {x: 81.13, y: 15.12, z: -10}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35016,11 +35016,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4052222524028998153, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.9106174
+      value: 81.13
       objectReference: {fileID: 0}
     - target: {fileID: 4052222524028998153, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.7868626
+      value: 15.12
       objectReference: {fileID: 0}
     - target: {fileID: 4052222524028998153, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_LocalPosition.z
