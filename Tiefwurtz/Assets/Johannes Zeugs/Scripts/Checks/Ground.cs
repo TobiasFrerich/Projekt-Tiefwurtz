@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Tiefwurtz
@@ -10,7 +12,7 @@ namespace Tiefwurtz
         public float cayoteTimeCounter;
         private GameObject Player;
         private Collision2D bodenCollider;
-        private bool tooFarAway = false;
+        private bool canJump = false;
         public float Friction { get; private set; }
 
         //private Vector2 _normal;
@@ -35,16 +37,30 @@ namespace Tiefwurtz
             bodenCollider = collision;
             if (collision.gameObject.tag == "Ground")
             {
+                OnGround = false;
+                StartCoroutine(CheckIfGroundIsNear());
                 LeavedGround = true;
             }
             
             Friction = 0;
         }
-        private void Update()
+        private IEnumerator CheckIfGroundIsNear()
         {
-            if (LeavedGround)
-                CheckIfGroundIsNear();
+            yield return new WaitForSeconds(0.1f);
+            if (Player.transform.position.y < bodenCollider.gameObject.transform.position.y + 1f)
+            {
+                OnGround = true;
+                LeavedGround = false;
+            }
+            yield return new WaitForSeconds(0.1f);
+            if (Player.transform.position.y < bodenCollider.gameObject.transform.position.y)
+            {
+                OnGround = false;
+                LeavedGround = true;
+            }
         }
+
+        /*
         private void FixedUpdate()
         {
             if (LeavedGround)
@@ -52,20 +68,16 @@ namespace Tiefwurtz
                 cayoteTimeCounter = cayoteTimeCounter + Time.deltaTime;
                 if (cayoteTimeCounter > cayoteTime)
                 {
-                    if (tooFarAway)
-                    {
-                        OnGround = false;
-                    }
+
+                    OnGround = false;
+
                 }               
             }
         }
-
-        private void CheckIfGroundIsNear()
+        private void Update()
         {
-             if (Player.transform.position.y > bodenCollider.gameObject.transform.position.y + 0.64f)
-            {
-                tooFarAway = true;
-            }
+            if (LeavedGround)
+                CheckIfGroundIsNear();
         }
 
         private void OnCollisionStay2D(Collision2D collision)
@@ -73,7 +85,6 @@ namespace Tiefwurtz
             //EvaluateCollision(collision);
             //RetrieveFriction(collision);
         }
-        /*
         private void EvaluateCollision(Collision2D collision)
         {
             for (int i = 0; i < collision.contactCount; i++)

@@ -6855,11 +6855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6982153119340528180, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.6
+      value: 6.09
       objectReference: {fileID: 0}
     - target: {fileID: 6982153119340528180, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.58
+      value: 3.81
       objectReference: {fileID: 0}
     - target: {fileID: 6982153119340528180, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16960,7 +16960,7 @@ PrefabInstance:
       objectReference: {fileID: 1547904019}
     - target: {fileID: 4052222524028998159, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: keepLight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4052222524028998159, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: GameManager

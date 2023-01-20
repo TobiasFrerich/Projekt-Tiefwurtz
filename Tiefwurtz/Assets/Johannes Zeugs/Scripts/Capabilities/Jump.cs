@@ -85,16 +85,16 @@ namespace Tiefwurtz
                 body.velocity = new Vector2(velocity.x, (maxFallSpeed * -1));
             }
         }
-        /*private void OnCollisionEnter2D(Collision2D collision)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
             if(collision.gameObject.tag == "Ground")
             {
                 currentlyJumping = false;
             }
-        }*/
+        }
         private void JumpAction()
         {
-            if (onGround /*&& currentlyJumping == false*/)
+            if (onGround && currentlyJumping == false)
             {
                 
                 jumpPhase += 1;
