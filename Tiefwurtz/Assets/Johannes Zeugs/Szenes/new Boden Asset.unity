@@ -28352,6 +28352,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5366354698878733025, guid: 1d591e221dd5b444e855d4d6f52c270b, type: 3}
+      propertyPath: CinemachineVC
+      value: 
+      objectReference: {fileID: 1914153761}
     - target: {fileID: 6982153119340528180, guid: 1d591e221dd5b444e855d4d6f52c270b, type: 3}
       propertyPath: m_RootOrder
       value: 1
