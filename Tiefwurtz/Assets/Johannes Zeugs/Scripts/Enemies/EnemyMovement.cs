@@ -11,13 +11,14 @@ namespace Tiefwurtz
         [SerializeField] private float yScale = 1f;
 
         public bool sollStehen;
+        public bool doesAttack = false;
 
         public GameObject _leftMax;
         public GameObject _rightMax;
 
         private float rightStartX;
         private float leftStartX;
-
+        private PilzEnemyAttack pilzAttack;
         private Rigidbody2D enemyBody;
 
         private bool mussrechts = true;
@@ -41,6 +42,8 @@ namespace Tiefwurtz
             {
                 return;
             }
+            if (doesAttack)
+                return;
 
             if (enemyBody.position.x < leftStartX)
             {

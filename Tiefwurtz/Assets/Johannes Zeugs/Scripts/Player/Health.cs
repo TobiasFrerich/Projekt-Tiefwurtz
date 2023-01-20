@@ -10,7 +10,7 @@ namespace Tiefwurtz
         public bool playerIsAlive = true;
         public GameObject GameManager;
         
-        private GameTime _gameTime;
+        private GameManagerScribt gameManager;
         private float maxHealth;
         private float currentHealth;
         private CultistAttack cultAttack;

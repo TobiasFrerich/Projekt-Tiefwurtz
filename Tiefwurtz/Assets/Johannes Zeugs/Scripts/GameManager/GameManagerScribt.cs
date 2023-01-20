@@ -5,8 +5,10 @@ using UnityEngine;
 
 namespace Tiefwurtz
 {
-    public class GameTime : MonoBehaviour
+    public class GameManagerScribt : MonoBehaviour
     {
+        public bool playerIsDead { get; private set; }
+
         public GameObject Camera;
         public GameObject camTransform;
         public Sprite DeadPlayer;
@@ -29,10 +31,14 @@ namespace Tiefwurtz
             Destroy(player);
             camTransform.SetActive(true);
             _spriteRenderer.sprite = DeadPlayer;
-            cultAttack.SetPlayerIsNotDead();
+            SetPlayerIsNotDead();
             //Time.timeScale = 0;
         }
 
+        public void SetPlayerIsNotDead()
+        {
+            playerIsDead = true;
+        }
         public void PauseGame()
         {
             Time.timeScale = 0;
