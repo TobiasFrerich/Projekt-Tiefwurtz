@@ -8,6 +8,7 @@ namespace Tiefwurtz
     public class PilzEnemyAttack : MonoBehaviour
     {
         [SerializeField] private float attackRange;
+        [SerializeField] private float pilzDMG;
         [SerializeField] private float hammerTimeRange = 2f;
         [SerializeField] private float hammerSpeed = 5f;
         [SerializeField] private float shakeIntesity;
@@ -18,6 +19,7 @@ namespace Tiefwurtz
         private GameObject GameManager;
         private GameObject Player;
         private EnemyMovement enemyMove;
+        private Flashlight flashLight;
         private bool hammerRange;
         private float canHammer = 1f;
         private bool inRange;
@@ -39,6 +41,9 @@ namespace Tiefwurtz
         }
         private void CheckIfHammerRange()
         {
+            if (playerIsDead)
+                return;
+
             if (transform.position.x - Player.transform.position.x > -hammerTimeRange && transform.position.x - Player.transform.position.x < hammerTimeRange)
             {
                 hammerRange = true;
@@ -111,15 +116,25 @@ namespace Tiefwurtz
                     CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
                     cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = shakeIntesity;
                     canHammer = 0f;
+                    
                 }
 
 
                 yield return new WaitUntil(() => canHammer == 0);
 
                 yield return new WaitForSeconds(0.5f);
+                if(hammerRange)
+                {
+                    if (!playerIsDead)
+                    {
+                        flashLight = Player.GetComponent<Flashlight>();
+                        flashLight.backLight.intensity = flashLight.backLight.intensity - pilzDMG;
+                        flashLight.playerLight.intensity = flashLight.playerLight.intensity - pilzDMG * 4f;
+                    }
+                }
                 CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlinZERO =
                 CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-                cinemachineBasicMultiChannelPerlinZERO.m_AmplitudeGain = 0;
+                cinemachineBasicMultiChannelPerlinZERO.m_AmplitudeGain = 0f;
                 transform.rotation = Quaternion.Euler(Vector3.forward * 0f);
                 //pilzBody.constraints = RigidbodyConstraints2D.None;
                 pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
