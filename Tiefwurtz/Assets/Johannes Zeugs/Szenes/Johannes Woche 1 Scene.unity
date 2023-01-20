@@ -779,6 +779,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 835538933}
     m_Modifications:
+    - target: {fileID: 383794365491919832, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
+      propertyPath: m_Size.x
+      value: 1.3985615
+      objectReference: {fileID: 0}
+    - target: {fileID: 383794365491919832, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
+      propertyPath: m_Size.y
+      value: 3.2841454
+      objectReference: {fileID: 0}
+    - target: {fileID: 383794365491919832, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.0862627
+      objectReference: {fileID: 0}
+    - target: {fileID: 383794365491919832, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.04676628
+      objectReference: {fileID: 0}
     - target: {fileID: 5149975807271586767, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.5
@@ -858,6 +874,14 @@ PrefabInstance:
     - target: {fileID: 8542548900466655764, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111967757286089852, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
+      propertyPath: xScale
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111967757286089852, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
+      propertyPath: yScale
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9111967757286089852, guid: 205fc9f86c69e6c44b5df28cc6b6b505, type: 3}
       propertyPath: enemySpeed
@@ -6913,7 +6937,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.1
+  m_Intensity: 0.01
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000047e74b3389b2e542f3a6d70103ee79fc7be01ada
