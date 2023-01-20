@@ -8,11 +8,17 @@ namespace Tiefwurtz
         public bool OnGround { get; private set; }
         public bool LeavedGround;
         public float cayoteTimeCounter;
+        private GameObject Player;
+        private Collision2D bodenCollider;
+        private bool tooFarAway = false;
         public float Friction { get; private set; }
 
         //private Vector2 _normal;
         //private PhysicsMaterial2D _material;
-
+        private void Start()
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+        }
         private void OnCollisionEnter2D(Collision2D collision)
         {  
             if (collision.gameObject.tag == "Ground")
@@ -24,16 +30,21 @@ namespace Tiefwurtz
             //EvaluateCollision(collision);
             //RetrieveFriction(collision);
         }
-        private void Update()
+        private void OnCollisionExit2D(Collision2D collision)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            bodenCollider = collision;
+            if (collision.gameObject.tag == "Ground")
             {
                 LeavedGround = true;
             }
             
             Friction = 0;
         }
-
+        private void Update()
+        {
+            if (LeavedGround)
+                CheckIfGroundIsNear();
+        }
         private void FixedUpdate()
         {
             if (LeavedGround)
@@ -41,8 +52,19 @@ namespace Tiefwurtz
                 cayoteTimeCounter = cayoteTimeCounter + Time.deltaTime;
                 if (cayoteTimeCounter > cayoteTime)
                 {
-                    OnGround = false;
+                    if (tooFarAway)
+                    {
+                        OnGround = false;
+                    }
                 }               
+            }
+        }
+
+        private void CheckIfGroundIsNear()
+        {
+             if (Player.transform.position.y > bodenCollider.gameObject.transform.position.y + 0.64f)
+            {
+                tooFarAway = true;
             }
         }
 
