@@ -7,6 +7,7 @@ TagManager:
   - Item
   - Ground
   - Enemy
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 860612423
+    locked: 0
+  - name: Boden
+    uniqueID: 3659194491
     locked: 0
   - name: Butterfly
     uniqueID: 1122349705

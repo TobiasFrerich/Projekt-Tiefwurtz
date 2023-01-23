@@ -1,30 +1,40 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
+using Cinemachine;
 namespace Tiefwurtz
 {
     public class Flashlight : MonoBehaviour
     {
         public Light2D backLight;
         public Light2D playerLight;
-        private GameObject enemy;
-        private CultistAttack cultAttack;
+        public GameObject GameManager;
+
+
         public float maxPlayerLight = 10f;
         public float maxBackLight = 5f;
         public float lightLossBack = 5f;
         public float lightLossPlayer = 5f;
         public bool keepLight;
 
+        private GameManagerScribt gameManager;
+        private GameObject enemy;
+        private CultistAttack cultAttack;
+        private SpriteRenderer _spriteRenderer;
+
         private float startBackIntensity;
         private float startPlayerIntensity;
-        private bool refill = false;
-        private bool refillPlayer = false;
         private float currentLight;
         private float currentPlayerLight;
+        private bool refill = false;
+        private bool refillPlayer = false;
 
         private void Start()
         {
-
+            _spriteRenderer = GetComponent<SpriteRenderer>();
+            gameManager = GameManager.GetComponent<GameManagerScribt>();
             enemy = GameObject.FindGameObjectWithTag("Enemy");
             cultAttack = enemy.GetComponent<CultistAttack>();
             startBackIntensity = backLight.intensity;
@@ -138,9 +148,16 @@ namespace Tiefwurtz
         {
             if (backLight.intensity < 0.03)
             {
-                cultAttack.SetPlayerIsNotAlive();
-                Destroy(gameObject);
+                gameManager.OnDeath(enemy);
+                gameManager.SetPlayerIsNotDead();
             }
+        }
+        public IEnumerator hitPlayer()
+        {
+            Color SpriteColor = _spriteRenderer.color;
+            _spriteRenderer.color = new Color(0, 0, 0);
+            yield return new WaitForSeconds(0.1f);
+            _spriteRenderer.color = SpriteColor;
         }
     }
 }
