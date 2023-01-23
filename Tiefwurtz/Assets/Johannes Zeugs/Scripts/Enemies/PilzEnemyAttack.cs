@@ -11,17 +11,20 @@ namespace Tiefwurtz
         [SerializeField] private float hammerTimeRange = 2f;
         [SerializeField] private float hammerSpeed = 5f;
         [SerializeField] private float shakeIntesity;
+        [SerializeField] private float hammerDMG;
 
         public CinemachineVirtualCamera CinemachineVC;
+
         private Rigidbody2D pilzBody;
+        private Flashlight flashLight;
         private GameManagerScribt gameManager;
         private GameObject GameManager;
         private GameObject Player;
         private EnemyMovement enemyMove;
+
         private bool hammerRange;
         private float canHammer = 1f;
         private bool inRange;
-        private bool playerIsDead = false;
 
         private void Start()
         {
@@ -34,6 +37,9 @@ namespace Tiefwurtz
 
         private void Update()
         {
+            if (gameManager.playerIsDead)
+                return;
+
             CheckIfPlayerInRange();
             CheckIfHammerRange();
         }
@@ -48,11 +54,6 @@ namespace Tiefwurtz
         }
         private void CheckIfPlayerInRange()
         {
-            playerIsDead = gameManager.playerIsDead;
-
-            if (playerIsDead)
-                return;
-
             if (Player.transform.position.x - gameObject.transform.position.x < attackRange && Player.transform.position.x - gameObject.transform.position.x > -attackRange
                 && Player.transform.position.y - gameObject.transform.position.y < attackRange)
             {
@@ -66,84 +67,93 @@ namespace Tiefwurtz
         }
         private IEnumerator Attack()
         {
-            enemyMove.doesAttack = true;
-            if (inRange)
+            if (!gameManager.playerIsDead)
             {
-                pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
-                if (pilzBody.position.x > Player.transform.position.x)
-                {
-                    gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
-                }
-                else
-                {
-                    gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
-                }
-                yield return new WaitForSeconds(1f);
-
-                //pilzBody.constraints = RigidbodyConstraints2D.None;
-                pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-                if (!hammerRange && canHammer == 1f)
-                {
-                    Vector3 direction = Player.transform.position - transform.position;
-                    Vector3 rotation = transform.position - Player.transform.position;
-                    pilzBody.velocity = new Vector2(direction.x, direction.y).normalized * hammerSpeed;
-                }
-                else
+                enemyMove.doesAttack = true;
+                if (inRange)
                 {
                     pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
-                }
-
-                yield return new WaitUntil(() => hammerRange);
-
-                if (canHammer == 1f)
-                {
-                    if (Player.transform.position.x < transform.position.x)
+                    if (pilzBody.position.x > Player.transform.position.x)
                     {
-                        transform.rotation = Quaternion.Euler(Vector3.forward * 90f);
+                        gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
                     }
                     else
                     {
-                        transform.rotation = Quaternion.Euler(Vector3.forward * 270f);
+                        gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
                     }
-                    pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
-                    CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
-                    CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-                    cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = shakeIntesity;
-                    canHammer = 0f;
-                }
+                    yield return new WaitForSeconds(1f);
 
-
-                yield return new WaitUntil(() => canHammer == 0);
-
-                yield return new WaitForSeconds(0.5f);
-                CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlinZERO =
-                CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-                cinemachineBasicMultiChannelPerlinZERO.m_AmplitudeGain = 0;
-                transform.rotation = Quaternion.Euler(Vector3.forward * 0f);
-                //pilzBody.constraints = RigidbodyConstraints2D.None;
-                pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-                yield return new WaitForSeconds(5f);
-                enemyMove.doesAttack = false;
-                canHammer = 1f;
-
-                yield return new WaitUntil(() => inRange == false);
-                if(canHammer == 1f)
-                {
                     //pilzBody.constraints = RigidbodyConstraints2D.None;
                     pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-                }
 
-                if (pilzBody.velocity.x > 0)
-                {
-                    gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
-                }
-                if (pilzBody.velocity.x < 0)
-                {
-                    gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+                    if (!hammerRange && canHammer == 1f)
+                    {
+                        Vector3 direction = Player.transform.position - transform.position;
+                        Vector3 rotation = transform.position - Player.transform.position;
+                        pilzBody.velocity = new Vector2(direction.x, direction.y).normalized * hammerSpeed;
+                    }
+                    else
+                    {
+                        pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
+                    }
+
+                    yield return new WaitUntil(() => hammerRange);
+
+                    if (canHammer == 1f)
+                    {
+                        if (Player.transform.position.x < transform.position.x)
+                        {
+                            transform.rotation = Quaternion.Euler(Vector3.forward * 90f);
+                        }
+                        else
+                        {
+                            transform.rotation = Quaternion.Euler(Vector3.forward * 270f);
+                        }
+                        pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
+                        CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
+                        CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = shakeIntesity;
+                        canHammer = 0f;
+                        yield return new WaitForSeconds(0.5f);
+                        if (hammerRange)
+                        {
+                            flashLight = Player.GetComponent<Flashlight>();
+                            flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
+                            flashLight.playerLight.intensity = flashLight.playerLight.intensity - hammerDMG * 4f;
+                        }
+                    }
+
+
+                    yield return new WaitUntil(() => canHammer == 0);
+
+                    yield return new WaitForSeconds(0.5f);
+                    CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlinZERO =
+                    CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                    cinemachineBasicMultiChannelPerlinZERO.m_AmplitudeGain = 0;
+                    transform.rotation = Quaternion.Euler(Vector3.forward * 0f);
+                    //pilzBody.constraints = RigidbodyConstraints2D.None;
+                    pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    yield return new WaitForSeconds(2f);
+                    enemyMove.doesAttack = false;
+                    canHammer = 1f;
+
+                    yield return new WaitUntil(() => inRange == false);
+                    if (canHammer == 1f)
+                    {
+                        //pilzBody.constraints = RigidbodyConstraints2D.None;
+                        pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    }
+
+                    if (pilzBody.velocity.x > 0)
+                    {
+                        gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
+                    }
+                    if (pilzBody.velocity.x < 0)
+                    {
+                        gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+                    }
                 }
             }
-            
         }
     }
 }

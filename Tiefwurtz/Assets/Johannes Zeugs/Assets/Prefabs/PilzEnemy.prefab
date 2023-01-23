@@ -297,6 +297,7 @@ MonoBehaviour:
   xScale: 0.2
   yScale: 0.2
   sollStehen: 0
+  doesAttack: 0
   _leftMax: {fileID: 4567232809423152359}
   _rightMax: {fileID: 484306257315424960}
 --- !u!70 &383794365491919832
@@ -348,6 +349,7 @@ MonoBehaviour:
   hammerTimeRange: 1
   hammerSpeed: 3
   shakeIntesity: 3
+  hammerDMG: 20
   CinemachineVC: {fileID: 0}
 --- !u!1 &8552580189053064216
 GameObject:
