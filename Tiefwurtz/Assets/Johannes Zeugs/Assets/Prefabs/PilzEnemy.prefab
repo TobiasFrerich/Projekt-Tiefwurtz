@@ -345,9 +345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994408e60a92efe4c8cb5c8c87aa73ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 3
+  attackRange: 4
   hammerTimeRange: 1
-  hammerSpeed: 3
+  hammerSpeed: 5
   shakeIntesity: 3
   hammerDMG: 20
   CinemachineVC: {fileID: 0}

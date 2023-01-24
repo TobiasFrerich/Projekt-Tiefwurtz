@@ -20,11 +20,14 @@ namespace Tiefwurtz
         private GameManagerScribt gameManager;
         private GameObject GameManager;
         private GameObject Player;
+        private GameObject leftMax;
+        private GameObject rightMax;
         private EnemyMovement enemyMove;
 
+        private bool savedPosition;
         private bool hammerRange;
-        private float canHammer = 1f;
         private bool inRange;
+        private float canHammer = 1f;
 
         private void Start()
         {
@@ -45,7 +48,7 @@ namespace Tiefwurtz
         }
         private void CheckIfHammerRange()
         {
-            if (transform.position.x - Player.transform.position.x > -hammerTimeRange && transform.position.x - Player.transform.position.x < hammerTimeRange)
+            if (Vector3.Distance(transform.position, Player.transform.position) < hammerTimeRange)
             {
                 hammerRange = true;
             }
@@ -54,8 +57,7 @@ namespace Tiefwurtz
         }
         private void CheckIfPlayerInRange()
         {
-            if (Player.transform.position.x - gameObject.transform.position.x < attackRange && Player.transform.position.x - gameObject.transform.position.x > -attackRange
-                && Player.transform.position.y - gameObject.transform.position.y < attackRange)
+            if (Vector3.Distance(transform.position, Player.transform.position) < attackRange)
             {
                 inRange = true;
                 StartCoroutine(Attack());
@@ -83,14 +85,12 @@ namespace Tiefwurtz
                     }
                     yield return new WaitForSeconds(1f);
 
-                    //pilzBody.constraints = RigidbodyConstraints2D.None;
+                    pilzBody.constraints = RigidbodyConstraints2D.None;
                     pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
 
                     if (!hammerRange && canHammer == 1f)
                     {
-                        Vector3 direction = Player.transform.position - transform.position;
-                        Vector3 rotation = transform.position - Player.transform.position;
-                        pilzBody.velocity = new Vector2(direction.x, direction.y).normalized * hammerSpeed;
+                        CheckForPlayerPosition();
                     }
                     else
                     {
@@ -115,6 +115,7 @@ namespace Tiefwurtz
                         cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = shakeIntesity;
                         canHammer = 0f;
                         yield return new WaitForSeconds(0.5f);
+                        
                         if (hammerRange)
                         {
                             flashLight = Player.GetComponent<Flashlight>();
@@ -131,7 +132,7 @@ namespace Tiefwurtz
                     CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
                     cinemachineBasicMultiChannelPerlinZERO.m_AmplitudeGain = 0;
                     transform.rotation = Quaternion.Euler(Vector3.forward * 0f);
-                    //pilzBody.constraints = RigidbodyConstraints2D.None;
+                    pilzBody.constraints = RigidbodyConstraints2D.None;
                     pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
                     yield return new WaitForSeconds(2f);
                     enemyMove.doesAttack = false;
@@ -140,7 +141,7 @@ namespace Tiefwurtz
                     yield return new WaitUntil(() => inRange == false);
                     if (canHammer == 1f)
                     {
-                        //pilzBody.constraints = RigidbodyConstraints2D.None;
+                        pilzBody.constraints = RigidbodyConstraints2D.None;
                         pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
                     }
 
@@ -152,8 +153,19 @@ namespace Tiefwurtz
                     {
                         gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
                     }
+                    enemyMove.doesAttack = false;
                 }
+                else
+                    enemyMove.doesAttack = false;
             }
+        }
+        private void CheckForPlayerPosition()
+        {
+            if (savedPosition)
+                return;
+
+            Vector3 direction = Player.transform.position;
+            pilzBody.velocity = new Vector2(direction.x, pilzBody.velocity.y).normalized * hammerSpeed;
         }
     }
 }
