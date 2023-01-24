@@ -3,20 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Item
+  - Ground
+  - Enemy
+  - GameManager
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Magier
+  - "K\xE4fer"
+  - Plattform
+  - Items
+  - Shots
+  - Enemies
   - 
   - 
   - 
@@ -40,4 +44,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 860612423
+    locked: 0
+  - name: Boden
+    uniqueID: 3659194491
+    locked: 0
+  - name: Butterfly
+    uniqueID: 1122349705
+    locked: 0
+  - name: Enemies
+    uniqueID: 4235849219
+    locked: 0
+  - name: Player
+    uniqueID: 30910195
     locked: 0
