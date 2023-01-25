@@ -15,6 +15,7 @@ namespace Tiefwurtz
         private Ground ground;
         private Move move;
         private Vector2 velocity;
+        private Animator playerAnim;
 
         private int jumpPhase;
         private float defaultGravityScale;
@@ -30,7 +31,8 @@ namespace Tiefwurtz
             ground = GetComponent<Ground>();
             controller = GetComponent<Controller>();
             move = GetComponent<Move>();
-            
+            playerAnim = GetComponent<Animator>();
+
             defaultGravityScale = 1f;
         }
 
@@ -90,6 +92,7 @@ namespace Tiefwurtz
             if(collision.gameObject.tag == "Ground")
             {
                 currentlyJumping = false;
+                playerAnim.SetBool("isJumping", false);
             }
         }
         private void JumpAction()
@@ -113,6 +116,7 @@ namespace Tiefwurtz
                 }
                 velocity.y += jumpSpeed;
                 currentlyJumping = true;
+                playerAnim.SetBool("isJumping", true);
                 onGround = false;
                 ground.cayoteTimeCounter = 0;
             }           

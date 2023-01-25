@@ -24,6 +24,7 @@ namespace Tiefwurtz
         private Rigidbody2D body;
         private Ground ground;
         private GameObject DashItem;
+        private Animator playerAnim;
 
         private float maxSpeedChange;
         private float acceleration;
@@ -40,11 +41,20 @@ namespace Tiefwurtz
             ground = GetComponent<Ground>();
             controller = GetComponent<Controller>();
             DashItem = GameObject.Find("DashItem");
+            playerAnim = GetComponent<Animator>();
         }
 
         private void Update()
         {
             direction.x = controller.input.RetrieveMoveInput();
+
+            if (direction.x != 0f)
+            {
+                playerAnim.SetBool("isRunning", true);
+            }
+            else
+                playerAnim.SetBool("isRunning", false);
+
             desiredVelocity = new Vector2(direction.x, 0f) * Mathf.Max(maxSpeed - ground.Friction, 0f);
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && dashUnlocked)
             {
