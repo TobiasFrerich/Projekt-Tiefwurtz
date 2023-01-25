@@ -716,6 +716,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1621184779475273896, guid: 0d14d5b04a1ace143a32f8da24a3b4a1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.40052074
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621184779475273896, guid: 0d14d5b04a1ace143a32f8da24a3b4a1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.3222837
+      objectReference: {fileID: 0}
     - target: {fileID: 3066353516660756224, guid: 0d14d5b04a1ace143a32f8da24a3b4a1, type: 3}
       propertyPath: m_Name
       value: MainCharAnimationsfVtesting 1 (1)
