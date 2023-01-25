@@ -247,23 +247,13 @@ ScriptedImporter:
   resliceFromLayer: 0
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: Ebene 3
-    spriteName: Ebene 3
+  - name: Ebene 7
+    spriteName: Ebene 7
     isGroup: 0
     parentIndex: -1
-    spriteID: ca1eff41e4a8e6842bbfa5cf9e725a3f
-    layerID: 10
-    mosaicPosition: {x: 4, y: 1269}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Ebene 6
-    spriteName: Ebene 6
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 29570fe174259014e9f74774b1b3fa1b
-    layerID: 9
-    mosaicPosition: {x: 687, y: 4}
+    spriteID: b4ffd36e08a84e241b54ca4a1d506a17
+    layerID: 7
+    mosaicPosition: {x: 1072, y: 676}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -274,16 +264,6 @@ ScriptedImporter:
     spriteID: 35ac04a2b75bc2f40be87380d6f96465
     layerID: 8
     mosaicPosition: {x: 1482, y: 4}
-    flatten: 0
-    isImported: 1
-    isVisible: 1
-  - name: Ebene 7
-    spriteName: Ebene 7
-    isGroup: 0
-    parentIndex: -1
-    spriteID: b4ffd36e08a84e241b54ca4a1d506a17
-    layerID: 7
-    mosaicPosition: {x: 1072, y: 676}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -298,26 +278,6 @@ ScriptedImporter:
     isImported: 1
     isVisible: 1
   - name: Ebene 4
-    spriteName: 
-    isGroup: 0
-    parentIndex: -1
-    spriteID: 7b3820d6cb98f824cbb1be57dcadc3b1
-    layerID: 5
-    mosaicPosition: {x: 0, y: 0}
-    flatten: 0
-    isImported: 0
-    isVisible: 0
-  - name: Ebene 4
-    spriteName: 
-    isGroup: 0
-    parentIndex: -1
-    spriteID: ad455a22db68aac4396e7dd12bfa83ab
-    layerID: 4
-    mosaicPosition: {x: 0, y: 0}
-    flatten: 0
-    isImported: 0
-    isVisible: 0
-  - name: Ebene 4
     spriteName: Ebene 4
     isGroup: 0
     parentIndex: -1
@@ -327,16 +287,26 @@ ScriptedImporter:
     flatten: 0
     isImported: 1
     isVisible: 1
-  - name: Ebene 1
-    spriteName: 
+  - name: Ebene 6
+    spriteName: Ebene 6
     isGroup: 0
     parentIndex: -1
-    spriteID: 0b0f70c769fc8934d9f33b87f700cf9a
-    layerID: 2
-    mosaicPosition: {x: 0, y: 0}
+    spriteID: 29570fe174259014e9f74774b1b3fa1b
+    layerID: 9
+    mosaicPosition: {x: 687, y: 4}
     flatten: 0
-    isImported: 0
-    isVisible: 0
+    isImported: 1
+    isVisible: 1
+  - name: Ebene 3
+    spriteName: Ebene 3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: ca1eff41e4a8e6842bbfa5cf9e725a3f
+    layerID: 10
+    mosaicPosition: {x: 4, y: 1269}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: Hintergrund
     spriteName: 
     isGroup: 0
