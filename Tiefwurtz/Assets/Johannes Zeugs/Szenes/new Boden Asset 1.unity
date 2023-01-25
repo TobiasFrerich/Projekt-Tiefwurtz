@@ -22185,7 +22185,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 0000000047e74b3389b2e542f3a6d70103ee79fc
@@ -25714,7 +25714,7 @@ GameObject:
   - component: {fileID: 1108156270}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59191,6 +59191,10 @@ PrefabInstance:
       propertyPath: lightLoss
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4052222524028998159, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
+      propertyPath: GameManager
+      value: 
+      objectReference: {fileID: 1108156269}
     - target: {fileID: 4052222524028998159, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: lightLossPlayer
       value: 0
