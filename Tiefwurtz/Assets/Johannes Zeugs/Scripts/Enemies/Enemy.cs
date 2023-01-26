@@ -29,8 +29,6 @@ public class Enemy : MonoBehaviour
 
     private void OnDeath()
     {
-        
-
         if (Dead == true)
                 return;
 

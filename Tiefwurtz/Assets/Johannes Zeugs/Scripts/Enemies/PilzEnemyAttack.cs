@@ -21,6 +21,7 @@ namespace Tiefwurtz
         private GameObject GameManager;
         private GameObject Player;
         private EnemyMovement enemyMove;
+        private Enemy enemyScr;
 
         private bool hammerRange;
         private float canHammer = 1f;
@@ -28,6 +29,7 @@ namespace Tiefwurtz
 
         private void Start()
         {
+            enemyScr = GetComponent<Enemy>();
             enemyMove = GetComponent<EnemyMovement>();
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             Player = GameObject.Find("Player");
@@ -37,6 +39,12 @@ namespace Tiefwurtz
 
         private void Update()
         {
+            if (enemyScr.Dead)
+            {
+                pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
+                return;
+            }
+
             if (gameManager.playerIsDead)
                 return;
 
@@ -66,7 +74,8 @@ namespace Tiefwurtz
         }
         private IEnumerator Attack()
         {
-            if (!gameManager.playerIsDead)
+            Animator enemyAnim = GetComponent<Animator>();
+            if (!gameManager.playerIsDead && !enemyScr.Dead)
             {
                 enemyMove.doesAttack = true;
                 if (inRange)
@@ -74,11 +83,11 @@ namespace Tiefwurtz
                     pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
                     if (pilzBody.position.x > Player.transform.position.x)
                     {
-                        gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+                        gameObject.transform.localScale = new Vector3(0.1f, 0.1f, 0f);
                     }
                     else
                     {
-                        gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
+                        gameObject.transform.localScale = new Vector3(-0.1f, 0.1f, 0f);
                     }
                     yield return new WaitForSeconds(1f);
 
@@ -87,9 +96,12 @@ namespace Tiefwurtz
 
                     if (!hammerRange && canHammer == 1f)
                     {
-                        Vector3 direction = Player.transform.position - transform.position;
-                        Vector3 rotation = transform.position - Player.transform.position;
-                        pilzBody.velocity = new Vector2(direction.x, direction.y).normalized * hammerSpeed;
+                        if (!gameManager.playerIsDead && !enemyScr.Dead)
+                        {
+                            Vector3 direction = Player.transform.position - transform.position;
+                            Vector3 rotation = transform.position - Player.transform.position;
+                            pilzBody.velocity = new Vector2(direction.x, direction.y).normalized * hammerSpeed;
+                        }
                     }
                     else
                     {
@@ -100,14 +112,8 @@ namespace Tiefwurtz
 
                     if (canHammer == 1f)
                     {
-                        if (Player.transform.position.x < transform.position.x)
-                        {
-                            transform.rotation = Quaternion.Euler(Vector3.forward * 90f);
-                        }
-                        else
-                        {
-                            transform.rotation = Quaternion.Euler(Vector3.forward * 270f);
-                        }
+                        enemyAnim.SetBool("isHammering", true);
+                        yield return new WaitForSeconds(1f);
                         pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
                         CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
                         CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
@@ -116,20 +122,23 @@ namespace Tiefwurtz
                         yield return new WaitForSeconds(0.5f);
                         if (hammerRange)
                         {
-                            flashLight = Player.GetComponent<Flashlight>();
-                            flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
-                            flashLight.playerLight.intensity = flashLight.playerLight.intensity - hammerDMG * 4f;
+                            if (!gameManager.playerIsDead && !enemyScr.Dead)
+                            {
+                                flashLight = Player.GetComponent<Flashlight>();
+                                flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
+                                flashLight.playerLight.intensity = flashLight.playerLight.intensity - hammerDMG * 4f;
+                            }
                         }
                     }
 
-
                     yield return new WaitUntil(() => canHammer == 0);
 
+
                     yield return new WaitForSeconds(0.5f);
+                    enemyAnim.SetBool("isHammering", false);
                     CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlinZERO =
                     CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
                     cinemachineBasicMultiChannelPerlinZERO.m_AmplitudeGain = 0;
-                    transform.rotation = Quaternion.Euler(Vector3.forward * 0f);
                     //pilzBody.constraints = RigidbodyConstraints2D.None;
                     pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
                     yield return new WaitForSeconds(2f);
@@ -145,12 +154,13 @@ namespace Tiefwurtz
 
                     if (pilzBody.velocity.x > 0)
                     {
-                        gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
+                        gameObject.transform.localScale = new Vector3(-0.1f, 0.1f, 0f);
                     }
                     if (pilzBody.velocity.x < 0)
                     {
-                        gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+                        gameObject.transform.localScale = new Vector3(0.1f, 0.1f, 0f);
                     }
+
                 }
             }
         }
