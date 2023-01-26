@@ -13,6 +13,7 @@ namespace Tiefwurtz
 
         private GameObject Player;
         private Rigidbody2D shotBody;
+        private Enemy enemyHealth;
         private float timer;
 
         void Awake()
@@ -39,6 +40,10 @@ namespace Tiefwurtz
             Player = GameObject.FindGameObjectWithTag("Player");
             if (collision.gameObject == Player)
                 return;
+
+
+            enemyHealth = collision.gameObject.GetComponent<Enemy>();
+            enemyHealth.TakeDamage(20f);
             Destroy(gameObject);
         }
         

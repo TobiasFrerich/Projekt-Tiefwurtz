@@ -65,8 +65,11 @@ namespace Tiefwurtz
 
         private IEnumerator RangedAttack()
         {
-            yield return new WaitForSeconds(0.5f);
+            Animator playerAnim = GetComponent<Animator>();
+            playerAnim.SetBool("isAttacking", true);
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            playerAnim.SetBool("isAttacking", false);
         }
 
         private void OnDrawGizmosSelected()
