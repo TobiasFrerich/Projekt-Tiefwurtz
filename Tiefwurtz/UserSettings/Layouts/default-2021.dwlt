@@ -73,7 +73,7 @@ MonoBehaviour:
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
-  m_LastLoadedLayoutName: Tall
+  m_LastLoadedLayoutName: 
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 582
+  controlID: 15
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 562
+  controlID: 86
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -333,22 +333,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Johannes Zeugs/Assets
+    - Assets/Johannes Zeugs/Szenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Johannes Zeugs/Assets
+  - Assets/Johannes Zeugs/Szenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\tobia\OneDrive\Dokumente\GitHub\Projekt-Tiefwurtz\Tiefwurtz
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f06f0000
-    m_LastClickedID: 28656
-    m_ExpandedIDs: 000000004c6e00004e6e0000506e0000d86f000000ca9a3b
+    m_SelectedIDs: 28700000
+    m_LastClickedID: 28712
+    m_ExpandedIDs: 00000000786e00007a6e00007c6e00007e6e0000806e0000826e0000846e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -376,7 +376,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004c6e00004e6e0000506e000000ca9a3b
+    m_ExpandedIDs: 00000000786e00007a6e00007c6e00007e6e0000806e0000826e0000846e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -428,7 +428,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 1211.3334}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 64
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 115
@@ -755,9 +755,9 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: -232, y: -193.33337}
+      snapOffset: {x: 0, y: 0}
       snapOffsetDelta: {x: 0, y: 0}
-      snapCorner: 3
+      snapCorner: 0
       id: Scene View/Particles
       index: 10
       layout: 4
@@ -771,9 +771,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 272.22885, y: 58.537613, z: -7.287942}
+    m_Target: {x: 272.149, y: 59.674603, z: -7.7547503}
     speed: 2
-    m_Value: {x: 272.25778, y: 58.50704, z: -7.286028}
+    m_Value: {x: 272.149, y: 59.674603, z: -7.7547503}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -804,7 +804,7 @@ MonoBehaviour:
       m_Fade:
         m_Target: 0
         speed: 2
-        m_Value: 1
+        m_Value: 0
       m_Color: {r: 0.5, g: 0.5, b: 0.5, a: 0.4}
       m_Pivot: {x: 0, y: 0, z: 0}
       m_Size: {x: 1, y: 1}
@@ -822,11 +822,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: -0.000000006657127, y: 0.00000006869945, z: -0.000000016071727, w: -0.99999994}
+    m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 4.4445376
+    m_Target: 2.6528273
     speed: 2
-    m_Value: 4.253146
+    m_Value: 2.6528273
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -881,10 +881,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 481.33334}
-      m_SelectedIDs: 7671feff
-      m_LastClickedID: -102026
-      m_ExpandedIDs: a0f2ffff10f8ffff007100002475000042750000d0780000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: e4efffff
+      m_LastClickedID: -4124
+      m_ExpandedIDs: c4f7ffff5afaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -900,7 +900,7 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
-        m_ClientGUIView: {fileID: 9}
+        m_ClientGUIView: {fileID: 6}
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
