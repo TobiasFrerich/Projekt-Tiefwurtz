@@ -79,6 +79,7 @@ namespace Tiefwurtz
             playerAnim.SetBool("isSpecialAttacking", true);
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
+            playerAnim.SetBool("isSpecialAttacking", false);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

@@ -7,6 +7,8 @@ TagManager:
   - Item
   - Ground
   - Enemy
+  - GameManager
+  - RangedAttackItem
   layers:
   - Default
   - TransparentFX
@@ -50,11 +52,11 @@ TagManager:
   - name: Butterfly
     uniqueID: 1122349705
     locked: 0
-  - name: Player
-    uniqueID: 30910195
-    locked: 0
   - name: Enemies
     uniqueID: 4235849219
+    locked: 0
+  - name: Player
+    uniqueID: 30910195
     locked: 0
   - name: Forground
     uniqueID: 3419937311
