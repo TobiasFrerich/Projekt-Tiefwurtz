@@ -61469,6 +61469,10 @@ PrefabInstance:
       propertyPath: m_Vertices.Array.data[191].position.y
       value: -0.5925
       objectReference: {fileID: 0}
+    - target: {fileID: 3425156582464640968, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
+      propertyPath: GameManager
+      value: 
+      objectReference: {fileID: 1108156271}
     - target: {fileID: 4052222522873285521, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_Intensity
       value: 7
