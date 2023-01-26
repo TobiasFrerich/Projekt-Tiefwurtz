@@ -9,7 +9,6 @@ namespace Tiefwurtz
         [SerializeField] float attackRange = 0.5f;
         [SerializeField] float attackRate = 1f;
 
-        public SpriteRenderer _spriteRenderer;
         public Sprite attackSprite;
         public Sprite normalSprite;
         public Transform attackpoint;
@@ -24,8 +23,10 @@ namespace Tiefwurtz
         {
             if (Time.time >= nextAttackTime)
             {
-                if (Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonDown(0))
                 {
+                    Animator playerAnim = GetComponent<Animator>();
+                    playerAnim.SetBool("isAttacking", true);
                     StartCoroutine(Attack());
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
@@ -34,8 +35,8 @@ namespace Tiefwurtz
 
         private IEnumerator Attack()
         {
-            _spriteRenderer.sprite = attackSprite;
-            yield return new WaitForSeconds(0.1f);
+            
+            yield return new WaitForSeconds(0.5f);
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackpoint.position, attackRange, enemyLayers);
 
             foreach (Collider2D enemy in hitEnemies)
@@ -47,8 +48,9 @@ namespace Tiefwurtz
                 em.enabled = true;
             }
 
-            yield return new WaitForSeconds(0.1f);
-            _spriteRenderer.sprite = normalSprite;
+            yield return new WaitForSeconds(0.4f);
+            Animator playerAnim = GetComponent<Animator>();
+            playerAnim.SetBool("isAttacking", false);
         }
 
         private void OnDrawGizmosSelected()

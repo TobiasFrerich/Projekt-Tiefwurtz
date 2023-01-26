@@ -34,9 +34,11 @@ namespace Tiefwurtz
         private bool onGround;
         private bool canDash = true;
         public bool isDashing;
+        private bool currentlyJumping;
 
         private void Awake()
         {
+            currentlyJumping = GetComponent<Jump>().currentlyJumping;
             body = GetComponent<Rigidbody2D>();
             ground = GetComponent<Ground>();
             controller = GetComponent<Controller>();
@@ -48,7 +50,7 @@ namespace Tiefwurtz
         {
             direction.x = controller.input.RetrieveMoveInput();
 
-            if (direction.x != 0f)
+            if (body.velocity.x != 0f && !playerAnim.GetBool("isJumping"))
             {
                 playerAnim.SetBool("isRunning", true);
             }
@@ -101,6 +103,7 @@ namespace Tiefwurtz
         }
         private IEnumerator Dash()
         {
+            playerAnim.SetBool("isDashing", true);
             canDash = false;
             isDashing = true;
             float originalGravity = body.gravityScale;
@@ -111,6 +114,7 @@ namespace Tiefwurtz
             trail.emitting = false;
             body.gravityScale = originalGravity;
             isDashing = false;
+            playerAnim.SetBool("isDashing", false);
             yield return new WaitForSeconds(dashingCooldown);
             canDash = true;
         }

@@ -7,20 +7,15 @@ namespace Tiefwurtz
     public class Ground : MonoBehaviour
     {
         [SerializeField, Range(0f, 1f)] private float cayoteTime = 0.2f;
+        private Animator playerAnim;
         public bool OnGround { get; private set; }
         public bool LeavedGround;
         public float cayoteTimeCounter;
-        private GameObject Player;
-        private Collision2D bodenCollider;
-        private bool canJump = false;
         public float Friction { get; private set; }
 
         //private Vector2 _normal;
         //private PhysicsMaterial2D _material;
-        private void Start()
-        {
-            Player = GameObject.FindGameObjectWithTag("Player");
-        }
+        
         private void OnCollisionEnter2D(Collision2D collision)
         {  
             if (collision.gameObject.tag == "Ground")
@@ -34,33 +29,18 @@ namespace Tiefwurtz
         }
         private void OnCollisionExit2D(Collision2D collision)
         {
-            bodenCollider = collision;
             if (collision.gameObject.tag == "Ground")
             {
-                OnGround = false;
-                StartCoroutine(CheckIfGroundIsNear());
+                //OnGround = false;
                 LeavedGround = true;
+
+                playerAnim = GetComponent<Animator>();
+                playerAnim.SetBool("isJumping", true);
             }
             
             Friction = 0;
         }
-        private IEnumerator CheckIfGroundIsNear()
-        {
-            yield return new WaitForSeconds(0.1f);
-            if (Player.transform.position.y < bodenCollider.gameObject.transform.position.y + 1f)
-            {
-                OnGround = true;
-                LeavedGround = false;
-            }
-            yield return new WaitForSeconds(0.1f);
-            if (Player.transform.position.y < bodenCollider.gameObject.transform.position.y)
-            {
-                OnGround = false;
-                LeavedGround = true;
-            }
-        }
 
-        /*
         private void FixedUpdate()
         {
             if (LeavedGround)
@@ -74,11 +54,7 @@ namespace Tiefwurtz
                 }               
             }
         }
-        private void Update()
-        {
-            if (LeavedGround)
-                CheckIfGroundIsNear();
-        }
+        /*
 
         private void OnCollisionStay2D(Collision2D collision)
         {
