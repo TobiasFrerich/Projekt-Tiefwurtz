@@ -230,8 +230,8 @@ MonoBehaviour:
   - {fileID: 5923739030463641720}
   - {fileID: 7436961846622183083}
   m_Bounds:
-    m_Center: {x: 0.7276411, y: 2.461258, z: 0.04157165}
-    m_Extent: {x: 8.734532, y: 8.373163, z: 0.0000000037252903}
+    m_Center: {x: 0.20726967, y: 1.1864185, z: 0}
+    m_Extent: {x: 9.137826, y: 8.5551815, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -501,7 +501,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6751510096910975496}
   m_LocalRotation: {x: 0, y: 0, z: -0.20557539, w: 0.9786413}
-  m_LocalPosition: {x: 2.8649566, y: -0.34808734, z: 0}
+  m_LocalPosition: {x: 2.76, y: -2.04, z: 0}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -752,7 +752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 994408e60a92efe4c8cb5c8c87aa73ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 6
+  attackRange: 4
   hammerTimeRange: 2
   hammerSpeed: 3
   shakeIntesity: 3
