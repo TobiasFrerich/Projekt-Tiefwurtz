@@ -115,9 +115,13 @@ namespace Tiefwurtz
                         enemyAnim.SetBool("isHammering", true);
                         yield return new WaitForSeconds(1f);
                         pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
-                        CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
-                        CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-                        cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = shakeIntesity;
+                        if (!enemyScr.Dead)
+                        {
+                            CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlin =
+                            CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
+                            cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = shakeIntesity;
+                        }
+
                         canHammer = 0f;
                         yield return new WaitForSeconds(0.5f);
                         if (hammerRange)
