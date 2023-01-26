@@ -13,29 +13,25 @@ namespace Tiefwurtz
         public GameObject camTransform;
         public Sprite DeadPlayer;
 
-        private CultistAttack cultAttack;
         private SpriteRenderer _spriteRenderer;
         private GameObject player;
         private Cinemachine.CinemachineVirtualCamera vcam;
-        private Rigidbody2D deadPlayerBody;
 
-        public void OnDeath(GameObject enemy)
+        public void OnDeath()
         {
-            cultAttack = enemy.GetComponent<CultistAttack>();
             player = GameObject.FindGameObjectWithTag("Player");
             vcam = Camera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
             camTransform.transform.position = player.transform.position;
-            deadPlayerBody = camTransform.GetComponent<Rigidbody2D>();
             vcam.Follow = camTransform.transform;
             _spriteRenderer = camTransform.GetComponent<SpriteRenderer>();
             Destroy(player);
             camTransform.SetActive(true);
             _spriteRenderer.sprite = DeadPlayer;
-            SetPlayerIsNotDead();
+            SetPlayerIsDead();
             //Time.timeScale = 0;
         }
 
-        public void SetPlayerIsNotDead()
+        public void SetPlayerIsDead()
         {
             playerIsDead = true;
         }

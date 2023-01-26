@@ -148,8 +148,8 @@ namespace Tiefwurtz
         {
             if (backLight.intensity < 0.03)
             {
-                gameManager.OnDeath(enemy);
-                gameManager.SetPlayerIsNotDead();
+                gameManager.SetPlayerIsDead();
+                gameManager.OnDeath();
             }
         }
     }
