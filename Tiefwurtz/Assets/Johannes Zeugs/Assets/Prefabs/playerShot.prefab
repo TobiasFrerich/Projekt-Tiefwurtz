@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07ce24767556844586e31e8d6cc2f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotDmg: 1
+  shotDmg: 20
   flyTime: 5
   force: 10
 --- !u!96 &2124927180107496297

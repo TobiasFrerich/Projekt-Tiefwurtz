@@ -43,7 +43,7 @@ namespace Tiefwurtz
 
 
             enemyHealth = collision.gameObject.GetComponent<Enemy>();
-            enemyHealth.TakeDamage(20f);
+            enemyHealth.TakeDamage(shotDmg);
             Destroy(gameObject);
         }
         

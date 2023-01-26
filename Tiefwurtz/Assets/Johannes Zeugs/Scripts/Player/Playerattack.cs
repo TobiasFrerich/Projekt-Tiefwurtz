@@ -8,6 +8,8 @@ namespace Tiefwurtz
     {
         [SerializeField] float attackRange = 0.5f;
         [SerializeField] float attackRate = 1f;
+        [SerializeField] float rangedAttackRate = 1f;
+        [SerializeField] float playerAttackDMG = 20f;
 
         public Sprite attackSprite;
         public Sprite normalSprite;
@@ -16,6 +18,7 @@ namespace Tiefwurtz
 
         private Enemy enemyHealth;
         private float nextAttackTime = 0f;
+        private float nextRangedAttackTime = 0f;
 
         public GameObject playerShot;
         public Transform playerShotTransform;
@@ -35,11 +38,14 @@ namespace Tiefwurtz
                 }
 
             }
-            if (Input.GetMouseButtonDown(1))
+            if (Time.time >= nextRangedAttackTime)
             {
-                Animator playerAnim = GetComponent<Animator>();
-                StartCoroutine(RangedAttack());
-                nextAttackTime = Time.time + 1f / attackRate;
+                if (Input.GetMouseButtonDown(1))
+                {
+                    Animator playerAnim = GetComponent<Animator>();
+                    StartCoroutine(RangedAttack());
+                    nextRangedAttackTime = Time.time + 1f / rangedAttackRate;
+                }
             }
         }
 
@@ -52,7 +58,7 @@ namespace Tiefwurtz
             foreach (Collider2D enemy in hitEnemies)
             {
                 enemyHealth = enemy.GetComponent<Enemy>();
-                enemyHealth.TakeDamage(20f);
+                enemyHealth.TakeDamage(playerAttackDMG);
                 GetComponentInChildren<ParticleSystem>().Play();
                 ParticleSystem.EmissionModule em = GetComponentInChildren<ParticleSystem>().emission;
                 em.enabled = true;
