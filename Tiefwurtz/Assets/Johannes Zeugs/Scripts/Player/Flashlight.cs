@@ -152,12 +152,5 @@ namespace Tiefwurtz
                 gameManager.SetPlayerIsNotDead();
             }
         }
-        public IEnumerator hitPlayer()
-        {
-            Color SpriteColor = _spriteRenderer.color;
-            _spriteRenderer.color = new Color(0, 0, 0);
-            yield return new WaitForSeconds(0.1f);
-            _spriteRenderer.color = SpriteColor;
-        }
     }
 }

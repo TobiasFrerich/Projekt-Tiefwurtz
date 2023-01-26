@@ -21,7 +21,7 @@ namespace Tiefwurtz
         private float defaultGravityScale;
         private float jumpSpeed;
 
-        private bool currentlyJumping;
+        public bool currentlyJumping;
         private bool desiredJump;
         private bool onGround;
 
@@ -116,7 +116,7 @@ namespace Tiefwurtz
                 }
                 velocity.y += jumpSpeed;
                 currentlyJumping = true;
-                playerAnim.SetBool("isJumping", true);
+                
                 onGround = false;
                 ground.cayoteTimeCounter = 0;
             }           
