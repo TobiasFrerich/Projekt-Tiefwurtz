@@ -19,6 +19,7 @@ namespace Tiefwurtz
         private Enemy enemyHealth;
         private float nextAttackTime = 0f;
         private float nextRangedAttackTime = 0f;
+        private bool rangedAttackUnlocked;
 
         public GameObject playerShot;
         public Transform playerShotTransform;
@@ -40,6 +41,9 @@ namespace Tiefwurtz
             }
             if (Time.time >= nextRangedAttackTime)
             {
+                if (!rangedAttackUnlocked)
+                    return;
+
                 if (Input.GetMouseButtonDown(1))
                 {
                     Animator playerAnim = GetComponent<Animator>();
@@ -78,6 +82,14 @@ namespace Tiefwurtz
             playerAnim.SetBool("isAttacking", false);
         }
 
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            GameObject RangedAttackItem = GameObject.FindGameObjectWithTag("RangedAttackItem");
+            if (collision.gameObject == RangedAttackItem)
+            {
+                rangedAttackUnlocked = true;
+            }
+        }
         private void OnDrawGizmosSelected()
         {
             if (attackpoint == null)

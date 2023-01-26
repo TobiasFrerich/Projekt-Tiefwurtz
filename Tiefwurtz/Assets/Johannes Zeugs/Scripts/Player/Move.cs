@@ -87,7 +87,6 @@ namespace Tiefwurtz
             {
                 dashUnlocked = true;
             }
-
         }
         private void ChecktoFlipSprite()
         {
