@@ -2368,6 +2368,7 @@ MonoBehaviour:
   dashingPower: 200
   dashingTime: 0.2
   dashingCooldown: 1
+  dashUseDmg: 0.5
   isDashing: 0
 --- !u!114 &4052222524028998156
 MonoBehaviour:
@@ -2573,6 +2574,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2112
+  GameManager: {fileID: 0}
   playerShot: {fileID: 1709793276733744158, guid: 0a87cee8dbed3184aa7ce93e963ce525, type: 3}
   playerShotTransform: {fileID: 4052222524028998153}
 --- !u!95 &2206905687426295307

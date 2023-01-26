@@ -17,6 +17,8 @@ namespace Tiefwurtz
         [SerializeField, Range(0f, 1f)] private float dashingTime = 0.2f;
         [SerializeField, Range(0f, 10f)] private float dashingCooldown = 1f;
 
+        [SerializeField] float dashUseDmg = 2f;
+
         private Controller controller;
         private Vector2 direction;
         private Vector2 desiredVelocity;
@@ -24,6 +26,7 @@ namespace Tiefwurtz
         private Rigidbody2D body;
         private Ground ground;
         private GameObject DashItem;
+        private Flashlight playerLight;
         private Animator playerAnim;
 
         private float maxSpeedChange;
@@ -103,6 +106,11 @@ namespace Tiefwurtz
         private IEnumerator Dash()
         {
             playerAnim.SetBool("isDashing", true);
+
+            playerLight = GetComponent<Flashlight>();
+            playerLight.backLight.intensity = playerLight.backLight.intensity - dashUseDmg;
+            playerLight.playerLight.intensity = playerLight.playerLight.intensity - dashUseDmg * 4f;
+
             canDash = false;
             isDashing = true;
             float originalGravity = body.gravityScale;
