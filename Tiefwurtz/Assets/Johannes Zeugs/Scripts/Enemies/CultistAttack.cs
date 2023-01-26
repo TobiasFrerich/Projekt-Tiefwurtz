@@ -10,6 +10,7 @@ namespace Tiefwurtz
         [SerializeField] private float attackRange;
         [SerializeField] private float attackSpeed;
 
+        private Enemy enemyScr;
         private Rigidbody2D cultistBody;
         private GameObject Player;
         private GameObject GameManager;
@@ -17,12 +18,13 @@ namespace Tiefwurtz
         private bool inRange;
         private bool stayInRanged;
         private bool playerIsDead = false;
-        private float timer;
+        private float timer = 10f;
         public GameObject shot;
         public Transform shotTransform;
 
         private void Start()
         {
+            enemyScr = GetComponent<Enemy>();
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             Player = GameObject.Find("Player");
             gameManager = GameManager.GetComponent<GameManagerScribt>();
@@ -30,9 +32,12 @@ namespace Tiefwurtz
         }
         private void Update()
         {
+            if (enemyScr.Dead)
+                return;
+
             CheckIfPlayerInRange();
 
-            Shot();
+            //Shot();
         }
 
 
@@ -46,8 +51,7 @@ namespace Tiefwurtz
                 return; 
             }
 
-            if (Player.transform.position.x - gameObject.transform.position.x < attackRange && Player.transform.position.x - gameObject.transform.position.x > -attackRange
-                && Player.transform.position.y - gameObject.transform.position.y < attackRange)
+            if (Vector2.Distance(Player.transform.position, transform.position) < attackRange)
             {
 
                 inRange = true;
@@ -63,22 +67,28 @@ namespace Tiefwurtz
             cultistBody.constraints = RigidbodyConstraints2D.FreezeAll;
             if (cultistBody.position.x > Player.transform.position.x)
             {
-                gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+                gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0f);
             }
             else
             {
-                gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
+                gameObject.transform.localScale = new Vector3(-0.5f, 0.5f, 0f);
             }
+            Animator enemyAnim = GetComponent<Animator>();
+            enemyAnim.SetBool("isAttacking", true);
+            yield return new WaitForSeconds(0.32f);
+            Shot();
             yield return new WaitUntil(() => inRange == false);
+            enemyAnim.SetBool("isAttacking", false);
+             
             cultistBody.constraints = RigidbodyConstraints2D.None;
             cultistBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             if (cultistBody.velocity.x > 0)
             {
-                gameObject.transform.localScale = new Vector3(-0.2f, 0.2f, 0f);
+                gameObject.transform.localScale = new Vector3(-0.5f, 0.5f, 0f);
             }
             if (cultistBody.velocity.x < 0)
             {
-                gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0f);
+                gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0f);
             }
         }
         private void Shot()

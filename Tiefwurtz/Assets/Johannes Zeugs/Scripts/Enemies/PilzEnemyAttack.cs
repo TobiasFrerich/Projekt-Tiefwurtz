@@ -45,7 +45,7 @@ namespace Tiefwurtz
         }
         private void CheckIfHammerRange()
         {
-            if (transform.position.x - Player.transform.position.x > -hammerTimeRange && transform.position.x - Player.transform.position.x < hammerTimeRange)
+            if (Vector2.Distance(Player.transform.position, transform.position) < hammerTimeRange)
             {
                 hammerRange = true;
             }
@@ -54,8 +54,7 @@ namespace Tiefwurtz
         }
         private void CheckIfPlayerInRange()
         {
-            if (Player.transform.position.x - gameObject.transform.position.x < attackRange && Player.transform.position.x - gameObject.transform.position.x > -attackRange
-                && Player.transform.position.y - gameObject.transform.position.y < attackRange)
+            if (Vector2.Distance(Player.transform.position, transform.position) < attackRange)
             {
                 inRange = true;
                 StartCoroutine(Attack());

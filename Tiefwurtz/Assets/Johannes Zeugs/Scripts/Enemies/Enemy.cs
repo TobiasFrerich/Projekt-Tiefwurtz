@@ -8,8 +8,9 @@ public class Enemy : MonoBehaviour
 
     public GameObject item;
     public Transform itemTransform;
-    public SpriteRenderer _spriteRenderer;
     public Color _color;
+    public bool Dead = false;
+
     private void Update()
     {
         if (enemyHealth < 1f)
@@ -20,16 +21,25 @@ public class Enemy : MonoBehaviour
 
     private IEnumerator Hurt()
     {
-        Color SpriteColor = _spriteRenderer.color;
-        _spriteRenderer.color = _color;
-        yield return new WaitForSeconds(0.1f);
-        _spriteRenderer.color = SpriteColor;
+        Animator enemyAnim = GetComponent<Animator>();
+        enemyAnim.SetBool("isHit", true);
+        yield return new WaitForSeconds(0.45f);
+        enemyAnim.SetBool("isHit", false);
     }
 
     private void OnDeath()
     {
-        Destroy(gameObject);
+        
+
+        if (Dead == true)
+                return;
+
+        Animator enemyAnim = GetComponent<Animator>();
+        enemyAnim.SetBool("isDead", true);
+        GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         Instantiate(item, itemTransform.position, Quaternion.identity);
+        Dead = true;
     }
 
     public void TakeDamage(float dmg)
