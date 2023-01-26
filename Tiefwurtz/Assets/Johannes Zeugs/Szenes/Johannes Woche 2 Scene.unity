@@ -12905,6 +12905,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 3425156582464640968, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
+      propertyPath: GameManager
+      value: 
+      objectReference: {fileID: 515516491}
     - target: {fileID: 3739025749217200036, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_RootOrder
       value: 10

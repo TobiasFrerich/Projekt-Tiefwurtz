@@ -10,12 +10,15 @@ namespace Tiefwurtz
         [SerializeField] float attackRate = 1f;
         [SerializeField] float rangedAttackRate = 1f;
         [SerializeField] float playerAttackDMG = 20f;
+        [SerializeField] float abilityUseDmg = 2f;
 
         public Sprite attackSprite;
         public Sprite normalSprite;
         public Transform attackpoint;
         public LayerMask enemyLayers;
 
+        public GameManagerScribt GameManager;
+        private Flashlight playerLight;
         private Enemy enemyHealth;
         private float nextAttackTime = 0f;
         private float nextRangedAttackTime = 0f;
@@ -28,6 +31,9 @@ namespace Tiefwurtz
 
         private void Update()
         {
+            if (GameManager.playerIsDead)
+                return;
+
             if (Time.time >= nextAttackTime)
             {
                 if (Input.GetMouseButtonDown(0))
@@ -77,7 +83,11 @@ namespace Tiefwurtz
         {
             Animator playerAnim = GetComponent<Animator>();
             playerAnim.SetBool("isSpecialAttacking", true);
+
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
+            playerLight = GetComponent<Flashlight>();
+            playerLight.backLight.intensity = playerLight.backLight.intensity - abilityUseDmg;
+            playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 4f;
             yield return new WaitForSeconds(0.5f);
             playerAnim.SetBool("isSpecialAttacking", false);
         }
