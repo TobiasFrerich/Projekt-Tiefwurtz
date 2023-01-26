@@ -41,6 +41,9 @@ namespace Tiefwurtz
             if (collision.gameObject == Player)
                 return;
 
+            if (collision.gameObject.tag != "Enemy")
+                return;
+
             enemyHealth = collision.gameObject.GetComponent<Enemy>();
             enemyHealth.TakeDamage(shotDmg);
             Destroy(gameObject);

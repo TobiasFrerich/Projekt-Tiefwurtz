@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 5717107728485650609}
   - component: {fileID: 7921288287557149192}
   - component: {fileID: -1176528691283855992}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TW_Placeholder_Shadow
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8947765895943147315}
   - component: {fileID: 1383309346709153939}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -220,7 +220,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4631315033396260118}
   - component: {fileID: 5648104763039959455}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5403056453456500430}
   - component: {fileID: 1100973257324519450}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}

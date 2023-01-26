@@ -56,7 +56,7 @@ namespace Tiefwurtz
         private IEnumerator MeleeAttack()
         {
             
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackpoint.position, attackRange, enemyLayers);
 
             foreach (Collider2D enemy in hitEnemies)
@@ -76,10 +76,9 @@ namespace Tiefwurtz
         private IEnumerator RangedAttack()
         {
             Animator playerAnim = GetComponent<Animator>();
-            playerAnim.SetBool("isAttacking", true);
+            playerAnim.SetBool("isSpecialAttacking", true);
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
-            playerAnim.SetBool("isAttacking", false);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
