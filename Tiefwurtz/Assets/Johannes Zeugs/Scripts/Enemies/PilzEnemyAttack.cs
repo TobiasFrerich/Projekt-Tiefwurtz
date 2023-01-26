@@ -100,7 +100,7 @@ namespace Tiefwurtz
                         {
                             Vector3 direction = Player.transform.position - transform.position;
                             Vector3 rotation = transform.position - Player.transform.position;
-                            pilzBody.velocity = new Vector2(direction.x, direction.y).normalized * hammerSpeed;
+                            pilzBody.velocity = new Vector2(direction.x, pilzBody.velocity.y).normalized * hammerSpeed;
                         }
                     }
                     else
