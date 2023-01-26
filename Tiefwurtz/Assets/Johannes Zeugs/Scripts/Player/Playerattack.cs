@@ -8,6 +8,8 @@ namespace Tiefwurtz
     {
         [SerializeField] float attackRange = 0.5f;
         [SerializeField] float attackRate = 1f;
+        [SerializeField] float rangedAttackRate = 1f;
+        [SerializeField] float playerAttackDMG = 20f;
 
         public Sprite attackSprite;
         public Sprite normalSprite;
@@ -16,6 +18,11 @@ namespace Tiefwurtz
 
         private Enemy enemyHealth;
         private float nextAttackTime = 0f;
+        private float nextRangedAttackTime = 0f;
+        private bool rangedAttackUnlocked;
+
+        public GameObject playerShot;
+        public Transform playerShotTransform;
 
 
 
@@ -27,13 +34,26 @@ namespace Tiefwurtz
                 {
                     Animator playerAnim = GetComponent<Animator>();
                     playerAnim.SetBool("isAttacking", true);
-                    StartCoroutine(Attack());
+                    StartCoroutine(MeleeAttack());
                     nextAttackTime = Time.time + 1f / attackRate;
+                }
+
+            }
+            if (Time.time >= nextRangedAttackTime)
+            {
+                if (!rangedAttackUnlocked)
+                    return;
+
+                if (Input.GetMouseButtonDown(1))
+                {
+                    Animator playerAnim = GetComponent<Animator>();
+                    StartCoroutine(RangedAttack());
+                    nextRangedAttackTime = Time.time + 1f / rangedAttackRate;
                 }
             }
         }
 
-        private IEnumerator Attack()
+        private IEnumerator MeleeAttack()
         {
             
             yield return new WaitForSeconds(0.5f);
@@ -42,7 +62,7 @@ namespace Tiefwurtz
             foreach (Collider2D enemy in hitEnemies)
             {
                 enemyHealth = enemy.GetComponent<Enemy>();
-                enemyHealth.TakeDamage(20f);
+                enemyHealth.TakeDamage(playerAttackDMG);
                 GetComponentInChildren<ParticleSystem>().Play();
                 ParticleSystem.EmissionModule em = GetComponentInChildren<ParticleSystem>().emission;
                 em.enabled = true;
@@ -53,6 +73,23 @@ namespace Tiefwurtz
             playerAnim.SetBool("isAttacking", false);
         }
 
+        private IEnumerator RangedAttack()
+        {
+            Animator playerAnim = GetComponent<Animator>();
+            playerAnim.SetBool("isAttacking", true);
+            Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
+            yield return new WaitForSeconds(0.5f);
+            playerAnim.SetBool("isAttacking", false);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            GameObject RangedAttackItem = GameObject.FindGameObjectWithTag("RangedAttackItem");
+            if (collision.gameObject == RangedAttackItem)
+            {
+                rangedAttackUnlocked = true;
+            }
+        }
         private void OnDrawGizmosSelected()
         {
             if (attackpoint == null)
