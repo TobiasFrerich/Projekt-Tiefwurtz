@@ -56,6 +56,11 @@ namespace Tiefwurtz
                 Animator enemyAnim = GetComponent<Animator>();
                 enemyAnim.SetBool("isRunning", true);
             }
+            else
+            {
+                Animator enemyAnim = GetComponent<Animator>();
+                enemyAnim.SetBool("isRunning", false);
+            }
 
             if (enemyBody.position.x < leftStartX)
             {

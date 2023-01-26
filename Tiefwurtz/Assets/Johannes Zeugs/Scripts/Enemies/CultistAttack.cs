@@ -75,7 +75,7 @@ namespace Tiefwurtz
             }
             Animator enemyAnim = GetComponent<Animator>();
             enemyAnim.SetBool("isAttacking", true);
-            yield return new WaitForSeconds(0.32f);
+            yield return new WaitForSeconds(0.3f);
             Shot();
             yield return new WaitUntil(() => inRange == false);
             enemyAnim.SetBool("isAttacking", false);
