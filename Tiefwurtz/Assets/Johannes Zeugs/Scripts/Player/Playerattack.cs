@@ -17,6 +17,9 @@ namespace Tiefwurtz
         private Enemy enemyHealth;
         private float nextAttackTime = 0f;
 
+        public GameObject playerShot;
+        public Transform playerShotTransform;
+
 
 
         private void Update()
@@ -27,13 +30,20 @@ namespace Tiefwurtz
                 {
                     Animator playerAnim = GetComponent<Animator>();
                     playerAnim.SetBool("isAttacking", true);
-                    StartCoroutine(Attack());
+                    StartCoroutine(MeleeAttack());
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
+
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                Animator playerAnim = GetComponent<Animator>();
+                StartCoroutine(RangedAttack());
+                nextAttackTime = Time.time + 1f / attackRate;
             }
         }
 
-        private IEnumerator Attack()
+        private IEnumerator MeleeAttack()
         {
             
             yield return new WaitForSeconds(0.5f);
@@ -51,6 +61,12 @@ namespace Tiefwurtz
             yield return new WaitForSeconds(0.4f);
             Animator playerAnim = GetComponent<Animator>();
             playerAnim.SetBool("isAttacking", false);
+        }
+
+        private IEnumerator RangedAttack()
+        {
+            yield return new WaitForSeconds(0.5f);
+            Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
         }
 
         private void OnDrawGizmosSelected()
