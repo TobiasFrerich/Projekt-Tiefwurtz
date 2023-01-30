@@ -65501,12 +65501,20 @@ PrefabInstance:
       value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: lengthInSec
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
       propertyPath: NoiseModule.damping
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
       propertyPath: NoiseModule.enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
       propertyPath: NoiseModule.frequency
@@ -65521,8 +65529,16 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
       propertyPath: NoiseModule.strength.scalar
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
       propertyPath: ClampVelocityModule.magnitude.scalar
@@ -65530,7 +65546,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: -0.01
+      value: -0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
