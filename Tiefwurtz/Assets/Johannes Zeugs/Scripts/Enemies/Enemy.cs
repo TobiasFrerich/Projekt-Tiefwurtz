@@ -35,6 +35,7 @@ public class Enemy : MonoBehaviour
         Animator enemyAnim = GetComponent<Animator>();
         enemyAnim.SetBool("isDead", true);
         GetComponent<CapsuleCollider2D>().enabled = false;
+        GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         Instantiate(item, itemTransform.position, Quaternion.identity);
         Dead = true;

@@ -188,7 +188,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -59118077
-  m_SortingLayer: 3
+  m_SortingLayer: 1
   m_SortingOrder: 2
   m_Sprite: {fileID: -2146242373602252977, guid: 0334df021856cd744a5e4306ea5d7c1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -230,8 +230,8 @@ MonoBehaviour:
   - {fileID: 5923739030463641720}
   - {fileID: 7436961846622183083}
   m_Bounds:
-    m_Center: {x: 0.20726967, y: 1.1864185, z: 0}
-    m_Extent: {x: 9.137826, y: 8.5551815, z: 0}
+    m_Center: {x: 0.2072773, y: 1.186429, z: 0}
+    m_Extent: {x: 9.137819, y: 8.555164, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -584,6 +584,7 @@ GameObject:
   - component: {fileID: 7354583928523903637}
   - component: {fileID: 9111967757286089852}
   - component: {fileID: 383794365491919832}
+  - component: {fileID: 7810578504631019779}
   - component: {fileID: 3396246578541731419}
   - component: {fileID: 5366354698878733025}
   - component: {fileID: 8796196052835342614}
@@ -654,7 +655,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -59118077
-  m_SortingLayer: 3
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2a4e6a7c6774ec7429d5a87ed4c149bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -720,9 +721,35 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.71169555, y: 0.71219087}
-  m_Size: {x: 8.009697, y: 23.133738}
-  m_Direction: 0
+  m_Offset: {x: -0.0047088247, y: 6.663884}
+  m_Size: {x: 23.684906, y: 10.789707}
+  m_Direction: 1
+--- !u!61 &7810578504631019779
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7591828497374483787}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.27554083, y: -3.6370916}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.8125, y: 7.8125}
+    newSize: {x: 3.37, y: 6.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.2614183, y: 12.882395}
+  m_EdgeRadius: 0
 --- !u!114 &3396246578541731419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -757,6 +784,7 @@ MonoBehaviour:
   hammerSpeed: 3
   shakeIntesity: 3
   hammerDMG: 20
+  wieStarkErSinkenSoll: 1
   CinemachineVC: {fileID: 0}
 --- !u!95 &8796196052835342614
 Animator:
