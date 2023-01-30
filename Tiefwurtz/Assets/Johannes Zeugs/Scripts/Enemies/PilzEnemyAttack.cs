@@ -28,9 +28,11 @@ namespace Tiefwurtz
         private float canHammer = 1f;
         private bool inRange;
         private float startingYPos;
+        private float startingIntensity;
 
         private void Start()
         {
+            startingIntensity = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().intensity;
             startingYPos = transform.position.y;
             enemyScr = GetComponent<Enemy>();
             enemyMove = GetComponent<EnemyMovement>();
@@ -67,7 +69,7 @@ namespace Tiefwurtz
         }
         private void CheckIfPlayerInRange()
         {
-            if (Vector2.Distance(Player.transform.position, transform.position) < attackRange)
+            if (Vector2.Distance(Player.transform.position, transform.position) < attackRange && Player.transform.position.y - transform.position.y < 1.5f)
             {
                 pilzBody.gravityScale = 1f;
                 GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().enabled = true;
@@ -78,13 +80,17 @@ namespace Tiefwurtz
             {
                 inRange = false;
                 Hide();
-                GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().enabled = false;
             }
         }
 
         private void Hide()
         {
             pilzBody.gravityScale = 0f;
+            if(GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().intensity > 0f)
+            {
+                GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().intensity -= 0.01f;
+            }
+            GetComponent<EnemyMovement>().enabled = false;
             GetComponent<CapsuleCollider2D>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             if (transform.position.y > startingYPos - wieStarkErSinkenSoll)
@@ -98,8 +104,13 @@ namespace Tiefwurtz
 
         private IEnumerator Attack()
         {
+            if (GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().intensity < startingIntensity)
+            {
+                GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().intensity += 0.1f;
+            }
             GetComponent<CapsuleCollider2D>().enabled = true;
             GetComponent<BoxCollider2D>().enabled = true;
+            GetComponent<EnemyMovement>().enabled = true;
             Animator enemyAnim = GetComponent<Animator>();
             if (!gameManager.playerIsDead && !enemyScr.Dead)
             {
@@ -107,7 +118,7 @@ namespace Tiefwurtz
                 if (inRange)
                 {
                     if (transform.position.y < startingYPos)
-                        pilzBody.velocity = new Vector2(0f, 2f);
+                        pilzBody.velocity = new Vector2(0f, 1.5f);
 
                     yield return new WaitUntil(() => transform.position.y >= startingYPos);
 
@@ -118,6 +129,7 @@ namespace Tiefwurtz
                     {
                         if (!gameManager.playerIsDead && !enemyScr.Dead)
                         {
+                            enemyAnim.SetBool("pilzIsRunning", true);
                             Vector3 direction = Player.transform.position - transform.position;
                             Vector3 rotation = transform.position - Player.transform.position;
                             pilzBody.velocity = new Vector2(direction.x, 0f).normalized * hammerSpeed;
@@ -132,6 +144,7 @@ namespace Tiefwurtz
 
                     if (canHammer == 1f)
                     {
+                        enemyAnim.SetBool("pilzIsRunning", false);
                         enemyAnim.SetBool("isHammering", true);
                         yield return new WaitForSeconds(1f);
                         pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -141,9 +154,7 @@ namespace Tiefwurtz
                             CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
                             cinemachineBasicMultiChannelPerlin.m_AmplitudeGain = shakeIntesity;
                         }
-
                         canHammer = 0f;
-                        yield return new WaitForSeconds(0.5f);
                         if (hammerRange)
                         {
                             if (!gameManager.playerIsDead && !enemyScr.Dead)
@@ -158,8 +169,9 @@ namespace Tiefwurtz
                     yield return new WaitUntil(() => canHammer == 0);
 
 
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(1f);
                     enemyAnim.SetBool("isHammering", false);
+                    enemyAnim.SetBool("pilzIsRunning", true);
                     CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlinZERO =
                     CinemachineVC.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
                     cinemachineBasicMultiChannelPerlinZERO.m_AmplitudeGain = 0;
