@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3484060507153903021}
   - component: {fileID: 3484060507153903026}
   - component: {fileID: 3484060507153903027}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particel System_Player_run
   m_TagString: Untagged
   m_Icon: {fileID: 0}
