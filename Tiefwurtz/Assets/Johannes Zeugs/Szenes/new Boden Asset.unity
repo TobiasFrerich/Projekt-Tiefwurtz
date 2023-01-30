@@ -58033,11 +58033,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3837426675016623110, guid: 17a7a88b362208f44aaaf1bce783716e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 272.81
+      value: 274.48
       objectReference: {fileID: 0}
     - target: {fileID: 3837426675016623110, guid: 17a7a88b362208f44aaaf1bce783716e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 60.9
+      value: 60.31
       objectReference: {fileID: 0}
     - target: {fileID: 3837426675016623110, guid: 17a7a88b362208f44aaaf1bce783716e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65501,12 +65501,28 @@ PrefabInstance:
       value: 0.011
       objectReference: {fileID: 0}
     - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: NoiseModule.damping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: NoiseModule.frequency
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
       propertyPath: ShapeModule.m_Scale.y
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
       propertyPath: ShapeModule.m_Scale.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
+      propertyPath: NoiseModule.strength.scalar
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6642012763296610271, guid: 4d76237cd47409e4daf4413f3c377db9, type: 3}
       propertyPath: ClampVelocityModule.magnitude.scalar
