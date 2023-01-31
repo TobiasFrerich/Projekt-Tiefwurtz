@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
 
         Animator enemyAnim = GetComponent<Animator>();
         enemyAnim.SetBool("isDead", true);
+        GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().enabled = false;
         GetComponent<CapsuleCollider2D>().enabled = false;
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;

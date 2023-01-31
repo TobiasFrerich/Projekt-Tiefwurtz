@@ -11,6 +11,7 @@ namespace Tiefwurtz
         [SerializeField] private float yScale = 1f;
 
         public bool sollStehen;
+        public bool isPilzEnemy;
         public bool doesAttack = false;
 
         public GameObject _leftMax;
@@ -46,6 +47,9 @@ namespace Tiefwurtz
             }
             if (doesAttack)
             {
+                if (isPilzEnemy)
+                    return;
+
                 Animator enemyAnim = GetComponent<Animator>();
                 enemyAnim.SetBool("isRunning", false);
                 return;
@@ -53,11 +57,17 @@ namespace Tiefwurtz
 
             if (enemyBody.velocity.x != 0)
             {
+                if (isPilzEnemy)
+                    return;
+
                 Animator enemyAnim = GetComponent<Animator>();
                 enemyAnim.SetBool("isRunning", true);
             }
             else
             {
+                if (isPilzEnemy)
+                    return;
+
                 Animator enemyAnim = GetComponent<Animator>();
                 enemyAnim.SetBool("isRunning", false);
             }

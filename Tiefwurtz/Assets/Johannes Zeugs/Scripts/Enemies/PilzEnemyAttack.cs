@@ -8,6 +8,7 @@ namespace Tiefwurtz
     public class PilzEnemyAttack : MonoBehaviour
     {
         [SerializeField] private float attackRange;
+        [SerializeField] private float pilzAttackRange = 0.5f;
         [SerializeField] private float hammerTimeRange = 2f;
         [SerializeField] private float hammerSpeed = 5f;
         [SerializeField] private float shakeIntesity;
@@ -15,6 +16,8 @@ namespace Tiefwurtz
         [SerializeField] private float wieStarkErSinkenSoll;
 
         public CinemachineVirtualCamera CinemachineVC;
+        public Transform attackpoint;
+        public LayerMask playerLayers;
 
         private Rigidbody2D pilzBody;
         private Flashlight flashLight;
@@ -159,12 +162,19 @@ namespace Tiefwurtz
                         {
                             if (!gameManager.playerIsDead && !enemyScr.Dead)
                             {
-                                flashLight = Player.GetComponent<Flashlight>();
-                                flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
-                                flashLight.playerLight.intensity = flashLight.playerLight.intensity - hammerDMG * 4f;
+                                Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackpoint.position, pilzAttackRange, playerLayers);
+
+                                foreach (Collider2D player in hitPlayer)
+                                {
+                                    flashLight = player.GetComponent<Flashlight>();
+                                    flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
+                                    flashLight.playerLight.intensity = flashLight.playerLight.intensity - hammerDMG * 4f;
+                                }
                             }
                         }
                     }
+
+                    yield return new WaitForSeconds(0.1f);
 
                     yield return new WaitUntil(() => canHammer == 0);
 
