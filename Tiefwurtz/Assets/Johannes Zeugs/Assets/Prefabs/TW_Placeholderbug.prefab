@@ -203,6 +203,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 335551598201557676, guid: c0998a1295501b74bac82e5fd5e277d9, type: 3}
+      propertyPath: m_LightVolumeIntensity
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 335551598201557676, guid: c0998a1295501b74bac82e5fd5e277d9, type: 3}
+      propertyPath: m_LightVolumeIntensityEnabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 335551598201557676, guid: c0998a1295501b74bac82e5fd5e277d9, type: 3}
       propertyPath: m_ApplyToSortingLayers.Array.size
       value: 5
       objectReference: {fileID: 0}
