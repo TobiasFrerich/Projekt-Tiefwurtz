@@ -46,11 +46,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Backgound3
+    uniqueID: 1898582095
+    locked: 0
+  - name: 'background2 '
+    uniqueID: 3507114783
+    locked: 0
+  - name: Background1
+    uniqueID: 860612423
+    locked: 0
+  - name: Midground
+    uniqueID: 1208757949
+    locked: 0
   - name: Enemies
     uniqueID: 4235849219
-    locked: 0
-  - name: Background
-    uniqueID: 860612423
     locked: 0
   - name: Butterfly
     uniqueID: 1122349705
