@@ -27,6 +27,7 @@ namespace Tiefwurtz
         private EnemyMovement enemyMove;
         private Enemy enemyScr;
 
+        private float timer = 0f;
         private bool hammerRange;
         private float canHammer = 1f;
         private bool inRange;
@@ -107,10 +108,13 @@ namespace Tiefwurtz
 
         private IEnumerator Attack()
         {
+            timer = 0f;
+
             if (GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().intensity < startingIntensity)
             {
                 GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().intensity += 0.1f;
             }
+
             GetComponent<CapsuleCollider2D>().enabled = true;
             GetComponent<BoxCollider2D>().enabled = true;
             GetComponent<EnemyMovement>().enabled = true;
@@ -149,7 +153,8 @@ namespace Tiefwurtz
                     {
                         enemyAnim.SetBool("pilzIsRunning", false);
                         enemyAnim.SetBool("isHammering", true);
-                        yield return new WaitForSeconds(1f);
+                        timer = timer + 0.1f;
+                        yield return new WaitForSeconds(0.8f);
                         pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
                         if (!enemyScr.Dead)
                         {
@@ -166,20 +171,23 @@ namespace Tiefwurtz
 
                                 foreach (Collider2D player in hitPlayer)
                                 {
-                                    flashLight = player.GetComponent<PlayerLight>();
-                                    flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
-                                    flashLight.playerLight.intensity = flashLight.playerLight.intensity - hammerDMG * 4f;
+                                    if (timer < 0.4f)
+                                    {
+                                        flashLight = player.GetComponent<PlayerLight>();
+                                        flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
+                                        flashLight.playerLight.intensity = flashLight.playerLight.intensity - hammerDMG * 4f;
+                                    }
                                 }
                             }
                         }
                     }
 
-                    yield return new WaitForSeconds(0.1f);
+                    //yield return new WaitForSeconds(0.1f);
 
                     yield return new WaitUntil(() => canHammer == 0);
 
 
-                    yield return new WaitForSeconds(1f);
+                    yield return new WaitForSeconds(0.5f);
                     enemyAnim.SetBool("isHammering", false);
                     enemyAnim.SetBool("pilzIsRunning", true);
                     CinemachineBasicMultiChannelPerlin cinemachineBasicMultiChannelPerlinZERO =

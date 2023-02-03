@@ -65,9 +65,9 @@ namespace Tiefwurtz
             {
                 enemyHealth = enemy.GetComponent<Enemy>();
                 enemyHealth.TakeDamage(playerAttackDMG);
-                GetComponentInChildren<ParticleSystem>().Play();
-                ParticleSystem.EmissionModule em = GetComponentInChildren<ParticleSystem>().emission;
-                em.enabled = true;
+                //GetComponentInChildren<ParticleSystem>().Play();
+                //ParticleSystem.EmissionModule em = GetComponentInChildren<ParticleSystem>().emission;
+                //em.enabled = true;
             }
 
             yield return new WaitForSeconds(0.4f);
