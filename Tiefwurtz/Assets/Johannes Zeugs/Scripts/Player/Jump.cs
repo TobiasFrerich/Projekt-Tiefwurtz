@@ -9,7 +9,13 @@ namespace Tiefwurtz
         [SerializeField, Range(0f, 10f)] private float downwardMovementMultiplier = 3f;
         [SerializeField, Range(0f, 5f)] private float upwardMovementMultiplier = 1.7f;
         [SerializeField, Range(0f, 20f)] private float maxFallSpeed = 10f;
-        
+        [SerializeField, Range(0f, 1f)] private float cayoteTime = 0.2f;
+
+        public Transform groundCheckCollider;
+        public float groundCheckRange;
+        public LayerMask goundLayers;
+        public float cayoteTimeCounter;
+
         private Controller controller;
         private Rigidbody2D body;
         private Ground ground;
@@ -43,10 +49,10 @@ namespace Tiefwurtz
 
         private void FixedUpdate()
         {
-            onGround = ground.OnGround;
-            velocity = body.velocity;
+            GroundCheck();
 
-            
+            //onGround = ground.OnGround;
+            velocity = body.velocity;
 
             if (onGround)
             {
@@ -87,11 +93,31 @@ namespace Tiefwurtz
                 body.velocity = new Vector2(velocity.x, (maxFallSpeed * -1));
             }
         }
+        private void GroundCheck()
+        {
+            Collider2D[] grounds = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRange, goundLayers);
+            if (grounds.Length > 0f)
+            {
+                onGround = true;
+                playerAnim.SetBool("isJumping", false);
+            }
+        }
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Ground")
+            {
+                cayoteTimeCounter = cayoteTimeCounter + Time.deltaTime;
+                if (cayoteTimeCounter > cayoteTime)
+                {
+                    onGround = false;
+                    playerAnim.SetBool("isJumping", true);
+                }
+            }
+        }
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if(collision.gameObject.tag == "Ground")
             {
-                currentlyJumping = false;
                 playerAnim.SetBool("isJumping", false);
             }
         }

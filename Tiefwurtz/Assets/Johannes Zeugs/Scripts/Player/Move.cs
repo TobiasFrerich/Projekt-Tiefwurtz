@@ -60,7 +60,7 @@ namespace Tiefwurtz
             else
                 playerAnim.SetBool("isRunning", false);
 
-            desiredVelocity = new Vector2(direction.x, 0f) * Mathf.Max(maxSpeed - ground.Friction, 0f);
+            desiredVelocity = new Vector2(direction.x, 0f) * Mathf.Max(maxSpeed, 0f);
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && dashUnlocked)
             {
                 StartCoroutine(Dash());
