@@ -12,7 +12,7 @@ namespace Tiefwurtz
         private Transform PlayerHitBox;
         private Rigidbody2D shotBody;
         private GameObject player;
-        private Flashlight flashLight;
+        private PlayerLight flashLight;
         private SpriteRenderer _spriteRenderer;
 
 
@@ -53,7 +53,7 @@ namespace Tiefwurtz
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            flashLight = player.GetComponent<Flashlight>();
+            flashLight = player.GetComponent<PlayerLight>();
             flashLight.backLight.intensity = flashLight.backLight.intensity - shotDmg;
             flashLight.playerLight.intensity = flashLight.playerLight.intensity - shotDmg * 4f;
             //StartCoroutine(flashLight.hitPlayer());
