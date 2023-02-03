@@ -48,7 +48,7 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.749
-  m_Color: {r: 0.9633375, g: 1, b: 0.7327044, a: 1}
+  m_Color: {r: 0.95258826, g: 1, b: 0.38364774, a: 1}
   m_Intensity: 0.7
   m_LightVolumeIntensity: 0.1
   m_LightVolumeIntensityEnabled: 1
