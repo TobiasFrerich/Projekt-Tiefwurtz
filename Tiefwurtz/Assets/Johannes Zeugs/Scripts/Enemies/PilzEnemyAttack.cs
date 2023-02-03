@@ -20,7 +20,7 @@ namespace Tiefwurtz
         public LayerMask playerLayers;
 
         private Rigidbody2D pilzBody;
-        private Flashlight flashLight;
+        private PlayerLight flashLight;
         private GameManagerScribt gameManager;
         private GameObject GameManager;
         private GameObject Player;
@@ -166,7 +166,7 @@ namespace Tiefwurtz
 
                                 foreach (Collider2D player in hitPlayer)
                                 {
-                                    flashLight = player.GetComponent<Flashlight>();
+                                    flashLight = player.GetComponent<PlayerLight>();
                                     flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
                                     flashLight.playerLight.intensity = flashLight.playerLight.intensity - hammerDMG * 4f;
                                 }

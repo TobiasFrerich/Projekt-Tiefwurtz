@@ -18,7 +18,7 @@ namespace Tiefwurtz
         public LayerMask enemyLayers;
 
         public GameManagerScribt GameManager;
-        private Flashlight playerLight;
+        private PlayerLight playerLight;
         private Enemy enemyHealth;
         private float nextAttackTime = 0f;
         private float nextRangedAttackTime = 0f;
@@ -85,7 +85,7 @@ namespace Tiefwurtz
             playerAnim.SetBool("isSpecialAttacking", true);
 
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
-            playerLight = GetComponent<Flashlight>();
+            playerLight = GetComponent<PlayerLight>();
             playerLight.backLight.intensity = playerLight.backLight.intensity - abilityUseDmg;
             playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 4f;
             yield return new WaitForSeconds(0.5f);

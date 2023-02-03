@@ -26,7 +26,7 @@ namespace Tiefwurtz
         private Rigidbody2D body;
         private Ground ground;
         private GameObject DashItem;
-        private Flashlight playerLight;
+        private PlayerLight playerLight;
         private Animator playerAnim;
 
         private float maxSpeedChange;
@@ -107,7 +107,7 @@ namespace Tiefwurtz
         {
             playerAnim.SetBool("isDashing", true);
 
-            playerLight = GetComponent<Flashlight>();
+            playerLight = GetComponent<PlayerLight>();
             playerLight.backLight.intensity = playerLight.backLight.intensity - dashUseDmg;
             playerLight.playerLight.intensity = playerLight.playerLight.intensity - dashUseDmg * 4f;
 
