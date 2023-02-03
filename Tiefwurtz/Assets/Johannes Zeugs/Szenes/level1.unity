@@ -64797,7 +64797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 509058538833198671, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_Intensity
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 509058538833198671, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_Vertices.Array.size
@@ -64805,7 +64805,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 509058538833198671, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_LightVolumeIntensity
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 509058538833198671, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_Triangles.Array.size
@@ -71983,6 +71983,14 @@ PrefabInstance:
       propertyPath: GameManager
       value: 
       objectReference: {fileID: 515516489}
+    - target: {fileID: 4052222524028998159, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
+      propertyPath: maxBackLight
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4052222524028998159, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
+      propertyPath: maxPlayerLight
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4316951400367179439, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_RootOrder
       value: 10

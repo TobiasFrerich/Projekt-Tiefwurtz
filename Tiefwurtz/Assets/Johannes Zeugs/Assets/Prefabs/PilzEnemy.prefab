@@ -188,7 +188,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -59118077
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 2
   m_Sprite: {fileID: -2146242373602252977, guid: 0334df021856cd744a5e4306ea5d7c1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -230,8 +230,8 @@ MonoBehaviour:
   - {fileID: 5923739030463641720}
   - {fileID: 7436961846622183083}
   m_Bounds:
-    m_Center: {x: 0.20726967, y: 1.1863832, z: 0}
-    m_Extent: {x: 9.137812, y: 8.55518, z: 0}
+    m_Center: {x: 0.20727444, y: 1.1864176, z: 0}
+    m_Extent: {x: 9.137827, y: 8.555182, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -687,7 +687,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -59118077
-  m_SortingLayer: 1
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2a4e6a7c6774ec7429d5a87ed4c149bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -795,7 +795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f253e2a816ca7a449da0a1432702cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 1
+  enemyHealth: 8
   item: {fileID: 7608196639798980043, guid: f9bb1c7040ae0b14288999d512ac6f32, type: 3}
   itemTransform: {fileID: 6982153119340528180}
   _color: {r: 1, g: 0, b: 0, a: 1}
@@ -817,7 +817,7 @@ MonoBehaviour:
   hammerTimeRange: 2
   hammerSpeed: 3
   shakeIntesity: 3
-  hammerDMG: 20
+  hammerDMG: 2
   wieStarkErSinkenSoll: 1
   CinemachineVC: {fileID: 0}
   attackpoint: {fileID: 7569819933204712269}
