@@ -2438,6 +2438,8 @@ MonoBehaviour:
   backLight: {fileID: 509058538833198671}
   playerLight: {fileID: 4052222522873285521}
   GameManager: {fileID: 0}
+  itemTouchBackLight: 1
+  itemTouchLight: 4
   maxPlayerLight: 1
   maxBackLight: 1
   lightLossBack: 0.4
