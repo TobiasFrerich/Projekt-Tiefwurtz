@@ -109,7 +109,7 @@ namespace Tiefwurtz
 
             playerLight = GetComponent<PlayerLight>();
             playerLight.backLight.intensity = playerLight.backLight.intensity - dashUseDmg;
-            playerLight.playerLight.intensity = playerLight.playerLight.intensity - dashUseDmg * 4f;
+            playerLight.playerLight.intensity = playerLight.playerLight.intensity - dashUseDmg * 3.5f;
 
             canDash = false;
             isDashing = true;

@@ -2440,8 +2440,8 @@ MonoBehaviour:
   GameManager: {fileID: 0}
   itemTouchBackLight: 1
   itemTouchLight: 4
-  maxPlayerLight: 1
-  maxBackLight: 1
+  maxPlayerLight: 14
+  maxBackLight: 5
   lightLossBack: 0.4
   lightLossPlayer: 1.5
   keepLight: 0
@@ -2569,9 +2569,7 @@ MonoBehaviour:
   attackRate: 1
   rangedAttackRate: 1
   playerAttackDMG: 5
-  abilityUseDmg: 2
-  attackSprite: {fileID: 21300000, guid: 4cbbdad250d0a444f8ae4d969fcdaf20, type: 3}
-  normalSprite: {fileID: 21300000, guid: 9025ea45d9bc47c4ebea8ffab64dbd03, type: 3}
+  abilityUseDmg: 0.5
   attackpoint: {fileID: 3308921458699043740}
   enemyLayers:
     serializedVersion: 2

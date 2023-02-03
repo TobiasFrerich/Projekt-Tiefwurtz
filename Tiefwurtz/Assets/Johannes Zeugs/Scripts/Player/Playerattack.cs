@@ -12,8 +12,6 @@ namespace Tiefwurtz
         [SerializeField] float playerAttackDMG = 20f;
         [SerializeField] float abilityUseDmg = 2f;
 
-        public Sprite attackSprite;
-        public Sprite normalSprite;
         public Transform attackpoint;
         public LayerMask enemyLayers;
 
@@ -26,8 +24,6 @@ namespace Tiefwurtz
 
         public GameObject playerShot;
         public Transform playerShotTransform;
-
-
 
         private void Update()
         {
@@ -87,7 +83,7 @@ namespace Tiefwurtz
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
             playerLight = GetComponent<PlayerLight>();
             playerLight.backLight.intensity = playerLight.backLight.intensity - abilityUseDmg;
-            playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 4f;
+            playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 3.5f;
             yield return new WaitForSeconds(0.5f);
             playerAnim.SetBool("isSpecialAttacking", false);
         }

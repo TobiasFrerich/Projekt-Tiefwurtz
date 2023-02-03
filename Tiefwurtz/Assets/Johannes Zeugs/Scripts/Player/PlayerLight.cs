@@ -46,6 +46,12 @@ namespace Tiefwurtz
 
         private void Update()
         {
+            if (playerLight.intensity < -0.5f)
+                playerLight.intensity = -0.1f;
+
+            if (backLight.intensity < -0.5f)
+                backLight.intensity = -0.1f;
+
             RefillLight();
             RefillPlayerLight();
             OnDeath();
@@ -117,7 +123,7 @@ namespace Tiefwurtz
         {
             if (refillPlayer == true)
             {
-                if (playerLight.intensity > newPlayerLight)
+                if (playerLight.intensity > newPlayerLight || playerLight.intensity > maxPlayerLight - 0.2f)
                     refillPlayer = false;
 
                 if (playerLight.intensity < currentPlayerLight)
@@ -125,7 +131,7 @@ namespace Tiefwurtz
                     if (playerLight.intensity < maxPlayerLight)
                     {
                         if (playerLight.intensity < newPlayerLight)
-                            playerLight.intensity = playerLight.intensity + 0.05f;
+                                playerLight.intensity = playerLight.intensity + 0.05f;
                     }
                 }
             }
@@ -134,7 +140,7 @@ namespace Tiefwurtz
         {
             if (refill == true)
             {
-                if (backLight.intensity > newBackLight)
+                if (backLight.intensity > newBackLight || backLight.intensity > maxBackLight - 0.2f)
                     refill = false;
 
                 if (backLight.intensity < currentLight)
