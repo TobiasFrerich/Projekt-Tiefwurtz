@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Johannes Zeugs/Szenes/johannes wochezwei.unity
-    guid: dc99f5d70f2e1b744aa14236448c67f6
+    path: Assets/Johannes Zeugs/Szenes/level1.unity
+    guid: 8806d1c1e211797429018f539ac9e766
   m_configObjects: {}
