@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4f4dad188f19945b855e3360e96b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1
+  enemySpeed: 1.5
   _leftMax: {fileID: 9179769172429692753}
   _rightMax: {fileID: 3766735491798322806}
 --- !u!114 &4637589370224560841
