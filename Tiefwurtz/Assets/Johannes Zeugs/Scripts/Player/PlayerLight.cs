@@ -36,11 +36,6 @@ namespace Tiefwurtz
             gameManager = GameManager.GetComponent<GameManagerScribt>();
             startBackIntensity = backLight.intensity;
             startPlayerIntensity = playerLight.intensity;
-            currenthealthBar.fillAmount = 1f;
-        }
-        private void Awake()
-        {
-            currenthealthBar.fillAmount = 1f;
         }
         private void Update()
         {

@@ -12,17 +12,6 @@ namespace Tiefwurtz
         internal bool enabled; //health
         private float currentHealth;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-            HealthBarTotal.fillAmount = currentHealth / 100;
-        }
-
-        void Update()
-        {
-            currenthealthBar.fillAmount = currentHealth / 100;             // 3 durch 10 für den 0.3
-        }
-
         //health-system
         [SerializeField] private float startingHealth;
         //Accesss-Modifier, damit amn es auch an andere Script erkennen kann

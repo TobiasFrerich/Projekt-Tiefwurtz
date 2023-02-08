@@ -19,10 +19,17 @@ namespace Tiefwurtz
         void Awake()
         {
             shotBody = GetComponent<Rigidbody2D>();
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 mousePosition = GetWorldPositionOnPlane(Input.mousePosition, 0f);
             Vector3 direction = mousePosition - transform.position;
-            Vector3 rotation = transform.position - mousePosition;
             shotBody.velocity = new Vector2(direction.x, direction.y).normalized * force;
+        }
+        public Vector3 GetWorldPositionOnPlane(Vector3 screenPosition, float z)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+            Plane xy = new Plane(Vector3.forward, new Vector3(0, 0, z));
+            float distance;
+            xy.Raycast(ray, out distance);
+            return ray.GetPoint(distance);
         }
 
         private void Update()
