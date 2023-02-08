@@ -6,7 +6,6 @@ namespace Tiefwurtz
 {
     public class PlayerLight : MonoBehaviour
     {
-        [SerializeField] private Image HealthBarTotal;
         [SerializeField] private Image currenthealthBar;
 
         public Light2D backLight;
