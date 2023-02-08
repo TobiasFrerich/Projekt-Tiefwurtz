@@ -65,9 +65,9 @@ namespace Tiefwurtz
             {
                 enemyHealth = enemy.GetComponent<Enemy>();
                 enemyHealth.TakeDamage(playerAttackDMG);
-                //GetComponentInChildren<ParticleSystem>().Play();
-                //ParticleSystem.EmissionModule em = GetComponentInChildren<ParticleSystem>().emission;
-                //em.enabled = true;
+                GetComponentInChildren<ParticleSystem>().Play();
+                ParticleSystem.EmissionModule em = GetComponentInChildren<ParticleSystem>().emission;
+                em.enabled = true;
             }
 
             yield return new WaitForSeconds(0.4f);
@@ -83,7 +83,7 @@ namespace Tiefwurtz
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
             playerLight = GetComponent<PlayerLight>();
             playerLight.backLight.intensity = playerLight.backLight.intensity - abilityUseDmg;
-            playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 3.5f;
+            playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 2f;
             yield return new WaitForSeconds(0.5f);
             playerAnim.SetBool("isSpecialAttacking", false);
         }

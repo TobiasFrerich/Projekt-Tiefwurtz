@@ -1,13 +1,14 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.Rendering.Universal;
-using Cinemachine;
+using UnityEngine.UI;
+
 namespace Tiefwurtz
 {
     public class PlayerLight : MonoBehaviour
     {
+        [SerializeField] private Image HealthBarTotal;
+        [SerializeField] private Image currenthealthBar;
+
         public Light2D backLight;
         public Light2D playerLight;
         public GameObject GameManager;
@@ -21,9 +22,6 @@ namespace Tiefwurtz
         public bool keepLight;
 
         private GameManagerScribt gameManager;
-        private GameObject enemy;
-        private CultistAttack cultAttack;
-        private SpriteRenderer _spriteRenderer;
 
         private float newBackLight;
         private float newPlayerLight;
@@ -36,16 +34,19 @@ namespace Tiefwurtz
 
         private void Start()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
             gameManager = GameManager.GetComponent<GameManagerScribt>();
-            enemy = GameObject.FindGameObjectWithTag("Enemy");
-            cultAttack = enemy.GetComponent<CultistAttack>();
             startBackIntensity = backLight.intensity;
             startPlayerIntensity = playerLight.intensity;
+            currenthealthBar.fillAmount = 1f;
         }
-
+        private void Awake()
+        {
+            currenthealthBar.fillAmount = 1f;
+        }
         private void Update()
         {
+            currenthealthBar.fillAmount = backLight.intensity / maxBackLight;
+
             if (playerLight.intensity < -0.5f)
                 playerLight.intensity = -0.1f;
 
