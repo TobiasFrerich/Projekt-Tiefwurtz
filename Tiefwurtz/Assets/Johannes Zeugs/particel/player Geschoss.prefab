@@ -1305,9 +1305,9 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0, g: 1, b: 0.50853395, a: 1}
-        key1: {r: 0.008158248, g: 0.5188679, b: 0.095675774, a: 1}
-        key2: {r: 0, g: 0.3490566, b: 0.010437317, a: 0}
+        key0: {r: 0, g: 1, b: 0.90212274, a: 1}
+        key1: {r: 0, g: 0.8396226, b: 0.54585487, a: 1}
+        key2: {r: 0, g: 0.45037982, b: 0.6509434, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
@@ -1482,7 +1482,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -2413806693520163455, guid: 439084d28cc31d645a32515ba2e326c5, type: 3}
+    - sprite: {fileID: 21300000, guid: e4edf7ccb1b6beb4f821d16e72cce10e, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4779,8 +4779,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 30910195
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
