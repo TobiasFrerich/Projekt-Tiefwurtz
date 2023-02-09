@@ -21,6 +21,9 @@ namespace Tiefwurtz
         [SerializeField] private AudioSource DashSound;
         [SerializeField] private AudioSource Run;
 
+        [SerializeField] private ParticleSystem DashParticals;
+        
+
         [SerializeField] float dashUseDmg = 2f;
 
         private Controller controller;
@@ -113,11 +116,13 @@ namespace Tiefwurtz
         }
         private IEnumerator Dash()
         {
+            DashParticals.Play();
+            ParticleSystem.EmissionModule em = DashParticals.emission;
+            em.enabled = true;
             playerAnim.SetBool("isDashing", true);
             DashSound.Play();
             playerLight = GetComponent<PlayerLight>();
             playerLight.backLight.intensity = playerLight.backLight.intensity - dashUseDmg;
-            playerLight.playerLight.intensity = playerLight.playerLight.intensity - dashUseDmg * 3.5f;
 
             canDash = false;
             isDashing = true;
@@ -130,6 +135,9 @@ namespace Tiefwurtz
             body.gravityScale = originalGravity;
             isDashing = false;
             playerAnim.SetBool("isDashing", false);
+            DashParticals.Stop();
+            ParticleSystem.EmissionModule emt = DashParticals.emission;
+            emt.enabled = false;
             yield return new WaitForSeconds(dashingCooldown);
             canDash = true;
         }

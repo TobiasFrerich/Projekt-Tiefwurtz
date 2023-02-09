@@ -17,7 +17,6 @@ namespace Tiefwurtz
             if (Input.GetKeyDown("r"))
             {
                 backLight.intensity = pl.startBackIntensity;
-                playerLight.intensity = pl.startPlayerIntensity;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }

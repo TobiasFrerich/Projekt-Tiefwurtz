@@ -2,54 +2,68 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+namespace Tiefwurtz
 {
-    [SerializeField] private float enemyHealth = 100f;
-    [SerializeField] private AudioSource Hit;
-
-    public GameObject item;
-    public Transform itemTransform;
-    public Color _color;
-    public bool Dead = false;
-
-    private void Update()
+    public class Enemy : MonoBehaviour
     {
-        if (enemyHealth < 1f)
+        [SerializeField] private float enemyHealth = 100f;
+        [SerializeField] private AudioSource Hit;
+
+        [SerializeField] private ParticleSystem DeadParticals;
+
+        private EnemyMovement enemyMovement;
+        public GameObject item;
+        public Transform itemTransform;
+        public Color _color;
+        public bool Dead = false;
+
+        private void Start()
         {
-            OnDeath();
+            enemyMovement = GetComponent<EnemyMovement>();
         }
-    }
+        private void Update()
+        {
+            if (enemyHealth < 1f)
+            {
+                OnDeath();
+            }
+        }
 
-    private IEnumerator Hurt()
-    {
-        Animator enemyAnim = GetComponent<Animator>();
-        enemyAnim.SetBool("isHit", true);
-        Hit.Play();
-        yield return new WaitForSeconds(0.45f);
-        enemyAnim.SetBool("isHit", false);
-    }
+        private IEnumerator Hurt()
+        {
+            Animator enemyAnim = GetComponent<Animator>();
+            enemyAnim.SetBool("isHit", true);
+            Hit.Play();
+            yield return new WaitForSeconds(0.45f);
+            enemyAnim.SetBool("isHit", false);
+        }
 
-    private void OnDeath()
-    {
-        if (Dead == true)
+        private void OnDeath()
+        {
+            if (Dead == true)
                 return;
 
-        Animator enemyAnim = GetComponent<Animator>();
-        enemyAnim.SetBool("isDead", true);
-        GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().enabled = false;
-        GetComponent<CapsuleCollider2D>().enabled = false;
-        GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        Instantiate(item, itemTransform.position, Quaternion.identity);
-        Dead = true;
-    }
+            DeadParticals.Play();
+            ParticleSystem.EmissionModule em = DeadParticals.emission;
+            em.enabled = true;
 
-    public void TakeDamage(float dmg)
-    {
-        if (enemyHealth > 1f)
-        {
-            StartCoroutine(Hurt());
+            Animator enemyAnim = GetComponent<Animator>();
+            enemyAnim.SetBool("isDead", true);
+            GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().enabled = false;
+            GetComponent<CapsuleCollider2D>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+            Instantiate(item, itemTransform.position, Quaternion.identity);
+            Dead = true;
         }
-        enemyHealth = enemyHealth - dmg;
+
+        public void TakeDamage(float dmg)
+        {
+            if (enemyHealth > 1f)
+            {
+                StartCoroutine(Hurt());
+            }
+            enemyHealth = enemyHealth - dmg;
+        }
     }
 }

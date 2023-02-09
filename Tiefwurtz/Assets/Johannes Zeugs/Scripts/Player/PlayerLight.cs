@@ -9,6 +9,8 @@ namespace Tiefwurtz
         [SerializeField] private Image currenthealthBar;
         [SerializeField] private AudioSource itemCollect;
 
+        [SerializeField] private ParticleSystem GetLightParticals;
+
         public Light2D backLight;
         public Light2D playerLight;
         public GameObject GameManager;
@@ -96,6 +98,9 @@ namespace Tiefwurtz
         {
             if (other.gameObject.tag == "Item")
             {
+                GetLightParticals.Play();
+                ParticleSystem.EmissionModule em = GetLightParticals.emission;
+                em.enabled = true;
                 itemCollect.Play();
                 currentLight = (backLight.intensity + startBackIntensity);
                 //currentPlayerLight = (playerLight.intensity + startPlayerIntensity);

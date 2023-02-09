@@ -12,7 +12,9 @@ namespace Tiefwurtz
         [SerializeField, Range(0f, 1f)] private float cayoteTime = 0.2f;
 
         [SerializeField] private AudioSource jump;
-        
+
+        [SerializeField] private ParticleSystem RunParticals;
+
 
         public Transform groundCheckCollider;
         public float groundCheckRange;
@@ -101,6 +103,9 @@ namespace Tiefwurtz
             Collider2D[] grounds = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRange, goundLayers);
             if (grounds.Length > 0f)
             {
+                RunParticals.Play();
+                ParticleSystem.EmissionModule em = RunParticals.emission;
+                em.enabled = true;
                 onGround = true;
                 playerAnim.SetBool("isJumping", false);
             }
@@ -109,9 +114,13 @@ namespace Tiefwurtz
         {
             if (collision.gameObject.tag == "Ground")
             {
+                RunParticals.Stop();
+                ParticleSystem.EmissionModule em = RunParticals.emission;
+                em.enabled = false;
                 cayoteTimeCounter = cayoteTimeCounter + Time.deltaTime;
                 if (cayoteTimeCounter > cayoteTime)
                 {
+                    
                     onGround = false;
                     playerAnim.SetBool("isJumping", true);
                 }
