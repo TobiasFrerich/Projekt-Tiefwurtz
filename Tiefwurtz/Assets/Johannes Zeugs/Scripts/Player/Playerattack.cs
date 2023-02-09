@@ -83,7 +83,7 @@ namespace Tiefwurtz
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
             playerLight = GetComponent<PlayerLight>();
             playerLight.backLight.intensity = playerLight.backLight.intensity - abilityUseDmg;
-            playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 0.5f;
+            //playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 0.5f;
             yield return new WaitForSeconds(0.5f);
             playerAnim.SetBool("isSpecialAttacking", false);
         }

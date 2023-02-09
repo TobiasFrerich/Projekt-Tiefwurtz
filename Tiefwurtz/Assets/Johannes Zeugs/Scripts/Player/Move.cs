@@ -35,7 +35,7 @@ namespace Tiefwurtz
 
         private bool dashUnlocked = false;
         private bool onGround;
-        private bool canDash = true;
+        public static bool canDash = true;
         public bool isDashing;
         private bool currentlyJumping;
 
