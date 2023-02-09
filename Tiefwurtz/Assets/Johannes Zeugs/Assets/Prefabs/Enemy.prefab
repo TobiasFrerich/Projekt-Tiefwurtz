@@ -1107,6 +1107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 4
   attackSpeed: 1.65
+  EnemyAttackSound: {fileID: 396760619873635552}
   shot: {fileID: 1709793276733744158, guid: 2a04d3a61a197fb47b755d5eca4b34d4, type: 3}
   shotTransform: {fileID: 6982153119340528180}
 --- !u!61 &6491181188418789586

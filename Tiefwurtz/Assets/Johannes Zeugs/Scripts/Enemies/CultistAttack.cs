@@ -10,6 +10,8 @@ namespace Tiefwurtz
         [SerializeField] private float attackRange;
         [SerializeField] private float attackSpeed;
 
+        [SerializeField] private AudioSource EnemyAttackSound;
+
         private Enemy enemyScr;
         private Rigidbody2D cultistBody;
         private GameObject Player;
@@ -76,6 +78,7 @@ namespace Tiefwurtz
             Animator enemyAnim = GetComponent<Animator>();
             enemyAnim.SetBool("isAttacking", true);
             yield return new WaitForSeconds(0.3f);
+            EnemyAttackSound.Play();
             Shot();
             yield return new WaitUntil(() => inRange == false);
             enemyAnim.SetBool("isAttacking", false);

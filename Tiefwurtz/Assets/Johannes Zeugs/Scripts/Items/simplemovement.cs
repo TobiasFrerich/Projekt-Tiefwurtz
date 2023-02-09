@@ -6,11 +6,15 @@ public class simplemovement : MonoBehaviour
 {
     private float startY;
     private Rigidbody2D body;
+    [SerializeField] private AudioSource ButterflySound;
+    [SerializeField] private AudioSource ButterflySound2;
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         body.velocity = new Vector2(0f, 0.5f);
         startY = body.position.y;
+        ButterflySound.Play();
+        ButterflySound2.Play();
     }
 
     
