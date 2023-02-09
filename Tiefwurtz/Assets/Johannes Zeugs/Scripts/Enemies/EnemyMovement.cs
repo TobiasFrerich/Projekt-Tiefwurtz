@@ -10,6 +10,8 @@ namespace Tiefwurtz
         [SerializeField] private float xScale = 1f;
         [SerializeField] private float yScale = 1f;
 
+        [SerializeField] private AudioSource WalkSound;
+
         public bool sollStehen;
         public bool isPilzEnemy;
         public bool doesAttack = false;
@@ -61,6 +63,7 @@ namespace Tiefwurtz
                 if (isPilzEnemy)
                     return;
 
+                WalkSound.enabled = true;
                 Animator enemyAnim = GetComponent<Animator>();
                 enemyAnim.SetBool("isRunning", true);
             }
@@ -68,7 +71,7 @@ namespace Tiefwurtz
             {
                 if (isPilzEnemy)
                     return;
-
+                WalkSound.enabled = false;
                 Animator enemyAnim = GetComponent<Animator>();
                 enemyAnim.SetBool("isRunning", false);
             }

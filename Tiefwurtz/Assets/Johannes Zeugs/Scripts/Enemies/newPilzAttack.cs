@@ -180,8 +180,6 @@ namespace Tiefwurtz
 
         private Vector3 GetPlayerPosition()
         {
-            
-
             if (!gameManager.playerIsDead)
             {
                 savedPlayerPos = true;
@@ -203,6 +201,9 @@ namespace Tiefwurtz
 
         private void Hide()
         {
+            if (isHammering)
+                return;
+
             Collider2D[] hiddenCollider = Physics2D.OverlapCircleAll(hiddenPoint.position, pilzAttackRange, groundLayers);
             
 

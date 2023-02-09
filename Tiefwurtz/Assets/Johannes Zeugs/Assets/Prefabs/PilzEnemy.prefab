@@ -1386,6 +1386,7 @@ MonoBehaviour:
   enemySpeed: 1
   xScale: 0.1
   yScale: 0.1
+  WalkSound: {fileID: 0}
   sollStehen: 0
   isPilzEnemy: 1
   doesAttack: 0
@@ -1582,7 +1583,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1634,7 +1635,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: 28e235e05941f344eb5b9d62a27c1484, type: 2}
   m_audioClip: {fileID: 8300000, guid: 2a459661b93d99e47b5187c04543eeed, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.791
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1678,7 +1679,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
