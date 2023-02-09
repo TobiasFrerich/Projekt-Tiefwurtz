@@ -12,6 +12,9 @@ namespace Tiefwurtz
         public Light2D playerLight;
         public GameObject GameManager;
 
+        public static float playerLightIntensity;
+        public static float backLightIntensity;
+
         public float itemTouchBackLight = 1f;
         public float itemTouchLight = 1f;
         public float maxPlayerLight = 10f;
@@ -22,10 +25,11 @@ namespace Tiefwurtz
 
         private GameManagerScribt gameManager;
 
+
         private float newBackLight;
         private float newPlayerLight;
-        private float startBackIntensity;
-        private float startPlayerIntensity;
+        public float startBackIntensity;
+        public float startPlayerIntensity;
         private float currentLight;
         private float currentPlayerLight;
         private bool refill = false;
@@ -36,10 +40,18 @@ namespace Tiefwurtz
             gameManager = GameManager.GetComponent<GameManagerScribt>();
             startBackIntensity = backLight.intensity;
             startPlayerIntensity = playerLight.intensity;
+            if (backLightIntensity > 0f)
+            {
+                playerLight.intensity = playerLightIntensity;
+                backLight.intensity = backLightIntensity;
+            }
         }
         private void Update()
         {
-            currenthealthBar.fillAmount = backLight.intensity / maxBackLight;
+            playerLightIntensity = playerLight.intensity;
+            backLightIntensity = backLight.intensity;
+
+            currenthealthBar.fillAmount = backLightIntensity / maxBackLight;
 
             if (playerLight.intensity < -0.5f)
                 playerLight.intensity = -0.1f;

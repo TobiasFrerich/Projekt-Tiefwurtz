@@ -20,7 +20,7 @@ namespace Tiefwurtz
         private Enemy enemyHealth;
         private float nextAttackTime = 0f;
         private float nextRangedAttackTime = 0f;
-        private bool rangedAttackUnlocked;
+        public static bool rangedAttackUnlocked;
 
         public GameObject playerShot;
         public Transform playerShotTransform;
@@ -83,7 +83,7 @@ namespace Tiefwurtz
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
             playerLight = GetComponent<PlayerLight>();
             playerLight.backLight.intensity = playerLight.backLight.intensity - abilityUseDmg;
-            playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 2f;
+            playerLight.playerLight.intensity = playerLight.playerLight.intensity - abilityUseDmg * 0.5f;
             yield return new WaitForSeconds(0.5f);
             playerAnim.SetBool("isSpecialAttacking", false);
         }

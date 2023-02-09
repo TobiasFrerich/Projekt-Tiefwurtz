@@ -5338,11 +5338,11 @@ MonoBehaviour:
   m_LightType: 1
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 1
-  m_Color: {r: 0.24705884, g: 0.3921569, b: 0.43529415, a: 1}
-  m_Intensity: 3
+  m_Color: {r: 0.21181913, g: 0.37353012, b: 0.3962264, a: 1}
+  m_Intensity: 10
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000047e74b331f1ad8cb
+  m_ApplyToSortingLayers: bd2e0c4847e74b33
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -6094,10 +6094,10 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.9
   m_Color: {r: 0.20652366, g: 0.32847098, b: 0.3679245, a: 1}
-  m_Intensity: 10
+  m_Intensity: 4
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000047e74b3389b2e542f3a6d7011f1ad8cb03ee79fc
+  m_ApplyToSortingLayers: f3a6d70147e74b3303ee79fc
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -7239,7 +7239,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2bcadd9179bbed3479caa4cab4ca1b31, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -7256,15 +7256,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c2d339e5d9f0e40b3a2f50c8c3bc41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthBarTotal: {fileID: 0}
   currenthealthBar: {fileID: 0}
   backLight: {fileID: 509058538833198671}
   playerLight: {fileID: 4052222522873285521}
   GameManager: {fileID: 0}
-  itemTouchBackLight: 2
-  itemTouchLight: 4
-  maxPlayerLight: 14
-  maxBackLight: 14
+  itemTouchBackLight: 1
+  itemTouchLight: 1
+  maxPlayerLight: 15
+  maxBackLight: 15
   lightLossBack: 0.8
   lightLossPlayer: 1.5
   keepLight: 0
