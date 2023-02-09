@@ -2280,7 +2280,7 @@ ScriptedImporter:
     - {x: 46, y: 47}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -603, y: -324}
+    uvTransform: {x: -603, y: -320}
   - name: arm l coloring Kopie 4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -2289,7 +2289,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 489
-      y: 1285
+      y: 1289
       width: 240
       height: 755
     spriteID: c771eeade7e0b3d48acba46c35291873
@@ -3381,7 +3381,7 @@ ScriptedImporter:
     - {x: 33, y: 34}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -26, y: 904}
+    uvTransform: {x: -26, y: 908}
   - name: Bein r coloring Kopie 4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -3956,7 +3956,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 4
-      y: 1285
+      y: 1289
       width: 477
       height: 549
     spriteID: 0c82c8b4881078946becd5f5e1479448
@@ -4523,7 +4523,7 @@ ScriptedImporter:
     - {x: 35, y: 36}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -700, y: 1257}
+    uvTransform: {x: -700, y: 1261}
   characterData:
     bones:
     - name: bone_1
@@ -4743,7 +4743,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: c771eeade7e0b3d48acba46c35291873
     layerID: 121
-    mosaicPosition: {x: 489, y: 1285}
+    mosaicPosition: {x: 489, y: 1289}
     flatten: 0
     isImported: 1
     isVisible: 1
@@ -4763,7 +4763,7 @@ ScriptedImporter:
     parentIndex: -1
     spriteID: 0c82c8b4881078946becd5f5e1479448
     layerID: 115
-    mosaicPosition: {x: 4, y: 1285}
+    mosaicPosition: {x: 4, y: 1289}
     flatten: 0
     isImported: 1
     isVisible: 1
