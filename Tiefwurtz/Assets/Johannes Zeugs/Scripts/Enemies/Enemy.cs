@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float enemyHealth = 100f;
+    [SerializeField] private AudioSource Hit;
 
     public GameObject item;
     public Transform itemTransform;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
     {
         Animator enemyAnim = GetComponent<Animator>();
         enemyAnim.SetBool("isHit", true);
+        Hit.Play();
         yield return new WaitForSeconds(0.45f);
         enemyAnim.SetBool("isHit", false);
     }

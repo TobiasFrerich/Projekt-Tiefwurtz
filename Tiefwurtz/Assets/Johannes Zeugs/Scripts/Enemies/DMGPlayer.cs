@@ -28,7 +28,6 @@ namespace Tiefwurtz
                 Hit.Play();
                 flashLight = Player.GetComponent<PlayerLight>();
                 flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
-                Debug.Log("DAMAGE");
             }
         }
     }

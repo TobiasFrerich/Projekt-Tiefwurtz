@@ -15,7 +15,9 @@ namespace Tiefwurtz
         [SerializeField] private float hammerDMG;
         [SerializeField] private float wieStarkErSinkenSoll;
 
-        
+        [SerializeField] private AudioSource AttackSound;
+
+
 
         public CinemachineVirtualCamera CinemachineVC;
         public Transform hiddenPoint;
@@ -283,6 +285,8 @@ namespace Tiefwurtz
                 yield return new WaitForSeconds(0.16f);
                 if (!enemyScr.Dead)
                 {
+                    AttackSound.Play();
+
                     spikesSpR.GetComponent<SpriteRenderer>().enabled = true;
                     spikesSpL.GetComponent<SpriteRenderer>().enabled = true;
 
