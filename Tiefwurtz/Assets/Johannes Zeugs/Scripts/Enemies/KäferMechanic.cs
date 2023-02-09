@@ -14,7 +14,6 @@ namespace Tiefwurtz
 
         private Rigidbody2D käferBody;
         
-
         private bool steht = true;
 
         private void Start()
@@ -36,6 +35,8 @@ namespace Tiefwurtz
         }
         private IEnumerator Turn()
         {
+            Animator bugAnim = GetComponent<Animator>();
+            bugAnim.SetBool("isFliped", true);
             playerBody.velocity = new Vector2(playerBody.velocity.x, 7);
             steht = false;
             gameObject.transform.Rotate(new Vector3(0, 0, 180));
@@ -44,6 +45,7 @@ namespace Tiefwurtz
             aufnRücken = true;
             yield return new WaitForSeconds(turnedTimer);
             gameObject.transform.Rotate(new Vector3(0, 0, 180));
+            bugAnim.SetBool("isFliped", false);
             käferBody.constraints = RigidbodyConstraints2D.None;
             käferBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             aufnRücken = false;

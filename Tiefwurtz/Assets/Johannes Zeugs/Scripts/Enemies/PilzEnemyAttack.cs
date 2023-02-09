@@ -139,7 +139,7 @@ namespace Tiefwurtz
                             enemyAnim.SetBool("pilzIsRunning", true);
                             Vector3 direction = Player.transform.position - transform.position;
                             Vector3 rotation = transform.position - Player.transform.position;
-                            pilzBody.velocity = new Vector2(direction.x, 0f).normalized * hammerSpeed;
+                            pilzBody.velocity = new Vector2(direction.x, -0.3f).normalized * hammerSpeed;
                         }
                     }
                     else
@@ -154,7 +154,7 @@ namespace Tiefwurtz
                         enemyAnim.SetBool("pilzIsRunning", false);
                         enemyAnim.SetBool("isHammering", true);
                         timer = timer + 0.1f;
-                        yield return new WaitForSeconds(0.8f);
+                        yield return new WaitForSeconds(0.4f);
                         pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
                         if (!enemyScr.Dead)
                         {
