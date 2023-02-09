@@ -27,7 +27,8 @@ namespace Tiefwurtz
         void Start()
         {
             enemyBody = GetComponent<Rigidbody2D>();
-            enemyBody.velocity = new Vector2(enemySpeed, enemyBody.velocity.y);
+            if(!isPilzEnemy)
+                enemyBody.velocity = new Vector2(enemySpeed, enemyBody.velocity.y);
             rightStartX = _rightMax.transform.position.x;
             leftStartX = _leftMax.transform.position.x;
         }
