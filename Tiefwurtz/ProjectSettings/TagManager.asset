@@ -55,6 +55,9 @@ TagManager:
   - name: Background1
     uniqueID: 860612423
     locked: 0
+  - name: Player
+    uniqueID: 30910195
+    locked: 0
   - name: Midground
     uniqueID: 1208757949
     locked: 0
@@ -63,9 +66,6 @@ TagManager:
     locked: 0
   - name: Butterfly
     uniqueID: 1122349705
-    locked: 0
-  - name: Player
-    uniqueID: 30910195
     locked: 0
   - name: Forground
     uniqueID: 3419937311
