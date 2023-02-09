@@ -61,11 +61,11 @@ TagManager:
   - name: Midground
     uniqueID: 1208757949
     locked: 0
-  - name: Enemies
-    uniqueID: 4235849219
-    locked: 0
   - name: Butterfly
     uniqueID: 1122349705
+    locked: 0
+  - name: Enemies
+    uniqueID: 4235849219
     locked: 0
   - name: Forground
     uniqueID: 3419937311
