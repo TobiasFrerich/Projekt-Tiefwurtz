@@ -7,6 +7,7 @@ namespace Tiefwurtz
     public class PlayerLight : MonoBehaviour
     {
         [SerializeField] private Image currenthealthBar;
+        [SerializeField] private AudioSource itemCollect;
 
         public Light2D backLight;
         public Light2D playerLight;
@@ -95,6 +96,7 @@ namespace Tiefwurtz
         {
             if (other.gameObject.tag == "Item")
             {
+                itemCollect.Play();
                 currentLight = (backLight.intensity + startBackIntensity);
                 //currentPlayerLight = (playerLight.intensity + startPlayerIntensity);
 

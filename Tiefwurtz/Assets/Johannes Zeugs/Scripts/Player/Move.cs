@@ -17,6 +17,10 @@ namespace Tiefwurtz
         [SerializeField, Range(0f, 1f)] private float dashingTime = 0.2f;
         [SerializeField, Range(0f, 10f)] private float dashingCooldown = 1f;
 
+
+        [SerializeField] private AudioSource DashSound;
+        [SerializeField] private AudioSource Run;
+
         [SerializeField] float dashUseDmg = 2f;
 
         private Controller controller;
@@ -56,9 +60,13 @@ namespace Tiefwurtz
             if (body.velocity.x != 0f && !playerAnim.GetBool("isJumping"))
             {
                 playerAnim.SetBool("isRunning", true);
+                Run.enabled = true;
             }
             else
+            {
+                Run.enabled = false;
                 playerAnim.SetBool("isRunning", false);
+            }
 
             desiredVelocity = new Vector2(direction.x, 0f) * Mathf.Max(maxSpeed, 0f);
             if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && dashUnlocked)
@@ -106,7 +114,7 @@ namespace Tiefwurtz
         private IEnumerator Dash()
         {
             playerAnim.SetBool("isDashing", true);
-
+            DashSound.Play();
             playerLight = GetComponent<PlayerLight>();
             playerLight.backLight.intensity = playerLight.backLight.intensity - dashUseDmg;
             playerLight.playerLight.intensity = playerLight.playerLight.intensity - dashUseDmg * 3.5f;
