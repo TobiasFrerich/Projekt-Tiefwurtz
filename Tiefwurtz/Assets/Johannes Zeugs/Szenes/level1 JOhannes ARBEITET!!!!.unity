@@ -16577,7 +16577,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6982153119340528180, guid: 1d591e221dd5b444e855d4d6f52c270b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.629196
+      value: 29.55
       objectReference: {fileID: 0}
     - target: {fileID: 6982153119340528180, guid: 1d591e221dd5b444e855d4d6f52c270b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16611,6 +16611,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7354583928523903637, guid: 1d591e221dd5b444e855d4d6f52c270b, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 2bcadd9179bbed3479caa4cab4ca1b31, type: 2}
     - target: {fileID: 7591828497374483787, guid: 1d591e221dd5b444e855d4d6f52c270b, type: 3}
       propertyPath: m_Name
       value: PilzEnemy
