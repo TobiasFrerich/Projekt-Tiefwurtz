@@ -11,6 +11,9 @@ namespace Tiefwurtz
         [SerializeField, Range(0f, 20f)] private float maxFallSpeed = 10f;
         [SerializeField, Range(0f, 1f)] private float cayoteTime = 0.2f;
 
+        [SerializeField] private AudioSource jump;
+        
+
         public Transform groundCheckCollider;
         public float groundCheckRange;
         public LayerMask goundLayers;
@@ -125,7 +128,9 @@ namespace Tiefwurtz
         {
             if (onGround && currentlyJumping == false)
             {
-                
+
+                jump.Play();
+
                 jumpPhase += 1;
 
                 desiredJump = false;

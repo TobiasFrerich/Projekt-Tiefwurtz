@@ -6,6 +6,8 @@ namespace Tiefwurtz
 {
     public class DMGPlayer : MonoBehaviour
     {
+        [SerializeField] private AudioSource Hit;
+
         private float hammerDMG = 20f;
         private PlayerLight flashLight;
         private GameObject Player;
@@ -23,6 +25,7 @@ namespace Tiefwurtz
             {
                 if (gameManager.playerIsDead)
                     return;
+                Hit.Play();
                 flashLight = Player.GetComponent<PlayerLight>();
                 flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
                 Debug.Log("DAMAGE");

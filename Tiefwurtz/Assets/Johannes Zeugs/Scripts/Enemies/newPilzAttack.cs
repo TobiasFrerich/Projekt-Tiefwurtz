@@ -15,6 +15,8 @@ namespace Tiefwurtz
         [SerializeField] private float hammerDMG;
         [SerializeField] private float wieStarkErSinkenSoll;
 
+        
+
         public CinemachineVirtualCamera CinemachineVC;
         public Transform hiddenPoint;
         public Transform jumpOutPoint;

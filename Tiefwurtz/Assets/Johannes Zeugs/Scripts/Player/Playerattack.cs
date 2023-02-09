@@ -12,6 +12,9 @@ namespace Tiefwurtz
         [SerializeField] float playerAttackDMG = 20f;
         [SerializeField] float abilityUseDmg = 2f;
 
+        [SerializeField] private AudioSource kratzAttack;
+        [SerializeField] private AudioSource ShotSound;
+
         public Transform attackpoint;
         public LayerMask enemyLayers;
 
@@ -36,6 +39,7 @@ namespace Tiefwurtz
                 {
                     Animator playerAnim = GetComponent<Animator>();
                     playerAnim.SetBool("isAttacking", true);
+                    kratzAttack.Play();
                     StartCoroutine(MeleeAttack());
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
@@ -79,6 +83,7 @@ namespace Tiefwurtz
         {
             Animator playerAnim = GetComponent<Animator>();
             playerAnim.SetBool("isSpecialAttacking", true);
+            ShotSound.Play();
 
             Instantiate(playerShot, playerShotTransform.position, Quaternion.identity);
             playerLight = GetComponent<PlayerLight>();
