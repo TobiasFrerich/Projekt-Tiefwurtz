@@ -74,10 +74,13 @@ namespace Tiefwurtz
 
         private void Update()
         {
-           // Debug.Log(leftStartX);
+            // Debug.Log(leftStartX);
 
             if (enemyScr.Dead)
+            {
+                pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
                 return;
+            }
 
             if (gameManager.playerIsDead)
                 return;
@@ -107,6 +110,9 @@ namespace Tiefwurtz
         }
         private void CheckIfHammerRange()
         {
+            if (!jumpedOUT)
+                return;
+
             if (hidden)
                 return;
 
@@ -125,6 +131,9 @@ namespace Tiefwurtz
 
         private void WalkTowardsPlayer()
         {
+            if (!jumpedOUT)
+                return;
+
             if (hidden)
                 return;
 
@@ -146,6 +155,7 @@ namespace Tiefwurtz
 
         private void ReturnToStartingPosition()
         {
+
             if (isHammering)
                 return;
 
@@ -168,6 +178,8 @@ namespace Tiefwurtz
 
         private Vector3 GetPlayerPosition()
         {
+            
+
             if (!gameManager.playerIsDead)
             {
                 savedPlayerPos = true;
@@ -269,12 +281,14 @@ namespace Tiefwurtz
                 isHammering = true;
 
                 yield return new WaitForSeconds(0.16f);
+                if (!enemyScr.Dead)
+                {
+                    spikesSpR.GetComponent<SpriteRenderer>().enabled = true;
+                    spikesSpL.GetComponent<SpriteRenderer>().enabled = true;
 
-                spikesSpR.GetComponent<SpriteRenderer>().enabled = true;
-                spikesSpL.GetComponent<SpriteRenderer>().enabled = true;
-
-                spikesSpR.GetComponent<BoxCollider2D>().enabled = true;
-                spikesSpL.GetComponent<BoxCollider2D>().enabled = true;
+                    spikesSpR.GetComponent<BoxCollider2D>().enabled = true;
+                    spikesSpL.GetComponent<BoxCollider2D>().enabled = true;
+                }
 
                 yield return new WaitForSeconds(1.03f);
 
