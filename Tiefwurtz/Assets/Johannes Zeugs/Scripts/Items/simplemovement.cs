@@ -13,6 +13,10 @@ public class simplemovement : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         body.velocity = new Vector2(0f, 0.5f);
         startY = body.position.y;
+        if (ButterflySound == null)
+            return;
+        if (ButterflySound2 == null)
+            return;
         ButterflySound.Play();
         ButterflySound2.Play();
     }
