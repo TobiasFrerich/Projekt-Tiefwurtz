@@ -316,8 +316,8 @@ MonoBehaviour:
   - {fileID: 3285991189782287910}
   - {fileID: 3804922346800427014}
   m_Bounds:
-    m_Center: {x: 0.14887738, y: 0.742771, z: 0}
-    m_Extent: {x: 2.2369785, y: 0.78403914, z: 0}
+    m_Center: {x: 0.0024847984, y: -0.0028498173, z: 0}
+    m_Extent: {x: 2.1975155, y: 1.0592299, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -619,8 +619,8 @@ MonoBehaviour:
   - {fileID: 148758157128354099}
   - {fileID: 8159847518118029295}
   m_Bounds:
-    m_Center: {x: -7.552557, y: -0.66055584, z: 0}
-    m_Extent: {x: 4.7599306, y: 7.503148, z: 0}
+    m_Center: {x: -0.12319374, y: 3.0618825, z: 0}
+    m_Extent: {x: 8.841145, y: 4.948098, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -942,8 +942,8 @@ MonoBehaviour:
   - {fileID: 3286925374994327881}
   - {fileID: 2315237415087596127}
   m_Bounds:
-    m_Center: {x: 0.3474803, y: -0.707397, z: 0}
-    m_Extent: {x: 5.844338, y: 4.8794847, z: 0}
+    m_Center: {x: -0.0072817802, y: 0.008527756, z: 0}
+    m_Extent: {x: 5.9228106, y: 5.6385593, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1049,8 +1049,8 @@ MonoBehaviour:
   - {fileID: 4233364241619298126}
   - {fileID: 8060822358637880536}
   m_Bounds:
-    m_Center: {x: 0.19144845, y: 0.16853297, z: 0}
-    m_Extent: {x: 2.3503466, y: 1.0979081, z: 0}
+    m_Center: {x: -0.008740187, y: 0.00033462048, z: 0}
+    m_Extent: {x: 2.4412603, y: 1.1096654, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1367,8 +1367,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0047088247, y: 6.663884}
-  m_Size: {x: 23.684906, y: 10.789707}
+  m_Offset: {x: 0.35162923, y: 0.7016898}
+  m_Size: {x: 16.447838, y: 10.7898035}
   m_Direction: 1
 --- !u!61 &7810578504631019779
 BoxCollider2D:
@@ -1383,7 +1383,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.27554083, y: -3.6370916}
+  m_Offset: {x: 0.1381793, y: -5.2743263}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1394,7 +1394,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.2614183, y: 12.882395}
+  m_Size: {x: 5.132429, y: 8.1904545}
   m_EdgeRadius: 0
 --- !u!114 &3396246578541731419
 MonoBehaviour:
@@ -1408,7 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f253e2a816ca7a449da0a1432702cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 8
+  enemyHealth: 1
   item: {fileID: 7608196639798980043, guid: f9bb1c7040ae0b14288999d512ac6f32, type: 3}
   itemTransform: {fileID: 6982153119340528180}
   _color: {r: 1, g: 0, b: 0, a: 1}
