@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Johannes Zeugs/Szenes/Menu.unity
+    guid: e7eed5a7cb8a5d7478d884608168b19a
+  - enabled: 1
     path: Assets/Johannes Zeugs/Szenes/level1.unity
     guid: 8806d1c1e211797429018f539ac9e766
   - enabled: 1
