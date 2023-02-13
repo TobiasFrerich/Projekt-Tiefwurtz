@@ -443,8 +443,8 @@ MonoBehaviour:
   - {fileID: 7663327737381841806}
   - {fileID: 6900851307037013064}
   m_Bounds:
-    m_Center: {x: -40.57245, y: -131.27362, z: 0}
-    m_Extent: {x: 0.42718315, y: 2.1675339, z: 0}
+    m_Center: {x: -40.57245, y: -131.2736, z: 0}
+    m_Extent: {x: 0.42717934, y: 2.1675262, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -550,8 +550,8 @@ MonoBehaviour:
   - {fileID: 7183035842456442579}
   - {fileID: 8273065951682762474}
   m_Bounds:
-    m_Center: {x: -29.103111, y: -113.25398, z: 0}
-    m_Extent: {x: 0.78071785, y: 1.4912262, z: 0}
+    m_Center: {x: -29.103107, y: -113.254, z: 0}
+    m_Extent: {x: 0.78071976, y: 1.4912224, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -805,7 +805,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 509437772606194541}
   m_Bounds:
-    m_Center: {x: -30.174927, y: -115.83185, z: 0}
+    m_Center: {x: -30.174936, y: -115.83183, z: 0}
     m_Extent: {x: 0.7848053, y: 0.62238693, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 1878066085764088824}
   m_Bounds:
-    m_Center: {x: -27.407906, y: -113.98375, z: 0}
+    m_Center: {x: -27.407898, y: -113.98375, z: 0}
     m_Extent: {x: 0.73171234, y: 3.7564049, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1735,7 +1735,7 @@ MonoBehaviour:
   m_Intensity: 1.99
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 0000000047e74b3389b2e542f3a6d70103ee79fc
+  m_ApplyToSortingLayers: 03ee79fc
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -2282,8 +2282,8 @@ MonoBehaviour:
   - {fileID: 6672744301726626795}
   - {fileID: 1173159103575759923}
   m_Bounds:
-    m_Center: {x: -31.966072, y: -110.106186, z: 0}
-    m_Extent: {x: 1.1054697, y: 1.2864189, z: 0}
+    m_Center: {x: -31.966068, y: -110.1062, z: 0}
+    m_Extent: {x: 1.1054764, y: 1.2864227, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0

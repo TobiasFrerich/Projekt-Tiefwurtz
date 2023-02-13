@@ -108,8 +108,8 @@ MonoBehaviour:
   - {fileID: 6991808296653680274}
   - {fileID: 8797296781929343102}
   m_Bounds:
-    m_Center: {x: 0.119529605, y: -0.15107512, z: 0}
-    m_Extent: {x: 1.9554805, y: 1.3876153, z: 0}
+    m_Center: {x: 0.11953151, y: -0.15108073, z: 0}
+    m_Extent: {x: 1.9554795, y: 1.3876123, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Intensity: 6
   m_LightVolumeIntensity: 0.2
   m_LightVolumeIntensityEnabled: 1
-  m_ApplyToSortingLayers: 0000000089b2e542f3a6d70103ee79fcbd2e0c48
+  m_ApplyToSortingLayers: 0000000089b2e542bd2e0c48
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
