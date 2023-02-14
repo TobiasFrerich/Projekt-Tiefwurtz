@@ -1471,7 +1471,7 @@ MonoBehaviour:
   hammerTimeRange: 2
   hammerSpeed: 3
   shakeIntesity: 3
-  hammerDMG: 2
+  hammerDMG: 0.00001
   wieStarkErSinkenSoll: 1
   CinemachineVC: {fileID: 0}
   attackpoint: {fileID: 7569819933204712269}
