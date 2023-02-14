@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4399378845403524387}
   - component: {fileID: 6111032157124159911}
   m_Layer: 0
-  m_Name: CamTransform
+  m_Name: DeadPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -5008,7 +5008,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -19233,7 +19233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547904019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.26, y: 28.64, z: -10}
+  m_LocalPosition: {x: 47.53, y: 32.76, z: -10}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35234,11 +35234,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4052222524028998153, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.26
+      value: 47.53
       objectReference: {fileID: 0}
     - target: {fileID: 4052222524028998153, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28.64
+      value: 32.76
       objectReference: {fileID: 0}
     - target: {fileID: 4052222524028998153, guid: d9af9545c67a81745bd5442eb5acc4bf, type: 3}
       propertyPath: m_LocalPosition.z

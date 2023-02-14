@@ -7220,7 +7220,7 @@ MonoBehaviour:
   goundLayers:
     serializedVersion: 2
     m_Bits: 4096
-  cayoteTimeCounter: 0
+  cayoteTimeCounter: 0.5
   currentlyJumping: 0
 --- !u!114 &4052222524028998157
 MonoBehaviour:
@@ -7270,21 +7270,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c2d339e5d9f0e40b3a2f50c8c3bc41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currenthealthBar: {fileID: 0}
   itemCollect: {fileID: 5517199058325803302}
   GetLightParticals: {fileID: 7951012429919899876}
   backLight: {fileID: 509058538833198671}
   playerLight: {fileID: 4052222522873285521}
-  GameManager: {fileID: 0}
   itemTouchBackLight: 1
-  itemTouchLight: 1
-  maxPlayerLight: 15
   maxBackLight: 15
   lightLossBack: 0.8
-  lightLossPlayer: 1.5
   keepLight: 0
   startBackIntensity: 0
-  startPlayerIntensity: 0
 --- !u!96 &4052222524028998256
 TrailRenderer:
   serializedVersion: 2
@@ -7416,7 +7410,6 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 2112
-  GameManager: {fileID: 0}
   playerShot: {fileID: 1709793276733744158, guid: 0a87cee8dbed3184aa7ce93e963ce525, type: 3}
   playerShotTransform: {fileID: 4052222524028998153}
 --- !u!95 &2206905687426295307

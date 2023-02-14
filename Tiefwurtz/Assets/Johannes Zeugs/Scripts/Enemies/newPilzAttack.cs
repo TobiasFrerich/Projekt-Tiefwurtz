@@ -17,8 +17,6 @@ namespace Tiefwurtz
 
         [SerializeField] private AudioSource AttackSound;
 
-
-
         public CinemachineVirtualCamera CinemachineVC;
         public Transform hiddenPoint;
         public Transform jumpOutPoint;
