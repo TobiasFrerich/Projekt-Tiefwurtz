@@ -286,20 +286,26 @@ namespace Tiefwurtz
                 {
                     AttackSound.Play();
 
+                    spikesSpL.SetActive(true);
+                    spikesSpR.SetActive(true);
+                    /*
                     spikesSpR.GetComponent<SpriteRenderer>().enabled = true;
                     spikesSpL.GetComponent<SpriteRenderer>().enabled = true;
 
                     spikesSpR.GetComponent<BoxCollider2D>().enabled = true;
-                    spikesSpL.GetComponent<BoxCollider2D>().enabled = true;
+                    spikesSpL.GetComponent<BoxCollider2D>().enabled = true;*/
                 }
 
                 yield return new WaitForSeconds(1.03f);
 
+                spikesSpL.SetActive(false);
+                spikesSpR.SetActive(false);
+                /*
                 spikesSpR.GetComponent<SpriteRenderer>().enabled = false;
                 spikesSpL.GetComponent<SpriteRenderer>().enabled = false;
 
                 spikesSpR.GetComponent<BoxCollider2D>().enabled = false;
-                spikesSpL.GetComponent<BoxCollider2D>().enabled = false;
+                spikesSpL.GetComponent<BoxCollider2D>().enabled = false;*/
 
                 isHammering = false;
                 savedPlayerPos = false;
