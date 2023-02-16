@@ -12,11 +12,9 @@ namespace Tiefwurtz
         [SerializeField] private ParticleSystem GetLightParticals;
 
         public Light2D backLight;
-        public Light2D playerLight;
 
         public Sprite DeadPlayer;
 
-        private SpriteRenderer _spriteRenderer;
         private Cinemachine.CinemachineVirtualCamera vcam;
         public GameObject camTransform; 
         public GameObject Camera;
