@@ -175,7 +175,6 @@ namespace Tiefwurtz
                                     {
                                         flashLight = player.GetComponent<PlayerLight>();
                                         flashLight.backLight.intensity = flashLight.backLight.intensity - hammerDMG;
-                                        flashLight.playerLight.intensity = flashLight.playerLight.intensity - hammerDMG * 4f;
                                     }
                                 }
                             }

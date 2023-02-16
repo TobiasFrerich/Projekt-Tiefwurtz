@@ -1,70 +1,76 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using System.Collections;
 
 namespace Tiefwurtz
 {
     public class PlayerLight : MonoBehaviour
     {
-        [SerializeField] private Image currenthealthBar;
         [SerializeField] private AudioSource itemCollect;
 
         [SerializeField] private ParticleSystem GetLightParticals;
 
         public Light2D backLight;
-        public Light2D playerLight;
-        public GameObject GameManager;
 
-        public static float playerLightIntensity;
+        public Sprite DeadPlayer;
+
+        private Cinemachine.CinemachineVirtualCamera vcam;
+        public GameObject camTransform; 
+        public GameObject Camera;
+
+
         public static float backLightIntensity;
 
         public float itemTouchBackLight = 1f;
-        public float itemTouchLight = 1f;
-        public float maxPlayerLight = 10f;
         public float maxBackLight = 5f;
         public float lightLossBack = 5f;
-        public float lightLossPlayer = 5f;
         public bool keepLight;
 
-        private GameManagerScribt gameManager;
-
+        private GameObject GameManager;
+        private GameManagerScribt gameManagerScr;
 
         private float newBackLight;
-        private float newPlayerLight;
         public float startBackIntensity;
-        public float startPlayerIntensity;
         private float currentLight;
-        private float currentPlayerLight;
         private bool refill = false;
-        private bool refillPlayer = false;
+        public static bool reachedACheckpoint = false;
+        public static Vector3 currentSavePoint;
+        
 
         private void Start()
         {
-            gameManager = GameManager.GetComponent<GameManagerScribt>();
+            if(!reachedACheckpoint)
+            {
+                currentSavePoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+                transform.position = currentSavePoint;
+            }
+            else
+            {
+                transform.position = currentSavePoint;
+            }
+
+            GameManager = GameObject.FindGameObjectWithTag("GameManager");
+            gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
             startBackIntensity = backLight.intensity;
-            //startPlayerIntensity = playerLight.intensity;
             if (backLightIntensity > 0f)
             {
-                //playerLight.intensity = playerLightIntensity;
                 backLight.intensity = backLightIntensity;
             }
         }
         private void Update()
         {
-            //playerLightIntensity = playerLight.intensity;
             backLightIntensity = backLight.intensity;
-
-            currenthealthBar.fillAmount = backLightIntensity / maxBackLight;
-
-            //if (playerLight.intensity < -0.5f)
-            //    playerLight.intensity = -0.1f;
 
             if (backLight.intensity < -0.5f)
                 backLight.intensity = -0.1f;
 
             RefillLight();
-            //RefillPlayerLight();
-            OnDeath();
+
+            if(!gameManagerScr.playerIsDead)
+            {
+                OnDeath();
+            }
 
             if (keepLight)
                 return;
@@ -72,26 +78,6 @@ namespace Tiefwurtz
             if (backLight.intensity > 0f)
             {
                 backLight.intensity = backLight.intensity - (lightLossBack * 0.001f);
-
-                /*if (playerLight.intensity < backLight.intensity)
-                    return;
-
-                if (playerLight.intensity < backLight.intensity + 20f && playerLight.intensity > backLight.intensity + 4f)
-                {
-                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.002f);
-                }
-                if (playerLight.intensity < backLight.intensity + 4f && playerLight.intensity > backLight.intensity + 3f)
-                {
-                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.001f);
-                }
-                if (playerLight.intensity < backLight.intensity + 3f && playerLight.intensity > backLight.intensity + 2f)
-                {
-                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.0008f);
-                }
-                if (playerLight.intensity < backLight.intensity + 2f)
-                {
-                    playerLight.intensity = playerLight.intensity - (lightLossPlayer * 0.0005f);
-                }*/
             }
         }
         private void OnTriggerEnter2D(Collider2D other)
@@ -103,53 +89,27 @@ namespace Tiefwurtz
                 em.enabled = true;
                 itemCollect.Play();
                 currentLight = (backLight.intensity + startBackIntensity);
-                //currentPlayerLight = (playerLight.intensity + startPlayerIntensity);
 
                 if (currentLight > maxBackLight)
                 {
                     currentLight = maxBackLight - 0.1f;
                 }
-                //if (currentPlayerLight > maxPlayerLight)
-                //{
-                //    currentPlayerLight = maxPlayerLight - 0.1f;
-                //}
-
 
                 newBackLight = backLight.intensity + itemTouchBackLight;
-                //newPlayerLight = playerLight.intensity + itemTouchLight;
-
 
                 refill = true;
-                //refillPlayer = true;
-
 
                 if (backLight.intensity < 1f)
                 {
                     backLight.intensity = 1f;
                 }
-                //if (playerLight.intensity < 1f)
-                //{
-                //    playerLight.intensity = 1f;
-                //}
+            }
+            if(other.tag == "Checkpoint")
+            {
+                reachedACheckpoint = true;
+                currentSavePoint = other.transform.position;
             }
         }
-        /*private void RefillPlayerLight()
-        {
-            if (refillPlayer == true)
-            {
-                if (playerLight.intensity > newPlayerLight || playerLight.intensity > maxPlayerLight - 0.2f)
-                    refillPlayer = false;
-
-                if (playerLight.intensity < currentPlayerLight)
-                {
-                    if (playerLight.intensity < maxPlayerLight)
-                    {
-                        if (playerLight.intensity < newPlayerLight)
-                                playerLight.intensity = playerLight.intensity + 0.05f;
-                    }
-                }
-            }
-        }*/
         private void RefillLight()
         {
             if (refill == true)
@@ -169,11 +129,13 @@ namespace Tiefwurtz
         }
         private void OnDeath()
         {
-            if (backLight.intensity < 0.03)
+            if (backLight.intensity < 0.03 && !gameManagerScr.playerIsDead)
             {
-                gameManager.SetPlayerIsDead();
-                gameManager.OnDeath();
+                gameManagerScr.SetPlayerIsDead();
+                gameManagerScr.OnDeath();
             }
         }
+        
+        
     }
 }

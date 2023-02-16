@@ -18,7 +18,8 @@ namespace Tiefwurtz
         public Transform attackpoint;
         public LayerMask enemyLayers;
 
-        public GameManagerScribt GameManager;
+        private GameObject GameManager;
+        private GameManagerScribt gameManagerScr;
         private PlayerLight playerLight;
         private Enemy enemyHealth;
         private float nextAttackTime = 0f;
@@ -28,9 +29,15 @@ namespace Tiefwurtz
         public GameObject playerShot;
         public Transform playerShotTransform;
 
+        private void Start()
+        {
+            GameManager = GameObject.FindGameObjectWithTag("GameManager");
+            gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
+        }
+
         private void Update()
         {
-            if (GameManager.playerIsDead)
+            if (gameManagerScr.playerIsDead)
                 return;
 
             if (Time.time >= nextAttackTime)

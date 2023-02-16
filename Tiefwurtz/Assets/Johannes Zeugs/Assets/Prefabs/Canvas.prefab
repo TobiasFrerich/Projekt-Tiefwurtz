@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1700159160226876067}
   m_Layer: 5
   m_Name: CurrentHealth
-  m_TagString: Untagged
+  m_TagString: currentHealth
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,7 +103,6 @@ GameObject:
   - component: {fileID: 1700159161254340395}
   - component: {fileID: 1700159161254340392}
   - component: {fileID: 1700159161254340393}
-  - component: {fileID: 1700159161254340394}
   m_Layer: 5
   m_Name: EmptyHealth
   m_TagString: Untagged
@@ -169,21 +168,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1700159161254340394
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700159161254340388}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 438f5adc628f87d4294bc409e6f70947, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HealthBarTotal: {fileID: 0}
-  currenthealthBar: {fileID: 0}
-  startingHealth: 0
 --- !u!1 &1700159161812502293
 GameObject:
   m_ObjectHideFlags: 0

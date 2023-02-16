@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace Tiefwurtz
 {
@@ -11,10 +11,9 @@ namespace Tiefwurtz
 
         public GameObject Camera;
         public GameObject camTransform;
-        public Sprite DeadPlayer;
-
-        private SpriteRenderer _spriteRenderer;
         private GameObject player;
+        private PlayerLight playerLight;
+
         private Cinemachine.CinemachineVirtualCamera vcam;
 
         public void OnDeath()
@@ -23,17 +22,32 @@ namespace Tiefwurtz
             vcam = Camera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
             camTransform.transform.position = player.transform.position;
             vcam.Follow = camTransform.transform;
-            _spriteRenderer = camTransform.GetComponent<SpriteRenderer>();
-            Destroy(player);
+            player.SetActive(false);
             camTransform.SetActive(true);
-            _spriteRenderer.sprite = DeadPlayer;
             SetPlayerIsDead();
-            //Time.timeScale = 0;
+            StartCoroutine(Respawn());
+        }
+        private IEnumerator Respawn()
+        {
+            SetPlayerIsAlive();
+            playerLight = player.GetComponent<PlayerLight>();
+            yield return new WaitForSeconds(2f);
+            vcam = Camera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
+            vcam.Follow = player.transform;
+            PlayerLight.backLightIntensity = playerLight.startBackIntensity;
+            camTransform.SetActive(false);
+            player.SetActive(true);
+            player.transform.position = PlayerLight.currentSavePoint;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void SetPlayerIsDead()
         {
             playerIsDead = true;
+        }
+        public void SetPlayerIsAlive()
+        {
+            playerIsDead = false;
         }
         public void PauseGame()
         {
