@@ -33,15 +33,6 @@ namespace Tiefwurtz
 
         private void Start()
         {
-            if(!reachedACheckpoint)
-            {
-                currentSavePoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
-                transform.position = currentSavePoint;
-            }
-            else
-            {
-                transform.position = currentSavePoint;
-            }
 
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
@@ -49,6 +40,15 @@ namespace Tiefwurtz
             if (backLightIntensity > 0f)
             {
                 backLight.intensity = backLightIntensity;
+            }
+            if(!reachedACheckpoint)
+            {
+                currentSavePoint = transform.position;
+                transform.position = currentSavePoint;
+            }
+            else
+            {
+                transform.position = currentSavePoint;
             }
         }
         private void Update()

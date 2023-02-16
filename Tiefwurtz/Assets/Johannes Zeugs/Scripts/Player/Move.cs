@@ -40,9 +40,9 @@ namespace Tiefwurtz
         private float acceleration;
         private float InputHorizontal;
 
-        private bool dashUnlocked = false;
+        private static bool dashUnlocked = false;
         private bool onGround;
-        public static bool canDash = true;
+        private  bool canDash = true;
         public bool isDashing;
         private bool currentlyJumping;
 

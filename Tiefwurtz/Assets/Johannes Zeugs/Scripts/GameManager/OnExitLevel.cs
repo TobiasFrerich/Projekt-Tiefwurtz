@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class OnExitLevel : MonoBehaviour
+namespace Tiefwurtz
 {
-    public string sceneName;
-    public bool isNextScene = true;
-
-    [SerializeField] public SceneInfo sceneInfo;
-
-    private void OnTriggerEnter2D(Collider2D player)
+    public class OnExitLevel : MonoBehaviour
     {
-        if (player.tag == "Player")
+        public string sceneName;
+        public bool isNextScene = true;
+
+        [SerializeField] public SceneInfo sceneInfo;
+        [SerializeField] private Vector3 sceneSpawnPoint;
+
+        private void OnTriggerEnter2D(Collider2D player)
         {
-            sceneInfo.isNextScene = isNextScene;
-            SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+            if (player.tag == "Player")
+            {
+                sceneInfo.isNextScene = isNextScene;
+                PlayerLight.reachedACheckpoint = true;
+                PlayerLight.currentSavePoint = sceneSpawnPoint;
+                SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+            }
         }
     }
 }

@@ -9,14 +9,19 @@ namespace Tiefwurtz
 {
     public class restartGame : MonoBehaviour
     {
-        public PlayerLight pl;
-        public Light2D backLight;
-        public Light2D playerLight;
+        private GameObject Player;
+        private PlayerLight pl;
+        private Light2D backLight;
+        private void Start()
+        {
+            Player = GameObject.FindGameObjectWithTag("Player");
+            pl = Player.GetComponent<PlayerLight>();
+        }
         private void Update()
         {
             if (Input.GetKeyDown("r"))
             {
-                backLight.intensity = pl.startBackIntensity;
+                pl.backLight.intensity = pl.startBackIntensity;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
         }
