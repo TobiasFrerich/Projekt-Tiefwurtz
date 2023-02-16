@@ -13,13 +13,6 @@ namespace Tiefwurtz
 
         public Light2D backLight;
 
-        public Sprite DeadPlayer;
-
-        private Cinemachine.CinemachineVirtualCamera vcam;
-        public GameObject camTransform; 
-        public GameObject Camera;
-
-
         public static float backLightIntensity;
 
         public float itemTouchBackLight = 1f;
