@@ -39,8 +39,6 @@ namespace Tiefwurtz
         private Enemy enemyScr;
 
         private bool hidden;
-        private bool jumpOut;
-        private bool jumpedOUT;
         private float timer = 0f;
         private bool hammerRange;
         private bool isHammering = false;
@@ -92,9 +90,6 @@ namespace Tiefwurtz
         {
             if (Vector2.Distance(Player.transform.position, pilzTransform.position) < attackRange && Player.transform.position.y - pilzTransform.position.y < 1.5f)
             {
-                if (!jumpedOUT)
-                    jumpOut = true;
-
                 StartCoroutine(Attack());
             }
             else
@@ -103,16 +98,12 @@ namespace Tiefwurtz
                 {
                     pilzBody.velocity = new Vector2(0f, 0f);
                     Hide();
-                    jumpedOUT = false;
                 }
                 ReturnToStartingPosition();
             }
         }
         private void CheckIfHammerRange()
         {
-            if (!jumpedOUT)
-                return;
-
             if (hidden)
                 return;
 
@@ -131,9 +122,6 @@ namespace Tiefwurtz
 
         private void WalkTowardsPlayer()
         {
-            if (!jumpedOUT)
-                return;
-
             if (hidden)
                 return;
 
@@ -202,61 +190,12 @@ namespace Tiefwurtz
             if (isHammering)
                 return;
 
-            Collider2D[] hiddenCollider = Physics2D.OverlapCircleAll(hiddenPoint.position, pilzAttackRange, groundLayers);
-            
-
-            /*if (jumpOut)
-            {
-                pilzBody.constraints = RigidbodyConstraints2D.None;
-                pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-                pilzBody.velocity = new Vector2(0f, 0.5f);
-                //if (jumpOutCollider.Length == 0)
-                //{
-                //    pilzBody.gravityScale = 1f;
-                 //   hidden = false;
-                //}
-                return;
-            }*/
-
-            if (hidden)
-                return;
-
-            //GetComponent<EnemyMovement>().enabled = false;
-            GetComponent<CapsuleCollider2D>().enabled = false;
-            GetComponent<BoxCollider2D>().enabled = false;
-
-            pilzBody.velocity = new Vector2(0f, -0.5f);
-
-            
-            if (hiddenCollider.Length > 0)
-            {
-                hidden = true;
-                jumpOut = false;
-                pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
-                pilzBody.gravityScale = 0f;
-            }
+            //Play Hide Animation
             
         }
 
         private IEnumerator Attack()
         {
-            Collider2D[] jumpOutCollider = Physics2D.OverlapCircleAll(jumpOutPoint.position, pilzAttackRange, groundLayers);
-            if(jumpOut)
-            {
-                if (jumpOutCollider.Length == 0)
-                {
-                    GetComponent<CapsuleCollider2D>().enabled = true;
-                    GetComponent<BoxCollider2D>().enabled = true;
-                    pilzBody.gravityScale = 1f;
-                    jumpedOUT = true;
-                    jumpOut = false;
-                    hidden = false;
-                }
-                else
-                    pilzBody.velocity = new Vector2(0f, 0.5f);
-
-            }
-
             yield return new WaitForSeconds(1f);
 
             WalkTowardsPlayer();
