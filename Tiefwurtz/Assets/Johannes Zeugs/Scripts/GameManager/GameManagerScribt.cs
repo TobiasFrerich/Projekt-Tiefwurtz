@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 namespace Tiefwurtz
 {
@@ -32,13 +32,13 @@ namespace Tiefwurtz
             SetPlayerIsAlive();
             playerLight = player.GetComponent<PlayerLight>();
             yield return new WaitForSeconds(2f);
-
             vcam = Camera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
             vcam.Follow = player.transform;
             PlayerLight.backLightIntensity = playerLight.startBackIntensity;
-            player.transform.position = playerLight.currentSavePoint;
             camTransform.SetActive(false);
             player.SetActive(true);
+            player.transform.position = PlayerLight.currentSavePoint;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         public void SetPlayerIsDead()

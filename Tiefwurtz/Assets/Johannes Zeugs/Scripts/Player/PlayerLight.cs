@@ -34,11 +34,22 @@ namespace Tiefwurtz
         public float startBackIntensity;
         private float currentLight;
         private bool refill = false;
-        public Vector3 currentSavePoint;
+        public static bool reachedACheckpoint = false;
+        public static Vector3 currentSavePoint;
+        
 
         private void Start()
         {
-            currentSavePoint = gameObject.transform.position;
+            if(!reachedACheckpoint)
+            {
+                currentSavePoint = GameObject.FindGameObjectWithTag("StartPoint").transform.position;
+                transform.position = currentSavePoint;
+            }
+            else
+            {
+                transform.position = currentSavePoint;
+            }
+
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
             startBackIntensity = backLight.intensity;
@@ -95,6 +106,7 @@ namespace Tiefwurtz
             }
             if(other.tag == "Checkpoint")
             {
+                reachedACheckpoint = true;
                 currentSavePoint = other.transform.position;
             }
         }
