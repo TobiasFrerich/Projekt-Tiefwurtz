@@ -53,6 +53,9 @@ namespace Tiefwurtz
         }
         private void Update()
         {
+            if (Time.timeScale == 0)
+                return;
+
             backLightIntensity = backLight.intensity;
 
             if (backLight.intensity < -0.5f)

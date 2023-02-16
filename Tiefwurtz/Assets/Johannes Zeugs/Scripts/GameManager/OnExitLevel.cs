@@ -8,19 +8,21 @@ namespace Tiefwurtz
     public class OnExitLevel : MonoBehaviour
     {
         public string sceneName;
-        public bool isNextScene = true;
-
-        [SerializeField] public SceneInfo sceneInfo;
+        private GameManagerScribt gameManagerScr;
+        private GameObject GameManager;
         [SerializeField] private Vector3 sceneSpawnPoint;
-
+        private void Start()
+        {
+            GameManager = GameObject.FindGameObjectWithTag("GameManager");
+            gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
+        }
         private void OnTriggerEnter2D(Collider2D player)
         {
             if (player.tag == "Player")
             {
-                sceneInfo.isNextScene = isNextScene;
                 PlayerLight.reachedACheckpoint = true;
                 PlayerLight.currentSavePoint = sceneSpawnPoint;
-                SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+                StartCoroutine(gameManagerScr.LoadLevel(sceneName));
             }
         }
     }
