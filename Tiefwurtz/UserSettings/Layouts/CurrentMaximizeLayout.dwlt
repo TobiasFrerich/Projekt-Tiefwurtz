@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 95
+  controlID: 1969
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 96
+  controlID: 1970
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 97
+  controlID: 1971
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,9 +223,9 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 57967.332}
-      m_SelectedIDs: 9c97ffff
-      m_LastClickedID: -26724
+      scrollPos: {x: 0, y: 70064}
+      m_SelectedIDs: 62caf9ff6ccaf9ff6acaf9ff60caf9ff68caf9ff34caf9ff
+      m_LastClickedID: -406988
       m_ExpandedIDs: 12fbffff609f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -524,9 +524,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -149.76236, y: 67.94961, z: 3.5108435}
+    m_Target: {x: -49.37664, y: 53.031204, z: 3.8027787}
     speed: 2
-    m_Value: {x: -149.76236, y: 67.94961, z: 3.5108435}
+    m_Value: {x: -49.37664, y: 53.031204, z: 3.8027787}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -577,9 +577,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.3714066
+    m_Target: 14.984946
     speed: 2
-    m_Value: 7.3714066
+    m_Value: 14.984946
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -675,21 +675,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Johannes Zeugs/Szenes
+    - Assets/Johannes Zeugs/Assets/Prefabs
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Johannes Zeugs/Szenes
+  - Assets/Johannes Zeugs/Assets/Prefabs
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\tobia\OneDrive\Dokumente\GitHub\Projekt-Tiefwurtz\Tiefwurtz
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 96.333374}
-    m_SelectedIDs: cc7e0100
-    m_LastClickedID: 97996
+    m_SelectedIDs: ba7e0100
+    m_LastClickedID: 97978
     m_ExpandedIDs: 00000000ae7c0100b07c0100b27c0100b47c0100b67c010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -718,7 +718,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ae7c0100b07c0100b27c0100b47c0100b67c0100
+    m_ExpandedIDs: 00000000ae7c0100b07c0100b27c0100b47c0100b67c010000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -743,9 +743,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 9c97ffff
-    m_LastClickedInstanceID: -26724
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 62caf9ff6ccaf9ff6acaf9ff60caf9ff68caf9ff34caf9ff
+    m_LastClickedInstanceID: -406942
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000034920000da92000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -762,7 +762,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 9}
+      m_ClientGUIView: {fileID: 7}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -998,7 +998,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -3854
+  m_LastSelectedObjectID: -26724
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
