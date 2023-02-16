@@ -3,19 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class mainMenu : MonoBehaviour
+namespace Tiefwurtz
 {
-    public void PlayGame()
+    public class mainMenu : MonoBehaviour
     {
-        SceneManager.LoadScene(1);
-    }
+        private void Start()
+        {
+            RangedAttackItemUI.RATextPlayed = false;
+            DashItemUI.DashTextPlayed = false;
+            Move.dashUnlocked = false;
+            PlayerLight.reachedACheckpoint = false;
+            PlayerLight.currentSavePoint = new Vector3(-4f, 27f, 0f);
+            PlayerLight.backLightIntensity = 10f;
+            Playerattack.rangedAttackUnlocked = false;
+        }
+        public void PlayGame()
+        {
+            SceneManager.LoadScene(1);
+        }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(0);
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
+        public void RestartGame()
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
