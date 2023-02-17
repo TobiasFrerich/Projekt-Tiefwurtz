@@ -7220,7 +7220,7 @@ MonoBehaviour:
   goundLayers:
     serializedVersion: 2
     m_Bits: 4096
-  cayoteTimeCounter: 0.5
+  cayoteTimeCounter: 0
   currentlyJumping: 0
 --- !u!114 &4052222524028998157
 MonoBehaviour:
@@ -7273,7 +7273,6 @@ MonoBehaviour:
   itemCollect: {fileID: 5517199058325803302}
   GetLightParticals: {fileID: 7951012429919899876}
   backLight: {fileID: 509058538833198671}
-  playerLight: {fileID: 4052222522873285521}
   itemTouchBackLight: 1
   maxBackLight: 15
   lightLossBack: 0.8
