@@ -316,8 +316,8 @@ MonoBehaviour:
   - {fileID: 3285991189782287910}
   - {fileID: 3804922346800427014}
   m_Bounds:
-    m_Center: {x: 0.0025002956, y: 10.439106, z: 0}
-    m_Extent: {x: 2.1975002, y: 1.0592299, z: 0}
+    m_Center: {x: 0.0024850368, y: 10.439106, z: 0}
+    m_Extent: {x: 2.1975155, y: 1.0592299, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -588,8 +588,8 @@ MonoBehaviour:
   - {fileID: 148758157128354099}
   - {fileID: 8159847518118029295}
   m_Bounds:
-    m_Center: {x: -0.12318134, y: 13.503907, z: 0}
-    m_Extent: {x: 8.841124, y: 4.9481077, z: 0}
+    m_Center: {x: -0.1231966, y: 13.503888, z: 0}
+    m_Extent: {x: 8.841139, y: 4.9480886, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -911,8 +911,8 @@ MonoBehaviour:
   - {fileID: 3286925374994327881}
   - {fileID: 2315237415087596127}
   m_Bounds:
-    m_Center: {x: -0.007236004, y: 10.450514, z: 0}
-    m_Extent: {x: 5.922825, y: 5.6385593, z: 0}
+    m_Center: {x: -0.0072512627, y: 10.450514, z: 0}
+    m_Extent: {x: 5.9228096, y: 5.6385593, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1018,8 +1018,8 @@ MonoBehaviour:
   - {fileID: 4233364241619298126}
   - {fileID: 8060822358637880536}
   m_Bounds:
-    m_Center: {x: -0.008739948, y: 10.442367, z: 0}
-    m_Extent: {x: 2.4412603, y: 1.1096506, z: 0}
+    m_Center: {x: -0.008755207, y: 10.442336, z: 0}
+    m_Extent: {x: 2.4412756, y: 1.1096506, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1197,7 +1197,6 @@ GameObject:
   - component: {fileID: 383794365491919832}
   - component: {fileID: 7810578504631019779}
   - component: {fileID: 3396246578541731419}
-  - component: {fileID: 5366354698878733025}
   - component: {fileID: 8796196052835342614}
   - component: {fileID: 555701289702377717}
   - component: {fileID: 3477086860782789769}
@@ -1390,30 +1389,6 @@ MonoBehaviour:
   itemTransform: {fileID: 6982153119340528180}
   _color: {r: 1, g: 0, b: 0, a: 1}
   Dead: 0
---- !u!114 &5366354698878733025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7591828497374483787}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 994408e60a92efe4c8cb5c8c87aa73ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 4
-  pilzAttackRange: 0.5
-  hammerTimeRange: 2
-  hammerSpeed: 3
-  shakeIntesity: 3
-  hammerDMG: 0.00001
-  wieStarkErSinkenSoll: 1
-  CinemachineVC: {fileID: 0}
-  attackpoint: {fileID: 0}
-  playerLayers:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!95 &8796196052835342614
 Animator:
   serializedVersion: 4
@@ -1455,11 +1430,6 @@ MonoBehaviour:
   wieStarkErSinkenSoll: 0
   AttackSound: {fileID: 3477086860782789769}
   CinemachineVC: {fileID: 0}
-  hiddenPoint: {fileID: 0}
-  jumpOutPoint: {fileID: 0}
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 4096
   spikesSpR: {fileID: 3112110412908581628}
   spikesSpL: {fileID: 1634715785884455205}
   pilzTransform: {fileID: 7909920366109151096}
@@ -1714,7 +1684,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8552580189053064216}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 9.7, z: 0}
+  m_LocalPosition: {x: 0.27, y: 2.69, z: 0}
   m_LocalScale: {x: 5.95, y: 5.95, z: 1.7850001}
   m_ConstrainProportionsScale: 1
   m_Children: []

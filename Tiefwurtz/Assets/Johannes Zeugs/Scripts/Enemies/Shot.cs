@@ -14,7 +14,6 @@ namespace Tiefwurtz
         private Rigidbody2D shotBody;
         private GameObject player;
         private PlayerLight flashLight;
-        private SpriteRenderer _spriteRenderer;
 
 
         public float force;
@@ -25,9 +24,11 @@ namespace Tiefwurtz
 
         void Awake()
         {
+            if (GameObject.FindGameObjectWithTag("Player") == null)
+                return;
+
             shotBody = GetComponent<Rigidbody2D>();
             player = GameObject.FindGameObjectWithTag("Player");
-            _spriteRenderer = player.GetComponent<SpriteRenderer>();
             PlayerHitBox = player.transform.Find("hitbox");
             if (player.GetComponent<Rigidbody2D>().velocity == standing)
             {

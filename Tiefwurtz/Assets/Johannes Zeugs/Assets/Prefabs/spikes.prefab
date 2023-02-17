@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hit: {fileID: 5539487522129743672}
+  hammerDMG: 7
 --- !u!61 &8145904561154089938
 BoxCollider2D:
   m_ObjectHideFlags: 0
