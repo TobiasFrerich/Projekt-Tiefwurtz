@@ -1358,7 +1358,7 @@ MonoBehaviour:
   attackRange: 20
   attackSpeed: 2
   EnemyAttackSound: {fileID: 396760619873635552}
-  shot: {fileID: 1709793276733744158, guid: 2a04d3a61a197fb47b755d5eca4b34d4, type: 3}
+  shot: {fileID: 1709793276733744158, guid: d00dc0acafa82fe47aa36e6b8784e879, type: 3}
   shotTransform: {fileID: 6982153119340528180}
 --- !u!61 &6491181188418789586
 BoxCollider2D:
