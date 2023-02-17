@@ -29,13 +29,11 @@ namespace Tiefwurtz
             }
         }
 
-        private IEnumerator Hurt()
+        private void Hurt()
         {
             Animator enemyAnim = GetComponent<Animator>();
-            enemyAnim.SetBool("isHit", true);
+            enemyAnim.SetTrigger("isHit");
             Hit.Play();
-            yield return new WaitForSeconds(0.45f);
-            enemyAnim.SetBool("isHit", false);
         }
 
         private void OnDeath()
@@ -48,7 +46,7 @@ namespace Tiefwurtz
             em.enabled = true;
 
             Animator enemyAnim = GetComponent<Animator>();
-            enemyAnim.SetBool("isDead", true);
+            enemyAnim.SetTrigger("isDead");
             GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().enabled = false;
             GetComponent<CapsuleCollider2D>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
@@ -61,7 +59,7 @@ namespace Tiefwurtz
         {
             if (enemyHealth > 1f)
             {
-                StartCoroutine(Hurt());
+                Hurt();
             }
             enemyHealth = enemyHealth - dmg;
         }
