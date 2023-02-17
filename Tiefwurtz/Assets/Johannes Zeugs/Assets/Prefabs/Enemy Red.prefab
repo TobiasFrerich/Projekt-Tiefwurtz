@@ -453,8 +453,8 @@ MonoBehaviour:
   - {fileID: 5034145078911178732}
   - {fileID: 7130373138608271442}
   m_Bounds:
-    m_Center: {x: 0.23536015, y: 3.9519029, z: 0}
-    m_Extent: {x: 3.1400957, y: 6.237558, z: 0}
+    m_Center: {x: 0.23536015, y: 3.951898, z: 0}
+    m_Extent: {x: 3.1400957, y: 6.237551, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -592,8 +592,8 @@ MonoBehaviour:
   - {fileID: 2482656283442341831}
   - {fileID: 3972191245965074099}
   m_Bounds:
-    m_Center: {x: -1.9485271, y: 4.9287, z: 0}
-    m_Extent: {x: 2.0150099, y: 3.3188815, z: 0}
+    m_Center: {x: -1.9485347, y: 4.928707, z: 0}
+    m_Extent: {x: 2.0150025, y: 3.3188896, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -880,7 +880,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5720817850991799666}
   m_Bounds:
-    m_Center: {x: -3.938142, y: 5.888794, z: 0}
+    m_Center: {x: -3.938142, y: 5.8887978, z: 0}
     m_Extent: {x: 1.9002101, y: 8.395, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -989,7 +989,7 @@ MonoBehaviour:
   - {fileID: 2441943969960116518}
   - {fileID: 3825124653858482245}
   m_Bounds:
-    m_Center: {x: 1.4306686, y: 0.805588, z: 0}
+    m_Center: {x: 1.4306533, y: 0.80559754, z: 0}
     m_Extent: {x: 2.8566053, y: 2.875, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1128,8 +1128,8 @@ MonoBehaviour:
   - {fileID: 6399035938776477851}
   - {fileID: 6756020486254900764}
   m_Bounds:
-    m_Center: {x: 0.6450993, y: 3.2970185, z: 0}
-    m_Extent: {x: 1.178035, y: 4.95936, z: 0}
+    m_Center: {x: 0.6450993, y: 3.2970166, z: 0}
+    m_Extent: {x: 1.178035, y: 4.959362, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1355,8 +1355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5363cf4f6f10546921357d733c10fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 4
-  attackSpeed: 1.65
+  attackRange: 20
+  attackSpeed: 2
   EnemyAttackSound: {fileID: 396760619873635552}
   shot: {fileID: 1709793276733744158, guid: 2a04d3a61a197fb47b755d5eca4b34d4, type: 3}
   shotTransform: {fileID: 6982153119340528180}
@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f253e2a816ca7a449da0a1432702cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 4
+  enemyHealth: 12
   Hit: {fileID: 7612341731784680238}
   DeadParticals: {fileID: 7739243040115934545}
   item: {fileID: 7608196639798980043, guid: f9bb1c7040ae0b14288999d512ac6f32, type: 3}
