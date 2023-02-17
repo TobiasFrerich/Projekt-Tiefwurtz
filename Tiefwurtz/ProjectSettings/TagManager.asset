@@ -9,6 +9,11 @@ TagManager:
   - Enemy
   - GameManager
   - RangedAttackItem
+  - currentHealth
+  - Canvas
+  - Checkpoint
+  - DeadPlayer
+  - StartPoint
   layers:
   - Default
   - TransparentFX
