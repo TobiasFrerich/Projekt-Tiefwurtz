@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f1d337ce4c8fd9f44886ed3c658a99f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 45da81cdc242d554886e2a2e704ad75a, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -444,14 +444,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.509434, g: 0.509434, b: 0.509434, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f1d337ce4c8fd9f44886ed3c658a99f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 42615f3e3d3fcec498a6632034488976, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -520,14 +520,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5188679, g: 0.5188679, b: 0.5188679, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f1d337ce4c8fd9f44886ed3c658a99f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 821cb8e51c91b9a4a9e4f84a32d16e77, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -605,7 +605,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'YOU CAN NOW DO A RANGED ATTACK WITH "RIGHT CLICK"
 
-    BUT YOU IT COST
+    BUT YOU IT COSTS
     LIGHT!
 
 '
@@ -745,7 +745,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'YOU CAN NOW DASH WITH "SHIFT"
 
-    BUT YOU IT COST LIGHT!'
+    BUT YOU IT COSTS LIGHT!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -963,14 +963,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.76788044, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f1d337ce4c8fd9f44886ed3c658a99f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7a9522edca6b7b547b5405e87cf8cd30, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1

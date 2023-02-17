@@ -127,6 +127,7 @@ namespace Tiefwurtz
             if (pilzTransform.position.x > leftStartX && pilzTransform.position.x < rightStartX && !hammerRange)
             {
                 pilzBody.constraints = RigidbodyConstraints2D.None;
+                pilzBody.constraints = RigidbodyConstraints2D.FreezePositionY;
                 pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 enemyAnim.SetBool("pilzIsRunning", true);
                 Vector3 direction = Player.transform.position - pilzTransform.position;
@@ -141,6 +142,7 @@ namespace Tiefwurtz
                 return;
 
             pilzBody.constraints = RigidbodyConstraints2D.None;
+            pilzBody.constraints = RigidbodyConstraints2D.FreezePositionY;
             pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             if (Vector2.Distance(StartingPosition, pilzTransform.position) < 1f)
             {
