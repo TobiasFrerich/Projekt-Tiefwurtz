@@ -8,7 +8,7 @@ namespace Tiefwurtz
     {
         [SerializeField] private AudioSource Hit;
 
-        private float hammerDMG = 20f;
+        [SerializeField] private float hammerDMG = 20f;
         private PlayerLight flashLight;
         private GameObject Player;
         private GameManagerScribt gameManager;

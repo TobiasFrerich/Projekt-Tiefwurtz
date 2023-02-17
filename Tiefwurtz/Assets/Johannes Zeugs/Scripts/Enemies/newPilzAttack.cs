@@ -173,13 +173,15 @@ namespace Tiefwurtz
             if (isHammering)
                 return;
 
+            enemyAnim.SetTrigger("hide");
             //Play Hide Animation
-            
+
         }
 
         private IEnumerator Attack()
         {
-            yield return new WaitForSeconds(1f);
+            enemyAnim.SetTrigger("standUP");
+            yield return new WaitForSeconds(2.1f);
 
             WalkTowardsPlayer();
 

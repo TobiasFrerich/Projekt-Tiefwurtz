@@ -12,6 +12,7 @@ namespace Tiefwurtz
 
         [SerializeField] private AudioSource EnemyAttackSound;
 
+        private EnemyMovement enemyMov;
         private Enemy enemyScr;
         private Rigidbody2D cultistBody;
         private GameObject Player;
@@ -24,6 +25,7 @@ namespace Tiefwurtz
 
         private void Start()
         {
+            enemyMov = GetComponent<EnemyMovement>();
             enemyScr = GetComponent<Enemy>();
             Player = GameObject.Find("Player");
             cultistBody = GetComponent<Rigidbody2D>();
@@ -80,6 +82,7 @@ namespace Tiefwurtz
         {
             if (!isShooting)
             {
+                enemyMov.doesAttack = true;
                 isShooting = true;
                 cultistBody.constraints = RigidbodyConstraints2D.FreezeAll;
                 if (cultistBody.position.x > Player.transform.position.x)
@@ -97,8 +100,8 @@ namespace Tiefwurtz
                 {
                     EnemyAttackSound.Play();
                     Shot();
-                    yield return new WaitUntil(() => (Vector2.Distance(Player.transform.position, this.transform.position) < attackRange));
-
+                    yield return new WaitUntil(() => (Vector2.Distance(Player.transform.position, this.transform.position) > attackRange));
+                    enemyMov.doesAttack = false;
                     cultistBody.constraints = RigidbodyConstraints2D.None;
                     cultistBody.constraints = RigidbodyConstraints2D.FreezeRotation;
                 }
