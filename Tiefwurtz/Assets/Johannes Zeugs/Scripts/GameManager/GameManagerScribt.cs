@@ -38,8 +38,8 @@ namespace Tiefwurtz
             PlayerLight.backLightIntensity = 10f;
             camTransform.SetActive(false);
             player.SetActive(true);
-            player.transform.position = PlayerLight.currentSavePoint;
             StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
+            player.transform.position = PlayerLight.currentSavePoint;
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 

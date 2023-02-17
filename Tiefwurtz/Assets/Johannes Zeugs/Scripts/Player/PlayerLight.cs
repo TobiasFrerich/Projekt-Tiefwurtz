@@ -33,7 +33,6 @@ namespace Tiefwurtz
 
         private void Start()
         {
-
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
             startBackIntensity = backLight.intensity;

@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
+    public AudioMixer AudMix;
+    const string MIXER_MASTER = "MasterVolume";
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -26,6 +29,7 @@ public class PauseMenu : MonoBehaviour
     {
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
+        AudMix.SetFloat(MIXER_MASTER, 0f);
         GameIsPaused = false;
     }
 
@@ -33,6 +37,7 @@ public class PauseMenu : MonoBehaviour
     {
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
+        AudMix.SetFloat(MIXER_MASTER, -80f);
         GameIsPaused = true;
     }
 
@@ -43,6 +48,7 @@ public class PauseMenu : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
+        AudMix.SetFloat(MIXER_MASTER, 0f);
         SceneManager.LoadScene(0);
     }
 }
