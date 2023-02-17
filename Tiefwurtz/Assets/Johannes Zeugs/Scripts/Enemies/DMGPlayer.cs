@@ -13,13 +13,13 @@ namespace Tiefwurtz
         private GameObject Player;
         private GameManagerScribt gameManager;
         private GameObject GameManager;
-        private void Start()
+        private void Awake()
         {
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             Player = GameObject.Find("Player");
             gameManager = GameManager.GetComponent<GameManagerScribt>();
         }
-        private void OnTriggerStay2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.tag == "Player")
             {
