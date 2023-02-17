@@ -18,9 +18,6 @@ namespace Tiefwurtz
         [SerializeField] private AudioSource AttackSound;
 
         public CinemachineVirtualCamera CinemachineVC;
-        public Transform hiddenPoint;
-        public Transform jumpOutPoint;
-        public LayerMask groundLayers;
         public GameObject spikesSpR;
         public GameObject spikesSpL;
 
@@ -94,12 +91,8 @@ namespace Tiefwurtz
             }
             else
             {
-                if (StartingPosition.x - pilzTransform.position.x < 2f)
-                {
-                    pilzBody.velocity = new Vector2(0f, 0f);
-                    Hide();
-                }
                 ReturnToStartingPosition();
+                
             }
         }
         private void CheckIfHammerRange()
@@ -154,8 +147,6 @@ namespace Tiefwurtz
                 enemyAnim.SetBool("pilzIsRunning", false);
                 return;
             }
-
-            
             else
             {
                 Vector3 direction = StartingPosition - pilzTransform.position;
@@ -173,16 +164,6 @@ namespace Tiefwurtz
             }
             else
                 return StartingPosition;
-        }
-        private void OnDrawGizmosSelected()
-        {
-            if (hiddenPoint == null)
-                return;
-            if (jumpOutPoint == null)
-                return;
-
-            Gizmos.DrawWireSphere(hiddenPoint.position, pilzAttackRange);
-            Gizmos.DrawWireSphere(jumpOutPoint.position, pilzAttackRange);
         }
 
         private void Hide()
@@ -214,13 +195,11 @@ namespace Tiefwurtz
                 pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
                 enemyAnim.SetBool("pilzIsRunning", false);
 
-                yield return new WaitForSeconds(0.5f);
-
                 enemyAnim.SetTrigger("isHammering");
 
                 isHammering = true;
 
-                yield return new WaitForSeconds(0.16f);
+                yield return new WaitForSeconds(1f);
                 if (!enemyScr.Dead)
                 {
                     AttackSound.Play();

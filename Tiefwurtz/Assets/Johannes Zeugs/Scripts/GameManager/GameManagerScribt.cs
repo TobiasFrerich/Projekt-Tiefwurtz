@@ -35,7 +35,7 @@ namespace Tiefwurtz
             yield return new WaitForSeconds(2f);
             vcam = Camera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
             vcam.Follow = player.transform;
-            PlayerLight.backLightIntensity = playerLight.startBackIntensity;
+            PlayerLight.backLightIntensity = 10f;
             camTransform.SetActive(false);
             player.SetActive(true);
             player.transform.position = PlayerLight.currentSavePoint;
