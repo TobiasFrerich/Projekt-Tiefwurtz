@@ -55,7 +55,7 @@ namespace Tiefwurtz
         private void FixedUpdate()
         {
             GroundCheck();
-
+            
             //onGround = ground.OnGround;
             velocity = body.velocity;
 
@@ -108,28 +108,35 @@ namespace Tiefwurtz
                 em.enabled = true;
                 onGround = true;
                 playerAnim.SetBool("isJumping", false);
+                cayoteTimeCounter = 0f;
+                return;
+            }
+
+            cayoteTimeCounter = cayoteTimeCounter + 1f * Time.deltaTime;
+
+            if (cayoteTimeCounter > cayoteTime)
+            {
+                onGround = false;
+                playerAnim.SetBool("isJumping", true);
             }
         }
         private void OnCollisionExit2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "Ground")
             {
+                cayoteTimeCounter = 0;
                 RunParticals.Stop();
                 ParticleSystem.EmissionModule em = RunParticals.emission;
                 em.enabled = false;
-                cayoteTimeCounter = cayoteTimeCounter + Time.deltaTime;
-                if (cayoteTimeCounter > cayoteTime)
-                {
-                    
-                    onGround = false;
-                    playerAnim.SetBool("isJumping", true);
-                }
+                //cayoteTimeCounter = cayoteTimeCounter + 1f * Time.deltaTime;
+                
             }
         }
         private void OnCollisionEnter2D(Collision2D collision)
         {
             if(collision.gameObject.tag == "Ground")
             {
+                cayoteTimeCounter = 0;
                 playerAnim.SetBool("isJumping", false);
             }
         }
