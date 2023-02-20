@@ -42,6 +42,15 @@ namespace Tiefwurtz
 
         void Update()
         {
+            if (Time.timeScale == 0f)
+            {
+                if (!isPilzEnemy)
+                {
+                    WalkSound.enabled = false;
+                }
+                return;
+            }
+
             if (sollStehen)
             {
                 Animator enemyAnim = GetComponent<Animator>();
