@@ -70,7 +70,7 @@ namespace Tiefwurtz
         private void Update()
         {
             // Debug.Log(leftStartX);
-
+            
             if (enemyScr.Dead)
             {
                 pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -97,6 +97,9 @@ namespace Tiefwurtz
         }
         private void CheckIfHammerRange()
         {
+            if (isHammering)
+                return;
+
             if (hidden)
                 return;
 
@@ -219,7 +222,7 @@ namespace Tiefwurtz
                     spikesSpL.GetComponent<BoxCollider2D>().enabled = true;*/
                 }
 
-                yield return new WaitForSeconds(1.03f);
+                yield return new WaitForSeconds(1.23f);
 
                 spikesSpL.SetActive(false);
                 spikesSpR.SetActive(false);
