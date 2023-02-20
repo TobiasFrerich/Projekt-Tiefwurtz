@@ -187,6 +187,8 @@ namespace Tiefwurtz
 
             if (!isHammering && hammerRange)
             {
+                isHammering = true;
+
                 if (!savedPlayerPos)
                     currentPlayerPos = GetPlayerPosition();
 
@@ -201,7 +203,6 @@ namespace Tiefwurtz
 
                 enemyAnim.SetTrigger("isHammering");
 
-                isHammering = true;
 
                 yield return new WaitForSeconds(1f);
                 if (!enemyScr.Dead)
@@ -228,7 +229,6 @@ namespace Tiefwurtz
 
                 spikesSpR.GetComponent<BoxCollider2D>().enabled = false;
                 spikesSpL.GetComponent<BoxCollider2D>().enabled = false;*/
-
                 isHammering = false;
                 savedPlayerPos = false;
             }
@@ -239,6 +239,7 @@ namespace Tiefwurtz
                 yield return new WaitForSeconds(1f);
                 WalkTowardsPlayer();
             }
+            
         }
     }
 }

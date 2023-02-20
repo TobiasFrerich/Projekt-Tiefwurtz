@@ -30,16 +30,15 @@ namespace Tiefwurtz
         }
         private IEnumerator Respawn()
         {
-            SetPlayerIsAlive();
-            playerLight = player.GetComponent<PlayerLight>();
             yield return new WaitForSeconds(2f);
+            playerLight = player.GetComponent<PlayerLight>();
+            SetPlayerIsAlive();
+            camTransform.SetActive(false);
+            player.SetActive(true);
             vcam = Camera.GetComponent<Cinemachine.CinemachineVirtualCamera>();
             vcam.Follow = player.transform;
             PlayerLight.backLightIntensity = 10f;
-            camTransform.SetActive(false);
-            player.SetActive(true);
             StartCoroutine(LoadLevel(SceneManager.GetActiveScene().name));
-            player.transform.position = PlayerLight.currentSavePoint;
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
