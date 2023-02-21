@@ -316,8 +316,8 @@ MonoBehaviour:
   - {fileID: 3285991189782287910}
   - {fileID: 3804922346800427014}
   m_Bounds:
-    m_Center: {x: 0.0025002956, y: 10.439106, z: 0}
-    m_Extent: {x: 2.1975002, y: 1.0592299, z: 0}
+    m_Center: {x: 0.0025019646, y: 10.439131, z: 0}
+    m_Extent: {x: 2.1975007, y: 1.0592303, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -588,8 +588,8 @@ MonoBehaviour:
   - {fileID: 148758157128354099}
   - {fileID: 8159847518118029295}
   m_Bounds:
-    m_Center: {x: -0.12321186, y: 13.503892, z: 0}
-    m_Extent: {x: 8.841124, y: 4.9480925, z: 0}
+    m_Center: {x: -0.12320614, y: 13.503885, z: 0}
+    m_Extent: {x: 8.841133, y: 4.948099, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -911,8 +911,8 @@ MonoBehaviour:
   - {fileID: 3286925374994327881}
   - {fileID: 2315237415087596127}
   m_Bounds:
-    m_Center: {x: -0.0072512627, y: 10.450514, z: 0}
-    m_Extent: {x: 5.9228096, y: 5.6385593, z: 0}
+    m_Center: {x: -0.007249832, y: 10.450513, z: 0}
+    m_Extent: {x: 5.9228086, y: 5.6385603, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1018,8 +1018,8 @@ MonoBehaviour:
   - {fileID: 4233364241619298126}
   - {fileID: 8060822358637880536}
   m_Bounds:
-    m_Center: {x: -0.008739948, y: 10.442367, z: 0}
-    m_Extent: {x: 2.4412603, y: 1.1096506, z: 0}
+    m_Center: {x: -0.008740187, y: 10.442339, z: 0}
+    m_Extent: {x: 2.4412608, y: 1.1096511, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efad73285f8b8e448922fc1877e24be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 1
+  enemySpeed: 3
   xScale: 0.1
   yScale: 0.1
   WalkSound: {fileID: 0}
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f253e2a816ca7a449da0a1432702cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 1
+  enemyHealth: 15
   Hit: {fileID: 1681897578010294685}
   DeadParticals: {fileID: 2989666119492105634}
   item: {fileID: 7608196639798980043, guid: f9bb1c7040ae0b14288999d512ac6f32, type: 3}
