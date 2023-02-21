@@ -185,7 +185,7 @@ namespace Tiefwurtz
                 pilzBody.velocity = new Vector2(direction.x, 0f).normalized * hammerSpeed;
 
 
-                yield return new WaitUntil(() => (Vector2.Distance(currentPlayerPos, pilzTransform.position) < 1.5f));
+                yield return new WaitUntil(() => (Vector2.Distance(currentPlayerPos, pilzTransform.position) < 2f));
 
                 pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
                 enemyAnim.SetBool("pilzIsRunning", false);
