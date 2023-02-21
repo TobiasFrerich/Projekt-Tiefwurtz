@@ -46,6 +46,10 @@ namespace Tiefwurtz
             StartPoint = GameObject.FindGameObjectWithTag("StartPoint");
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
+            if (backLightIntensity > 0f)
+            {
+                backLight.intensity = backLightIntensity;
+            }
             if(!reachedACheckpoint)
             {
                 Tutorial = true;
@@ -56,10 +60,6 @@ namespace Tiefwurtz
             else
             {
                 transform.position = currentSavePoint;
-            }
-            if (backLightIntensity > 0f)
-            {
-                backLight.intensity = backLightIntensity;
             }
             startBackIntensity = backLight.intensity;
         }

@@ -7276,7 +7276,14 @@ MonoBehaviour:
   itemTouchBackLight: 1
   maxBackLight: 15
   lightLossBack: 0.8
-  keepLight: 0
+  keepLight: 1
+  black: {r: 0, g: 0, b: 0, a: 0}
+  AKey: {fileID: 0}
+  DKey: {fileID: 0}
+  SPACEKey: {fileID: 0}
+  AnfangsTExt: {fileID: 0}
+  LightExplain: {fileID: 0}
+  AttackExplain: {fileID: 0}
   startBackIntensity: 0
 --- !u!96 &4052222524028998256
 TrailRenderer:
