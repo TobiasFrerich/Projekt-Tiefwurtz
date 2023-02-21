@@ -108,8 +108,8 @@ namespace Tiefwurtz
             //if (hidden)
             //    return;
 
-            //if (isHammering)
-            //    return;
+            if (isHammering)
+                return;
 
             if (gameManager.playerIsDead)
                 return;
@@ -127,9 +127,8 @@ namespace Tiefwurtz
 
         private void ReturnToStartingPosition()
         {
-
-//            if (isHammering)
-  //              return;
+            if (isHammering)
+                return;
 
             pilzBody.constraints = RigidbodyConstraints2D.None;
             pilzBody.constraints = RigidbodyConstraints2D.FreezePositionY;
@@ -210,13 +209,13 @@ namespace Tiefwurtz
                 isHammering = false;
                 savedPlayerPos = false;
             }
-
+/*
             if (!hammerRange && !isHammering)
             {
                 savedPlayerPos = false;
                 yield return new WaitForSeconds(1f);
                 WalkTowardsPlayer();
-            }
+            }*/
             
         }
     }
