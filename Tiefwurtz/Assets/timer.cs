@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class timer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public AudioMixer AudMix;
+    const string MIXER_MASTER = "MasterVolume";
+    public void SetVolume(float volume)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        AudMix.SetFloat("MasterVolume", volume);
     }
 }
