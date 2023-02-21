@@ -8,6 +8,7 @@ namespace Tiefwurtz
     public class PlayerLight : MonoBehaviour
     {
         [SerializeField] private AudioSource itemCollect;
+        [SerializeField] private AudioSource HitSound;
 
         [SerializeField] private ParticleSystem GetLightParticals;
 
@@ -127,6 +128,9 @@ namespace Tiefwurtz
         }
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (other.tag == "shot")
+                HitSound.Play();
+
             if (other.gameObject.tag == "Item")
             {
                 GetLightParticals.Play();

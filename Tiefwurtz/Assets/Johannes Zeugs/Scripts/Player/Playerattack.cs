@@ -14,6 +14,7 @@ namespace Tiefwurtz
 
         [SerializeField] private AudioSource kratzAttack;
         [SerializeField] private AudioSource ShotSound;
+        [SerializeField] private AudioSource RAUnlockedSound;
 
         public Transform attackpoint;
         public LayerMask enemyLayers;
@@ -106,6 +107,7 @@ namespace Tiefwurtz
             if (collision.gameObject == RangedAttackItem)
             {
                 rangedAttackUnlocked = true;
+                RAUnlockedSound.Play();
             }
         }
         private void OnDrawGizmosSelected()

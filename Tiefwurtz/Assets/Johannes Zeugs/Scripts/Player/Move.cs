@@ -20,6 +20,7 @@ namespace Tiefwurtz
 
         [SerializeField] private AudioSource DashSound;
         [SerializeField] private AudioSource Run;
+        [SerializeField] private AudioSource DashUnlockedSound;
 
         [SerializeField] private ParticleSystem DashParticals;
         
@@ -106,6 +107,7 @@ namespace Tiefwurtz
             if(collision.tag == "DashItem")
             {
                 dashUnlocked = true;
+                DashUnlockedSound.Play();
             }
         }
         private void ChecktoFlipSprite()

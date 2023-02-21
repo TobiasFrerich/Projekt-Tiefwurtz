@@ -8,7 +8,6 @@ namespace Tiefwurtz
     public class Shot : MonoBehaviour
     {
         [SerializeField] private float shotDmg = 1f;
-        [SerializeField] private AudioSource Hit;
 
         private Transform PlayerHitBox;
         private Rigidbody2D shotBody;
@@ -59,7 +58,6 @@ namespace Tiefwurtz
             {
                 flashLight = player.GetComponent<PlayerLight>();
                 flashLight.backLight.intensity = flashLight.backLight.intensity - shotDmg;
-                Hit.Play();
                 Destroy(gameObject);
             }
         }
