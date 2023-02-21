@@ -10,6 +10,7 @@ namespace Tiefwurtz
         public static bool SpeedRunMode;
         private void Start()
         {
+            PauseMenu.currentTime = 0;
             RangedAttackItemUI.RATextPlayed = false;
             DashItemUI.DashTextPlayed = false;
             Move.dashUnlocked = false;

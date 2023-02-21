@@ -106,7 +106,16 @@ namespace Tiefwurtz
         private void WalkTowardsPlayer()
         {
             //if (hidden)
-            //    return;
+            //    return
+
+            if (pilzBody.position.x < Player.transform.position.x)
+            {
+                gameObject.transform.localScale = new Vector3(-0.1f, 0.1f, 0f);
+            }
+            if (pilzBody.position.x > Player.transform.position.x)
+            {
+                gameObject.transform.localScale = new Vector3(0.1f, 0.1f, 0f);
+            }
 
             if (isHammering)
                 return;
@@ -129,6 +138,15 @@ namespace Tiefwurtz
         {
             if (isHammering)
                 return;
+
+            if (pilzBody.velocity.x > 0)
+            {
+                gameObject.transform.localScale = new Vector3(-0.1f, 0.1f, 0f);
+            }
+            if (pilzBody.velocity.x < 0)
+            {
+                gameObject.transform.localScale = new Vector3(0.1f, 0.1f, 0f);
+            }
 
             pilzBody.constraints = RigidbodyConstraints2D.None;
             pilzBody.constraints = RigidbodyConstraints2D.FreezePositionY;

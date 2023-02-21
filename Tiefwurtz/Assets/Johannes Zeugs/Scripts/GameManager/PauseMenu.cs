@@ -13,14 +13,9 @@ namespace Tiefwurtz
     public class PauseMenu : MonoBehaviour
     {
         public GameObject Timer;
-        float currentTime;
+        public static float currentTime;
         public TextMeshProUGUI currentTimeText;
-
-        private void Start()
-        {
-            currentTime = 0;
-        }
-
+        
 
         public static bool GameIsPaused = false;
         public GameObject PauseMenuUI;
@@ -63,7 +58,7 @@ namespace Tiefwurtz
             currentTimeText.text = time.ToString(@"mm\:ss\:fff");
         }
 
-        void Resume()
+        public void Resume()
         {
             PauseMenuUI.SetActive(false);
             Time.timeScale = 1f;
