@@ -70,7 +70,7 @@ namespace Tiefwurtz
         private void Update()
         {
             // Debug.Log(leftStartX);
-
+            
             if (enemyScr.Dead)
             {
                 pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -97,6 +97,9 @@ namespace Tiefwurtz
         }
         private void CheckIfHammerRange()
         {
+            if (isHammering)
+                return;
+
             if (hidden)
                 return;
 
@@ -187,6 +190,8 @@ namespace Tiefwurtz
 
             if (!isHammering && hammerRange)
             {
+                isHammering = true;
+
                 if (!savedPlayerPos)
                     currentPlayerPos = GetPlayerPosition();
 
@@ -201,7 +206,6 @@ namespace Tiefwurtz
 
                 enemyAnim.SetTrigger("isHammering");
 
-                isHammering = true;
 
                 yield return new WaitForSeconds(1f);
                 if (!enemyScr.Dead)
@@ -218,7 +222,7 @@ namespace Tiefwurtz
                     spikesSpL.GetComponent<BoxCollider2D>().enabled = true;*/
                 }
 
-                yield return new WaitForSeconds(1.03f);
+                yield return new WaitForSeconds(1.23f);
 
                 spikesSpL.SetActive(false);
                 spikesSpR.SetActive(false);
@@ -228,7 +232,6 @@ namespace Tiefwurtz
 
                 spikesSpR.GetComponent<BoxCollider2D>().enabled = false;
                 spikesSpL.GetComponent<BoxCollider2D>().enabled = false;*/
-
                 isHammering = false;
                 savedPlayerPos = false;
             }
@@ -239,6 +242,7 @@ namespace Tiefwurtz
                 yield return new WaitForSeconds(1f);
                 WalkTowardsPlayer();
             }
+            
         }
     }
 }

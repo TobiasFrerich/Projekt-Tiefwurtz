@@ -58,6 +58,12 @@ namespace Tiefwurtz
 
         private void Update()
         {
+            if (Time.timeScale == 0f)
+            {
+                Run.enabled = false;
+                DashSound.enabled = false;
+                return;
+            }
             direction.x = controller.input.RetrieveMoveInput();
 
             if (body.velocity.x != 0f && !playerAnim.GetBool("isJumping"))
