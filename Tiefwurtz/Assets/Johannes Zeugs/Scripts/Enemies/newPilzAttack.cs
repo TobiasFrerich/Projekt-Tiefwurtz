@@ -88,9 +88,6 @@ namespace Tiefwurtz
         }
         private void CheckIfHammerRange()
         {
-            if (isHammering)
-                return;
-
             if (hidden)
                 return;
 
