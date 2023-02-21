@@ -4,53 +4,59 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
-public class PauseMenu : MonoBehaviour
+namespace Tiefwurtz
 {
-    public static bool GameIsPaused = false;
-    public GameObject PauseMenuUI;
-    public AudioMixer AudMix;
-    const string MIXER_MASTER = "MasterVolume";
 
-    public void SetVolume (float volume)
+    public class PauseMenu : MonoBehaviour
     {
-        AudMix.SetFloat("MasterVolume", volume);
-    }
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        
+        public static bool GameIsPaused = false;
+        public GameObject PauseMenuUI;
+        public AudioMixer AudMix;
+        const string MIXER_MASTER = "MasterVolume";
+
+        public void SetVolume(float volume)
         {
-            if (GameIsPaused)
+            AudMix.SetFloat("MasterVolume", volume);
+        }
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
             {
-                Resume();
-            }
-            else
-            {
-                Pause();
+                if (GameIsPaused)
+                {
+                    Resume();
+                }
+                else
+                {
+                    Pause();
+                }
             }
         }
-    }
 
-    void Resume()
-    {
-        PauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
-        GameIsPaused = false;
-    }
+        void Resume()
+        {
+            PauseMenuUI.SetActive(false);
+            Time.timeScale = 1f;
+            GameIsPaused = false;
+        }
 
-    void Pause()
-    {
-        PauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
-        GameIsPaused = true;
-    }
+        void Pause()
+        {
+            PauseMenuUI.SetActive(true);
+            Time.timeScale = 0f;
+            GameIsPaused = true;
+        }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-    public void RestartGame()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(0);
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
+        public void RestartGame()
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(0);
+        }
+        
     }
 }

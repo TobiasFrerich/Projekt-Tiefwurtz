@@ -7,6 +7,7 @@ namespace Tiefwurtz
 {
     public class mainMenu : MonoBehaviour
     {
+        public static bool SpeedRunMode;
         private void Start()
         {
             RangedAttackItemUI.RATextPlayed = false;
@@ -29,6 +30,17 @@ namespace Tiefwurtz
         public void RestartGame()
         {
             SceneManager.LoadScene(0);
+        }
+        public void SetSpeedRunMode(bool value)
+        {
+            if (value == true)
+            {
+                SpeedRunMode = true;
+            }
+            else
+            {
+                SpeedRunMode = false;
+            }
         }
     }
 }

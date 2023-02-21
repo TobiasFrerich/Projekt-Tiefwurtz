@@ -169,9 +169,12 @@ namespace Tiefwurtz
 
         private IEnumerator Attack()
         {
+            pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
             enemyAnim.SetTrigger("standUP");
             yield return new WaitForSeconds(2.1f);
-
+            pilzBody.constraints = RigidbodyConstraints2D.None;
+            pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+            pilzBody.constraints = RigidbodyConstraints2D.FreezePositionY;
             WalkTowardsPlayer();
 
             if (!isHammering && hammerRange)
