@@ -7412,7 +7412,7 @@ MonoBehaviour:
   attackRange: 0.7
   attackRate: 1
   rangedAttackRate: 1
-  playerAttackDMG: 5
+  playerAttackDMG: 4
   abilityUseDmg: 0.5
   kratzAttack: {fileID: 6307908476218737033}
   ShotSound: {fileID: 2609287169068426953}

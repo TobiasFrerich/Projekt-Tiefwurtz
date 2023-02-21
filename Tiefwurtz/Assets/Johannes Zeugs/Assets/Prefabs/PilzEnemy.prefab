@@ -1319,7 +1319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efad73285f8b8e448922fc1877e24be1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 3
+  enemySpeed: 1
   xScale: 0.1
   yScale: 0.1
   WalkSound: {fileID: 0}
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f253e2a816ca7a449da0a1432702cf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 15
+  enemyHealth: 10
   Hit: {fileID: 1681897578010294685}
   DeadParticals: {fileID: 2989666119492105634}
   item: {fileID: 7608196639798980043, guid: f9bb1c7040ae0b14288999d512ac6f32, type: 3}
