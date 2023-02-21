@@ -24,6 +24,15 @@ namespace Tiefwurtz
         private GameManagerScribt gameManagerScr;
         private GameObject StartPoint;
 
+        private float Timer;
+        public Color black;
+        public Image AKey;
+        public Image DKey;
+        public Image SPACEKey;
+        public GameObject AnfangsTExt;
+        public GameObject LightExplain;
+        public GameObject AttackExplain;
+        private bool Tutorial;
         private float newBackLight;
         public float startBackIntensity;
         private float currentLight;
@@ -37,25 +46,64 @@ namespace Tiefwurtz
             StartPoint = GameObject.FindGameObjectWithTag("StartPoint");
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
-            startBackIntensity = backLight.intensity;
-            if (backLightIntensity > 0f)
-            {
-                backLight.intensity = backLightIntensity;
-            }
             if(!reachedACheckpoint)
             {
+                Tutorial = true;
                 currentSavePoint = StartPoint.transform.position;
                 transform.position = currentSavePoint;
+                backLight.intensity = 10f;
             }
             else
             {
                 transform.position = currentSavePoint;
             }
+            if (backLightIntensity > 0f)
+            {
+                backLight.intensity = backLightIntensity;
+            }
+            startBackIntensity = backLight.intensity;
         }
         private void Update()
         {
             if (Time.timeScale == 0)
                 return;
+
+            if(Tutorial)
+            {
+                AnfangsTExt.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    AKey.color = black;
+                }
+                if (Input.GetKeyDown(KeyCode.D))
+                {
+                    DKey.color = black;
+                }
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    SPACEKey.color = black;
+                }
+
+                if (AKey.color == black && SPACEKey.color == black && DKey.color == black)
+                {
+                    AnfangsTExt.SetActive(false);
+                    LightExplain.SetActive(true);
+                    Timer += 1 * Time.deltaTime;
+                    if (Timer > 5f)
+                    {
+                        LightExplain.SetActive(false);
+                        AttackExplain.SetActive(true);
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            AttackExplain.SetActive(false);
+                            Tutorial = false;
+                        }
+                    }
+                }
+
+            }
+
 
             backLightIntensity = backLight.intensity;
 

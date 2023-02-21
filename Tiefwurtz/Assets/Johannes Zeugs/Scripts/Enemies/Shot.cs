@@ -55,13 +55,13 @@ namespace Tiefwurtz
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            flashLight = player.GetComponent<PlayerLight>();
-            flashLight.backLight.intensity = flashLight.backLight.intensity - shotDmg;
-            //flashLight.playerLight.intensity = flashLight.playerLight.intensity - shotDmg;
-            //StartCoroutine(flashLight.hitPlayer());
-            Hit.Play();
-            Destroy(gameObject);
-
+            if (collision.tag == "Player")
+            {
+                flashLight = player.GetComponent<PlayerLight>();
+                flashLight.backLight.intensity = flashLight.backLight.intensity - shotDmg;
+                Hit.Play();
+                Destroy(gameObject);
+            }
         }
         
     }

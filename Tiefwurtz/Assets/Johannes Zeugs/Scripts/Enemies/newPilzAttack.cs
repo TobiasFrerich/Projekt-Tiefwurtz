@@ -108,8 +108,8 @@ namespace Tiefwurtz
             //if (hidden)
             //    return;
 
-            //if (isHammering)
-            //    return;
+            if (isHammering)
+                return;
 
             if (gameManager.playerIsDead)
                 return;
@@ -127,9 +127,8 @@ namespace Tiefwurtz
 
         private void ReturnToStartingPosition()
         {
-
-//            if (isHammering)
-  //              return;
+            if (isHammering)
+                return;
 
             pilzBody.constraints = RigidbodyConstraints2D.None;
             pilzBody.constraints = RigidbodyConstraints2D.FreezePositionY;
@@ -186,7 +185,7 @@ namespace Tiefwurtz
                 pilzBody.velocity = new Vector2(direction.x, 0f).normalized * hammerSpeed;
 
 
-                yield return new WaitUntil(() => (Vector2.Distance(currentPlayerPos, pilzTransform.position) < 1.5f));
+                yield return new WaitUntil(() => (Vector2.Distance(currentPlayerPos, pilzTransform.position) < 2f));
 
                 pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
                 enemyAnim.SetBool("pilzIsRunning", false);
@@ -210,13 +209,13 @@ namespace Tiefwurtz
                 isHammering = false;
                 savedPlayerPos = false;
             }
-
+/*
             if (!hammerRange && !isHammering)
             {
                 savedPlayerPos = false;
                 yield return new WaitForSeconds(1f);
                 WalkTowardsPlayer();
-            }
+            }*/
             
         }
     }
