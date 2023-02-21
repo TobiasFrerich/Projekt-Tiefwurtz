@@ -82,14 +82,13 @@ namespace Tiefwurtz
             }
             else
             {
-                ReturnToStartingPosition();
-                
+                ReturnToStartingPosition();               
             }
         }
         private void CheckIfHammerRange()
         {
-            if (hidden)
-                return;
+            //if (hidden)
+            //    return;
 
             if (gameManager.playerIsDead)
                 return;
@@ -106,11 +105,11 @@ namespace Tiefwurtz
 
         private void WalkTowardsPlayer()
         {
-            if (hidden)
-                return;
+            //if (hidden)
+            //    return;
 
-            if (isHammering)
-                return;
+            //if (isHammering)
+            //    return;
 
             if (gameManager.playerIsDead)
                 return;
@@ -129,8 +128,8 @@ namespace Tiefwurtz
         private void ReturnToStartingPosition()
         {
 
-            if (isHammering)
-                return;
+//            if (isHammering)
+  //              return;
 
             pilzBody.constraints = RigidbodyConstraints2D.None;
             pilzBody.constraints = RigidbodyConstraints2D.FreezePositionY;
