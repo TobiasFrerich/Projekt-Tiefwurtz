@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class finish : MonoBehaviour
+namespace Tiefwurtz
 {
-    public GameObject EndScreen;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class finish : MonoBehaviour
     {
-        if(collision.tag == "Player")
+        public GameObject EndScreen;
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            EndScreen.SetActive(true);
-            Time.timeScale = 0f;
+            if (collision.tag == "Player")
+            {
+                EndScreen.SetActive(true);
+                Time.timeScale = 0f;
+                //mainMenu.SpeedRunMode = false;
+            }
         }
     }
 }
