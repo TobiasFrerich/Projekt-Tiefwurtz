@@ -61,7 +61,9 @@ namespace Tiefwurtz
         private void Update()
         {
             // Debug.Log(leftStartX);
-            
+            if(isHammering)
+                pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
+
             if (enemyScr.Dead)
             {
                 pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -201,7 +203,6 @@ namespace Tiefwurtz
             hidden = false;
             pilzBody.constraints = RigidbodyConstraints2D.None;
             pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-            pilzBody.constraints = RigidbodyConstraints2D.FreezePositionY;
             WalkTowardsPlayer();
 
                 if (!isHammering && hammerRange)
