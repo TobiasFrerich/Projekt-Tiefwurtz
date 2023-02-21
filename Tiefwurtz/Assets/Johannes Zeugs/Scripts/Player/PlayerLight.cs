@@ -24,7 +24,7 @@ namespace Tiefwurtz
         private GameObject GameManager;
         private GameManagerScribt gameManagerScr;
         private GameObject StartPoint;
-
+        private SpriteRenderer[] sprRenderer;
         private float Timer;
         public Color black;
         public Image AKey;
@@ -40,10 +40,11 @@ namespace Tiefwurtz
         private bool refill = false;
         public static bool reachedACheckpoint = false;
         public static Vector3 currentSavePoint;
-        
+
 
         private void Start()
         {
+            sprRenderer = GetComponentsInChildren<SpriteRenderer>();
             StartPoint = GameObject.FindGameObjectWithTag("StartPoint");
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
@@ -102,9 +103,7 @@ namespace Tiefwurtz
                         }
                     }
                 }
-
             }
-
 
             backLightIntensity = backLight.intensity;
 
@@ -129,7 +128,10 @@ namespace Tiefwurtz
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.tag == "shot")
+            {
                 HitSound.Play();
+                StartCoroutine(Hit());
+            }
 
             if (other.gameObject.tag == "Item")
             {
@@ -157,6 +159,20 @@ namespace Tiefwurtz
             {
                 reachedACheckpoint = true;
                 currentSavePoint = other.transform.position;
+            }
+        }
+
+        private IEnumerator Hit()
+        {
+
+            foreach (SpriteRenderer sprR in sprRenderer)
+            {
+                sprR.color = new Color(255f, 0f, 0f);
+            }
+            yield return new WaitForSeconds(0.2f);
+            foreach (SpriteRenderer sprR in sprRenderer)
+            {
+                sprR.color = new Color(255f, 255f, 255f);
             }
         }
         private void RefillLight()
