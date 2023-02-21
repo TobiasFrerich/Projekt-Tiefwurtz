@@ -24,7 +24,7 @@ namespace Tiefwurtz
         private GameObject GameManager;
         private GameManagerScribt gameManagerScr;
         private GameObject StartPoint;
-        private SpriteRenderer sprRenderer;
+        private SpriteRenderer[] sprRenderer;
         private float Timer;
         public Color black;
         public Image AKey;
@@ -40,11 +40,11 @@ namespace Tiefwurtz
         private bool refill = false;
         public static bool reachedACheckpoint = false;
         public static Vector3 currentSavePoint;
-        
+
 
         private void Start()
         {
-            sprRenderer = GetComponent<SpriteRenderer>();
+            sprRenderer = GetComponentsInChildren<SpriteRenderer>();
             StartPoint = GameObject.FindGameObjectWithTag("StartPoint");
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             gameManagerScr = GameManager.GetComponent<GameManagerScribt>();
@@ -164,9 +164,16 @@ namespace Tiefwurtz
 
         private IEnumerator Hit()
         {
-            sprRenderer.color = new Color(255f, 0f, 0f);
+
+            foreach (SpriteRenderer sprR in sprRenderer)
+            {
+                sprR.color = new Color(255f, 0f, 0f);
+            }
             yield return new WaitForSeconds(0.2f);
-            sprRenderer.color = new Color(255f, 255f, 255f);
+            foreach (SpriteRenderer sprR in sprRenderer)
+            {
+                sprR.color = new Color(255f, 255f, 255f);
+            }
         }
         private void RefillLight()
         {
