@@ -155,7 +155,9 @@ namespace Tiefwurtz
             {
                 enemyAnim.SetBool("pilzIsRunning", false);
                 if(pilzBody.velocity.x == 0f)
-                    enemyAnim.SetTrigger("hide");
+                {
+                    hidden = true;
+                }
                 return;
             }
             else
@@ -189,49 +191,55 @@ namespace Tiefwurtz
 
         private IEnumerator Attack()
         {
-            pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
-            enemyAnim.SetTrigger("standUP");
-            yield return new WaitForSeconds(2.1f);
+            if (hidden)
+            {
+                pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
+                enemyAnim.SetTrigger("standUP");
+                yield return new WaitForSeconds(2.1f);
+            }
+            
+            hidden = false;
             pilzBody.constraints = RigidbodyConstraints2D.None;
             pilzBody.constraints = RigidbodyConstraints2D.FreezeRotation;
             pilzBody.constraints = RigidbodyConstraints2D.FreezePositionY;
             WalkTowardsPlayer();
 
-            if (!isHammering && hammerRange)
-            {
-                isHammering = true;
-
-                if (!savedPlayerPos)
-                    currentPlayerPos = GetPlayerPosition();
-
-                Vector3 direction = currentPlayerPos - pilzTransform.position;
-                pilzBody.velocity = new Vector2(direction.x, 0f).normalized * hammerSpeed;
-
-
-                yield return new WaitUntil(() => (Vector2.Distance(currentPlayerPos, pilzTransform.position) < 2f));
-
-                pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
-                enemyAnim.SetBool("pilzIsRunning", false);
-
-                enemyAnim.SetTrigger("isHammering");
-
-
-                yield return new WaitForSeconds(1f);
-                if (!enemyScr.Dead)
+                if (!isHammering && hammerRange)
                 {
-                    AttackSound.Play();
 
-                    spikesSpL.SetActive(true);
-                    spikesSpR.SetActive(true);
+                    if (!savedPlayerPos)
+                        currentPlayerPos = GetPlayerPosition();
+
+                    Vector3 direction = currentPlayerPos - pilzTransform.position;
+                    pilzBody.velocity = new Vector2(direction.x, 0f).normalized * hammerSpeed;
+
+
+                    yield return new WaitUntil(() => (Vector2.Distance(currentPlayerPos, pilzTransform.position) < 2f));
+
+                    pilzBody.constraints = RigidbodyConstraints2D.FreezeAll;
+                    enemyAnim.SetBool("pilzIsRunning", false);
+
+                    isHammering = true;
+                    enemyAnim.SetTrigger("isHammering");
+
+
+                    yield return new WaitForSeconds(1f);
+                    if (!enemyScr.Dead)
+                    {
+                        AttackSound.Play();
+
+                        spikesSpL.SetActive(true);
+                        spikesSpR.SetActive(true);
+                    }
+
+                    yield return new WaitForSeconds(1.23f);
+
+                    spikesSpL.SetActive(false);
+                    spikesSpR.SetActive(false);
+                    isHammering = false;
+                    savedPlayerPos = false;
                 }
-
-                yield return new WaitForSeconds(1.23f);
-
-                spikesSpL.SetActive(false);
-                spikesSpR.SetActive(false);
-                isHammering = false;
-                savedPlayerPos = false;
-            }
+            
 /*
             if (!hammerRange && !isHammering)
             {
