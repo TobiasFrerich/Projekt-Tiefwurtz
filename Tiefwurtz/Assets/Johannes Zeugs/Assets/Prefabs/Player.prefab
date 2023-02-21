@@ -7274,13 +7274,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemCollect: {fileID: 5517199058325803302}
+  HitSound: {fileID: 5651186286354717896}
   GetLightParticals: {fileID: 7951012429919899876}
   backLight: {fileID: 509058538833198671}
   itemTouchBackLight: 1
   maxBackLight: 15
   lightLossBack: 0.8
   keepLight: 1
-  black: {r: 0, g: 0, b: 0, a: 0}
+  black: {r: 0.2264151, g: 0.2264151, b: 0.2264151, a: 1}
   AKey: {fileID: 0}
   DKey: {fileID: 0}
   SPACEKey: {fileID: 0}
