@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 namespace Tiefwurtz
 {
@@ -19,6 +20,7 @@ namespace Tiefwurtz
             PlayerLight.backLightIntensity = 10f;
             Playerattack.rangedAttackUnlocked = false;
         }
+
         public void PlayGame()
         {
             SceneManager.LoadScene(1);
