@@ -154,6 +154,8 @@ namespace Tiefwurtz
             if (Vector2.Distance(StartingPosition, pilzTransform.position) < 1f)
             {
                 enemyAnim.SetBool("pilzIsRunning", false);
+                if(pilzBody.velocity.x == 0f)
+                    enemyAnim.SetTrigger("hide");
                 return;
             }
             else
