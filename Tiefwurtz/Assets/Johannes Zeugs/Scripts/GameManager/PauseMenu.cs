@@ -3,24 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using System;
+using UnityEngine.UI;
+using TMPro;
 
 namespace Tiefwurtz
 {
 
     public class PauseMenu : MonoBehaviour
     {
-        
+        public GameObject Timer;
+        float currentTime;
+        public TextMeshProUGUI currentTimeText;
+
+        private void Start()
+        {
+            currentTime = 0;
+        }
+
+
         public static bool GameIsPaused = false;
         public GameObject PauseMenuUI;
         public AudioMixer AudMix;
         const string MIXER_MASTER = "MasterVolume";
 
-        public void SetVolume(float volume)
-        {
-            AudMix.SetFloat("MasterVolume", volume);
-        }
         private void Update()
         {
+            if(mainMenu.SpeedRunMode)
+            {
+                Timer.SetActive(true);
+                SpeedRun();
+            }
+            else
+            {
+                Timer.SetActive(false);
+            }
+
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 if (GameIsPaused)
@@ -32,6 +50,17 @@ namespace Tiefwurtz
                     Pause();
                 }
             }
+        }
+        public void SetVolume(float volume)
+        {
+            AudMix.SetFloat("MasterVolume", volume);
+        }
+
+        void SpeedRun()
+        {
+            currentTime = currentTime + Time.deltaTime;
+            TimeSpan time = TimeSpan.FromSeconds(currentTime);
+            currentTimeText.text = time.ToString(@"mm\:ss\:fff");
         }
 
         void Resume()
