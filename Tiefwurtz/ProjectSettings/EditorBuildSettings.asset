@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Johannes Zeugs/Szenes/MDHLogo.unity
+    guid: d4c72f827e4334f45a5df9d50d5b1c91
+  - enabled: 1
     path: Assets/Johannes Zeugs/Szenes/Menu.unity
     guid: e7eed5a7cb8a5d7478d884608168b19a
   - enabled: 1

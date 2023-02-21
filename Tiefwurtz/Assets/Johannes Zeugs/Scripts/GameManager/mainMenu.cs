@@ -23,7 +23,7 @@ namespace Tiefwurtz
 
         public void PlayGame()
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
 
         public void QuitGame()
@@ -32,7 +32,7 @@ namespace Tiefwurtz
         }
         public void RestartGame()
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         public void SetSpeedRunMode(bool value)
         {
