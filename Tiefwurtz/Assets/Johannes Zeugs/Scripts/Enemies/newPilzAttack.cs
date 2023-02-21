@@ -28,20 +28,14 @@ namespace Tiefwurtz
         private Vector3 currentPlayerPos;
         private Vector3 StartingPosition;
         private Rigidbody2D pilzBody;
-        private PlayerLight flashLight;
         private GameManagerScribt gameManager;
         private GameObject GameManager;
         private GameObject Player;
-        private EnemyMovement enemyMove;
         private Enemy enemyScr;
 
         private bool hidden;
-        private float timer = 0f;
         private bool hammerRange;
         private bool isHammering = false;
-        private bool inRange;
-        private float startingYPos;
-        private float startingIntensity;
         private bool savedPlayerPos;
 
         private float rightStartX;
@@ -57,10 +51,7 @@ namespace Tiefwurtz
             enemyAnim = GetComponent<Animator>();
             rightStartX = rightMax.position.x;
             leftStartX = leftMax.position.x;
-            startingIntensity = GetComponentInChildren<UnityEngine.Rendering.Universal.Light2D>().intensity;
-            startingYPos = transform.position.y;
             enemyScr = GetComponent<Enemy>();
-            enemyMove = GetComponent<EnemyMovement>();
             GameManager = GameObject.FindGameObjectWithTag("GameManager");
             Player = GameObject.Find("Player");
             gameManager = GameManager.GetComponent<GameManagerScribt>();
@@ -214,24 +205,12 @@ namespace Tiefwurtz
 
                     spikesSpL.SetActive(true);
                     spikesSpR.SetActive(true);
-                    /*
-                    spikesSpR.GetComponent<SpriteRenderer>().enabled = true;
-                    spikesSpL.GetComponent<SpriteRenderer>().enabled = true;
-
-                    spikesSpR.GetComponent<BoxCollider2D>().enabled = true;
-                    spikesSpL.GetComponent<BoxCollider2D>().enabled = true;*/
                 }
 
                 yield return new WaitForSeconds(1.23f);
 
                 spikesSpL.SetActive(false);
                 spikesSpR.SetActive(false);
-                /*
-                spikesSpR.GetComponent<SpriteRenderer>().enabled = false;
-                spikesSpL.GetComponent<SpriteRenderer>().enabled = false;
-
-                spikesSpR.GetComponent<BoxCollider2D>().enabled = false;
-                spikesSpL.GetComponent<BoxCollider2D>().enabled = false;*/
                 isHammering = false;
                 savedPlayerPos = false;
             }
