@@ -132,6 +132,11 @@ namespace Tiefwurtz
                 HitSound.Play();
                 StartCoroutine(Hit());
             }
+            if (other.tag == "spikes")
+            {
+                HitSound.Play();
+                StartCoroutine(Hit());
+            }
 
             if (other.gameObject.tag == "Item")
             {

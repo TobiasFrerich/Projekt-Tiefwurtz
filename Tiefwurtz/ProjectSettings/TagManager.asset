@@ -16,6 +16,7 @@ TagManager:
   - StartPoint
   - DashItem
   - shot
+  - spikes
   layers:
   - Default
   - TransparentFX
